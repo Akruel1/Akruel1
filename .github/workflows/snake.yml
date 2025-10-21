@@ -22,7 +22,7 @@ jobs:
       - name: Push generated SVG to output branch
         uses: ad-m/github-push-action@v0.6.0
         with:
-          github_token: ${{ secrets.PAT_TOKEN }}   # <--- используем твой персональный токен
+          github_token: ${{ secrets.PAT_TOKEN }} # используем персональный токен
           branch: output
           force: true
           directory: dist
