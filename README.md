@@ -50,13 +50,6 @@
 
 ---
 
-### 📈 Анимированная активность
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Akruel/output/dist/github-contribution-grid-snake.svg" alt="Contribution Grid Animation" />
-</p>
-
-
----
 
 ### 🌐 Контакты
 <p align="center">
