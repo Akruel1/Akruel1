@@ -30,13 +30,13 @@
 ### 💼 Основные проекты
 <p align="center">
   <a href="#">
-    <img src="https://via.placeholder.com/200x120.png?text=Проект+скоро" alt="Empty Project" />
+    <img src="https://img.shields.io/badge/Project-Coming%20Soon-7289DA?style=for-the-badge&logo=github" alt="Project 1" />
   </a>
   <a href="#">
-    <img src="https://via.placeholder.com/200x120.png?text=Проект+скоро" alt="Empty Project" />
+    <img src="https://img.shields.io/badge/Project-Coming%20Soon-1ABC9C?style=for-the-badge&logo=github" alt="Project 2" />
   </a>
   <a href="#">
-    <img src="https://via.placeholder.com/200x120.png?text=Проект+скоро" alt="Empty Project" />
+    <img src="https://img.shields.io/badge/Project-Coming%20Soon-FE6B02?style=for-the-badge&logo=github" alt="Project 3" />
   </a>
 </p>
 
@@ -54,8 +54,6 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/Akruel/output/github-contribution-grid-snake.svg" alt="Contribution Grid Animation" />
 </p>
-
-> ⚠️ Чтобы анимация работала, нужно настроить workflow (см. ниже)
 
 ---
 
