@@ -1,10 +1,9 @@
 name: Generate Contribution Grid
 
-# Триггеры запуска workflow
 on:
   schedule:
     - cron: "0 0 * * *" # каждый день в полночь
-  workflow_dispatch: # позволяет запускать вручную
+  workflow_dispatch:
 
 jobs:
   build:
@@ -23,7 +22,7 @@ jobs:
       - name: Push generated SVG to output branch
         uses: ad-m/github-push-action@v0.6.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}   # <--- используем твой персональный токен
           branch: output
           force: true
           directory: dist
