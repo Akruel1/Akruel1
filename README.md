@@ -29,7 +29,6 @@
 
 ### 💼 Основные проекты
 <p align="center">
-  <!-- Если проекта нет — показываем заглушку -->
   <a href="#">
     <img src="https://via.placeholder.com/200x120.png?text=Проект+скоро" alt="Empty Project" />
   </a>
@@ -53,10 +52,10 @@
 
 ### 📈 Анимированная активность
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Akruel/Akruel/output/github-contribution-grid-snake.svg" alt="Contribution Grid Animation" />
+  <img src="https://raw.githubusercontent.com/Akruel/output/github-contribution-grid-snake.svg" alt="Contribution Grid Animation" />
 </p>
 
-> ⚠️ Чтобы анимация работала, необходимо создать GitHub Action (см. workflow выше)
+> ⚠️ Чтобы анимация работала, нужно настроить workflow (см. ниже)
 
 ---
 
