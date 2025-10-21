@@ -29,11 +29,15 @@
 
 ### 💼 Основные проекты
 <p align="center">
-  <a href="https://github.com/Akruel/CryptoPayBot">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Akruel&repo=CryptoPayBot&theme=tokyonight&hide_border=true&animate=true" />
+  <!-- Если проекта нет — показываем заглушку -->
+  <a href="#">
+    <img src="https://via.placeholder.com/200x120.png?text=Проект+скоро" alt="Empty Project" />
   </a>
-  <a href="https://github.com/Akruel/NFT-OnChain-Tools">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Akruel&repo=NFT-OnChain-Tools&theme=tokyonight&hide_border=true&animate=true" />
+  <a href="#">
+    <img src="https://via.placeholder.com/200x120.png?text=Проект+скоро" alt="Empty Project" />
+  </a>
+  <a href="#">
+    <img src="https://via.placeholder.com/200x120.png?text=Проект+скоро" alt="Empty Project" />
   </a>
 </p>
 
@@ -52,7 +56,7 @@
   <img src="https://raw.githubusercontent.com/Akruel/Akruel/output/github-contribution-grid-snake.svg" alt="Contribution Grid Animation" />
 </p>
 
-> ⚠️ Чтобы анимация работала, необходимо создать GitHub Action (см. ниже)
+> ⚠️ Чтобы анимация работала, необходимо создать GitHub Action (см. workflow выше)
 
 ---
 
