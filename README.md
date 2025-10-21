@@ -1,4 +1,4 @@
-<!-- 🔥 Эффектный профиль Akruel с красивым фоном -->
+<!-- 🔥 Эффектный профиль Akruel с анимированной активностью -->
 <div align="center">
 
 <h1>
@@ -6,7 +6,7 @@
 </h1>
 
 <p align="center">
-✨ Backend Developer & Blockchain Enthusiast | Создаю API, ботов и NFT-проекты ✨
+✨ Backend Developer & Blockchain Enthusiast | API, Telegram Bots, NFT Projects ✨
 </p>
 
 </div>
@@ -30,10 +30,10 @@
 ### 💼 Основные проекты
 <p align="center">
   <a href="https://github.com/Akruel/CryptoPayBot">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Akruel&repo=CryptoPayBot&theme=tokyonight&hide_border=true" />
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Akruel&repo=CryptoPayBot&theme=tokyonight&hide_border=true&animate=true" />
   </a>
   <a href="https://github.com/Akruel/NFT-OnChain-Tools">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Akruel&repo=NFT-OnChain-Tools&theme=tokyonight&hide_border=true" />
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Akruel&repo=NFT-OnChain-Tools&theme=tokyonight&hide_border=true&animate=true" />
   </a>
 </p>
 
@@ -45,9 +45,14 @@
   <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Akruel&layout=compact&theme=tokyonight&hide_border=true" />
 </p>
 
+---
+
+### 📈 Анимированная активность
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Akruel&theme=tokyonight&hide_border=true" />
+  <img src="https://raw.githubusercontent.com/Akruel/Akruel/output/github-contribution-grid-snake.svg" alt="Contribution Grid Animation" />
 </p>
+
+> ⚠️ Чтобы анимация работала, необходимо создать GitHub Action (см. ниже)
 
 ---
 
@@ -62,10 +67,6 @@
 </p>
 
 ---
-
-### 🎨 Идея для фона и анимаций
-- Можно добавить **GIF-анимацию фона** (через `<img src="URL_GIF" />` в начале README).  
-- В будущем можно добавить **динамический граф активности 3D** или **анимированные карточки проектов**.  
 
 <p align="center">
 💬 “Код — это инструмент для создания будущего своими руками.”
