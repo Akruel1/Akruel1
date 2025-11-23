@@ -17,9 +17,28 @@
 
 ---
 
+## 🧩 О проекте
+<div align="center">
+
+### 📦 **PMR-MARKET — Marketplace**
+**Написан:** TypeScript + Next.js 14 • Prisma • PostgreSQL  
+**Тип проекта:** современный маркетплейс, аналог Avito
+
+<a href="https://github.com/Akruel1/PMR-MARKET">
+  <img src="https://img.shields.io/badge/PMR--MARKET-141321?style=for-the-badge&logo=github&logoColor=00F5FF" />
+</a>
+
+<br><br>
+
+<img src="https://raw.githubusercontent.com/Akruel1/PMR-MARKET/main/preview.png" width="700" />
+
+</div>
+
+---
+
 ### ⚙️ Tech Stack
 <div align="center">
-  <img src="https://skillicons.dev/icons?i=python,fastapi,aiogram,js,cs,dotnet,postgresql,sqlite,git,docker,linux,vscode&theme=light" />
+  <img src="https://skillicons.dev/icons?i=python,fastapi,aiogram,js,ts,react,cs,dotnet,postgresql,sqlite,git,docker,linux,vscode&theme=light" />
 </div>
 
 <p align="center">
@@ -34,8 +53,9 @@
 ### 💼 Featured Projects
 <div align="center">
   <a href="https://github.com/Akruel1/PMR-MARKET">
-    <img src=https://github.com/Akruel1/PMR-MARKET" />
+    <img src="https://img.shields.io/badge/PMR--MARKET-141321?style=for-the-badge&logo=github&logoColor=00F5FF" />
   </a>
+
   <a href="#">
     <img src="https://img.shields.io/badge/Coming_Soon...-141321?style=for-the-badge&logo=github&logoColor=00F5FF" />
   </a>
