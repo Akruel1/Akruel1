@@ -33,7 +33,7 @@
 
 ### 💼 Featured Projects
 <div align="center">
-  <a href="https://github.com/Akruel/ProfQuestBot">
+  <a href="https://github.com/Akruel1/PMR-MARKET">
     <img src="https://github-readme-stats.vercel.app/api/pin/?username=Akruel&repo=ProfQuestBot&theme=tokyonight&hide_border=true" />
   </a>
   <a href="#">
