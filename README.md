@@ -34,7 +34,7 @@
 ### 💼 Featured Projects
 <div align="center">
   <a href="https://github.com/Akruel1/PMR-MARKET">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=Akruel&repo=ProfQuestBot&theme=tokyonight&hide_border=true" />
+    <img src=https://github.com/Akruel1/PMR-MARKET" />
   </a>
   <a href="#">
     <img src="https://img.shields.io/badge/Coming_Soon...-141321?style=for-the-badge&logo=github&logoColor=00F5FF" />
