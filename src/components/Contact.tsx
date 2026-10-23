@@ -2,6 +2,7 @@
 
 import { profile } from "@/content/profile";
 import { useI18n } from "@/lib/i18n";
+import { Magnetic } from "./Magnetic";
 import styles from "./Contact.module.css";
 
 export function Contact() {
@@ -16,32 +17,26 @@ export function Contact() {
   ] as const;
 
   return (
-    <section id="contact" className="section" aria-labelledby="contact-title">
+    <section id="contact" className={`section ${styles.section}`} aria-labelledby="contact-title">
       <div className="container">
         <p className="eyebrow">{t.contact.eyebrow}</p>
         <h2 id="contact-title" className="display-l">
           {t.contact.headline}
         </h2>
-        <p className="section-lead">{t.contact.lead}</p>
+        <p className="lead">{t.contact.lead}</p>
 
         <h3 className={styles.channels}>{t.contact.channels}</h3>
         <ul className={styles.list}>
-          {channels.map((channel) => {
-            const isPlaceholder = "placeholder" in channel && channel.placeholder;
-            return (
-              <li key={channel.key}>
-                <span className={styles.label}>{channel.label}</span>
-                {isPlaceholder ? (
-                  <span className={styles.placeholder}>
-                    <span>{channel.value}</span>
-                    <span className={styles.note}>{t.contact.placeholderNote}</span>
-                  </span>
-                ) : (
-                  <a href={channel.href}>{channel.value}</a>
-                )}
-              </li>
-            );
-          })}
+          {channels.map((channel) => (
+            <li key={channel.key}>
+              <span className={styles.label}>{channel.label}</span>
+              <Magnetic strength={0.15}>
+                <a href={channel.href} target={channel.key === "email" ? undefined : "_blank"} rel="noreferrer">
+                  {channel.value}
+                </a>
+              </Magnetic>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

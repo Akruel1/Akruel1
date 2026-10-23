@@ -3,30 +3,26 @@
   align-items: center;
   gap: 0.35rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .switcher button {
   appearance: none;
   border: 0;
   background: transparent;
-  color: var(--text-faint);
+  color: inherit;
   cursor: pointer;
-  padding: 0.35rem 0.2rem;
+  padding: 0.35rem 0.15rem;
   font: inherit;
   letter-spacing: inherit;
 }
 
 .switcher button:hover {
-  color: var(--text);
+  color: #fff;
 }
 
 .active {
-  color: var(--cyan-bright) !important;
-}
-
-.sep {
-  color: var(--text-faint);
-  opacity: 0.5;
+  color: #fff !important;
 }

@@ -14,7 +14,6 @@ import { ru } from "@/content/ru";
 import type { Locale } from "@/content/profile";
 
 const STORAGE_KEY = "at-portfolio-locale";
-
 const dictionaries: Record<Locale, Dictionary> = { en, ru };
 
 type I18nContextValue = {
@@ -51,11 +50,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo(
-    () => ({
-      locale,
-      t: dictionaries[locale],
-      setLocale,
-    }),
+    () => ({ locale, t: dictionaries[locale], setLocale }),
     [locale, setLocale],
   );
 
@@ -64,8 +59,6 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
 export function useI18n(): I18nContextValue {
   const ctx = useContext(I18nContext);
-  if (!ctx) {
-    throw new Error("useI18n must be used within I18nProvider");
-  }
+  if (!ctx) throw new Error("useI18n must be used within I18nProvider");
   return ctx;
 }

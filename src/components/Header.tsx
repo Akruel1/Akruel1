@@ -3,15 +3,8 @@
 import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
 import { LocaleSwitcher } from "./LocaleSwitcher";
+import { Magnetic } from "./Magnetic";
 import styles from "./Header.module.css";
-
-const links = [
-  { href: "/#work", key: "work" as const },
-  { href: "/#approach", key: "approach" as const },
-  { href: "/#capabilities", key: "capabilities" as const },
-  { href: "/#about", key: "about" as const },
-  { href: "/#contact", key: "contact" as const },
-];
 
 export function Header() {
   const { t } = useI18n();
@@ -19,16 +12,28 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
-        <Link href="/" className={styles.brand}>
-          <span className={styles.mark} aria-hidden="true" />
-          <span>Andrey Tessa</span>
-        </Link>
+        <Magnetic strength={0.18}>
+          <Link href="/" className={styles.brand}>
+            <span className={styles.mark} aria-hidden="true" />
+            Andrey Tessa
+          </Link>
+        </Magnetic>
         <nav className={styles.nav} aria-label="Primary">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href} className={styles.navLink}>
-              {t.nav[link.key]}
+          <Magnetic strength={0.22}>
+            <Link href="/#work" className={styles.link}>
+              {t.nav.work}
             </Link>
-          ))}
+          </Magnetic>
+          <Magnetic strength={0.22}>
+            <Link href="/#about" className={styles.link}>
+              {t.nav.about}
+            </Link>
+          </Magnetic>
+          <Magnetic strength={0.22}>
+            <Link href="/#contact" className={styles.link}>
+              {t.nav.contact}
+            </Link>
+          </Magnetic>
         </nav>
         <LocaleSwitcher />
       </div>

@@ -1,19 +1,17 @@
 import { About } from "@/components/About";
+import { Approach } from "@/components/Approach";
 import { Capabilities } from "@/components/Capabilities";
 import { Contact } from "@/components/Contact";
 import { Hero } from "@/components/Hero";
-import { Philosophy } from "@/components/Philosophy";
-import { Process } from "@/components/Process";
-import { SelectedWork } from "@/components/SelectedWork";
+import { Work } from "@/components/Work";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Philosophy />
-      <SelectedWork />
+      <Approach />
+      <Work />
       <Capabilities />
-      <Process />
       <About />
       <Contact />
     </>
