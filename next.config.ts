@@ -22,6 +22,7 @@ const nextConfig: NextConfig = {
   },
   basePath: basePath || undefined,
   assetPrefix: basePath || undefined,
+  transpilePackages: ["three", "@react-three/fiber", "@react-three/drei"],
 };
 
 export default nextConfig;

@@ -11,7 +11,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.inner}`}>
         <p>{t.footer.rights}</p>
-        <p className={styles.meta}>
+        <p>
           <a href={SITE.githubUrl}>{t.footer.built}</a>
         </p>
       </div>

@@ -1,10 +1,10 @@
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 40;
-  backdrop-filter: blur(14px);
-  background: rgba(7, 9, 12, 0.72);
-  border-bottom: 1px solid var(--line);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  mix-blend-mode: difference;
 }
 
 .inner {
@@ -17,44 +17,45 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  color: var(--heading);
+  gap: 0.7rem;
+  color: #fff;
   text-decoration: none;
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
   margin-right: auto;
 }
 
 .brand:hover {
-  color: var(--cyan-bright);
+  color: #fff;
 }
 
 .mark {
-  width: 0.65rem;
-  height: 0.65rem;
-  border: 1px solid var(--cyan);
-  transform: rotate(45deg);
-  box-shadow: 0 0 0 3px rgba(74, 168, 196, 0.12);
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff, #7ad4ec 70%);
+  box-shadow: 0 0 12px rgba(122, 212, 236, 0.6);
 }
 
 .nav {
   display: none;
-  gap: 1.15rem;
+  gap: 1.4rem;
 }
 
-.navLink {
-  color: var(--text-muted);
+.link {
+  color: rgba(255, 255, 255, 0.72);
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.navLink:hover {
-  color: var(--heading);
+.link:hover {
+  color: #fff;
 }
 
-@media (min-width: 920px) {
+@media (min-width: 860px) {
   .nav {
     display: flex;
   }

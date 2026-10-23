@@ -16,9 +16,7 @@ export function LocaleSwitcher() {
       >
         {t.locale.en}
       </button>
-      <span className={styles.sep} aria-hidden="true">
-        /
-      </span>
+      <span aria-hidden="true">/</span>
       <button
         type="button"
         className={locale === "ru" ? styles.active : undefined}

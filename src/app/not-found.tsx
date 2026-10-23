@@ -7,13 +7,13 @@ export default function NotFound() {
   const { t } = useI18n();
 
   return (
-    <section className="section">
+    <section className="section" style={{ paddingTop: "calc(var(--header-h) + 3rem)" }}>
       <div className="container">
         <p className="eyebrow">404</p>
         <h1 className="display-l">{t.notFound.title}</h1>
-        <p className="section-lead">{t.notFound.body}</p>
+        <p className="lead">{t.notFound.body}</p>
         <div className="btn-row">
-          <Link className="btn btn-primary" href="/">
+          <Link className="btn" href="/">
             {t.notFound.home}
           </Link>
         </div>

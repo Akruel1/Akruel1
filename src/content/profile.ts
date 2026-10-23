@@ -1,6 +1,5 @@
 /**
  * Centralized profile facts. Only verified or brief-approved fields.
- * Unverified contact/social entries are marked placeholder: true.
  */
 export const profile = {
   name: "Andrey Tessa",
@@ -34,6 +33,7 @@ export const profile = {
     "AI / embeddings",
     "APIs",
   ] as const,
+  portrait: "/images/andrey-tessa.jpg",
   contact: {
     email: {
       value: "tecca5864@gmail.com",
@@ -52,9 +52,8 @@ export const profile = {
     },
     linkedin: {
       value: "LinkedIn",
-      href: "#",
-      verified: false,
-      placeholder: true,
+      href: "https://www.linkedin.com/in/%D0%B0%D0%BD%D0%B4%D1%80%D0%B5%D0%B9-%D1%82%D0%B5%D1%81%D1%81%D0%B0-65993738b/",
+      verified: true,
     },
   },
   projects: {
@@ -64,8 +63,8 @@ export const profile = {
       org: "Taorlox",
       publicRepo: null,
     },
-    swissremitOrbox: {
-      slug: "swissremit-orbox",
+    orbox: {
+      slug: "orbox",
       status: "applied-work" as const,
       org: null,
       publicRepo: null,
