@@ -1,0 +1,119 @@
+.figure {
+  margin: 2.5rem 0 0;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(16, 21, 29, 0.9), rgba(10, 13, 18, 0.95));
+}
+
+.captionTitle {
+  font-family: var(--font-display);
+  color: var(--heading);
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.caption {
+  margin-top: 0.4rem;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+
+.canvas {
+  position: relative;
+  margin-top: 1.25rem;
+  aspect-ratio: 16 / 10;
+  min-height: 220px;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(74, 168, 196, 0.07), transparent 55%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 23px,
+      rgba(160, 190, 220, 0.05) 24px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 23px,
+      rgba(160, 190, 220, 0.05) 24px
+    );
+}
+
+.svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.edge,
+.edgeLit {
+  stroke-width: 0.35;
+  fill: none;
+}
+
+.edge {
+  stroke: rgba(110, 200, 224, 0.22);
+}
+
+.edgeLit {
+  stroke: rgba(154, 220, 240, 0.7);
+}
+
+.nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0;
+}
+
+.nodes li {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.node,
+.nodeActive {
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: rgba(11, 14, 19, 0.92);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: clamp(0.65rem, 1.4vw, 0.78rem);
+  letter-spacing: 0.04em;
+  padding: 0.45rem 0.65rem;
+  cursor: pointer;
+  white-space: nowrap;
+  max-width: 10rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.node:hover,
+.nodeActive {
+  border-color: var(--cyan);
+  color: var(--cyan-bright);
+}
+
+.nodeActive {
+  background: rgba(74, 168, 196, 0.14);
+}
+
+.detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1rem;
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.detail strong {
+  color: var(--heading);
+  font-weight: 600;
+  font-family: var(--font-display);
+}

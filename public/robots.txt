@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akruel1.github.io/Akruel1/sitemap.xml

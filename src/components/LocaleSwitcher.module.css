@@ -1,0 +1,32 @@
+.switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.switcher button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--text-faint);
+  cursor: pointer;
+  padding: 0.35rem 0.2rem;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.switcher button:hover {
+  color: var(--text);
+}
+
+.active {
+  color: var(--cyan-bright) !important;
+}
+
+.sep {
+  color: var(--text-faint);
+  opacity: 0.5;
+}

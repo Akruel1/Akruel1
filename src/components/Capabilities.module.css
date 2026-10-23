@@ -1,0 +1,65 @@
+.groups {
+  margin-top: clamp(2.25rem, 4vw, 3.25rem);
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 800px) {
+  .groups {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.group {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 800px) {
+  .group {
+    padding: 1.75rem 1.25rem 1.75rem 0;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+
+  .group:last-child {
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  .group:not(:first-child) {
+    padding-left: 1.25rem;
+  }
+}
+
+.group h3 {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: var(--heading);
+}
+
+.group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.group li {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding-left: 0.9rem;
+  position: relative;
+}
+
+.group li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.4rem;
+  height: 1px;
+  background: var(--cyan);
+}

@@ -1,93 +1,62 @@
-<!-- 🌌 Неоновый профиль Akruel -->
-<div align="center">
+# Andrey Tessa — Portfolio
 
-<h1>
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&duration=3000&pause=800&color=00F5FF&center=true&vCenter=true&width=700&lines=🚀+Akruel+-+Backend+%26+Web3+Developer;💻+Python+%7C+JavaScript+%7C+C%23;⚙️+Creating+APIs,+Bots,+and+NFT+Projects" />
-</h1>
+Personal portfolio for **Andrey Tessa** (AI Systems Engineer).  
+Static Next.js App Router site, exported for **GitHub Pages**.
 
-<img src="https://github.com/akruel/akruel/assets/0000000/neon-divider.gif" width="100%">
+- Repo (from git remote): [Akruel1/Akruel1](https://github.com/Akruel1/Akruel1)
+- Expected Pages URL: [https://akruel1.github.io/Akruel1/](https://akruel1.github.io/Akruel1/)
 
-<p align="center">
-✨ <b>Backend Developer</b> | <b>Blockchain Enthusiast</b> | <b>Web3 Innovator</b> ✨  
-<br>
-<em>“Building digital systems that connect people and technology.”</em>
-</p>
+## Stack
 
-</div>
+- Next.js App Router + React + TypeScript (strict)
+- CSS Modules + global design tokens
+- Framer Motion (purposeful motion; respects `prefers-reduced-motion`)
+- `output: 'export'` → static `out/`
+- EN default + complete RU (client locale switcher, static-export safe)
 
----
+## Local development
 
-## 🧩 О проекте
-<div align="center">
+```bash
+npm install
+npm run dev
+```
 
-### 📦 **PMR-MARKET — Marketplace**
-**Написан:** TypeScript + Next.js 14 • Prisma • PostgreSQL  
-**Тип проекта:** современный маркетплейс, аналог Avito
+Open [http://localhost:3000](http://localhost:3000). Local dev uses an empty `basePath` so routes work at `/`.
 
-<a href="https://github.com/Akruel1/PMR-MARKET">
-  <img src="https://img.shields.io/badge/PMR--MARKET-141321?style=for-the-badge&logo=github&logoColor=00F5FF" />
-</a>
+## Production build (GitHub Pages project path)
 
-<br><br>
+```bash
+GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/Akruel1 npm run build
+```
 
-<img src="https://raw.githubusercontent.com/Akruel1/PMR-MARKET/main/preview.png" width="700" />
+Artifacts land in `out/`. Preview locally with the project base path:
 
-</div>
+```bash
+rm -rf /tmp/at-pages && mkdir -p /tmp/at-pages/Akruel1 && cp -r out/. /tmp/at-pages/Akruel1/
+npx --yes serve /tmp/at-pages -l 4173
+# open http://localhost:4173/Akruel1/
+```
 
----
+## Deploy (GitHub Pages)
 
-### ⚙️ Tech Stack
-<div align="center">
-  <img src="https://skillicons.dev/icons?i=python,fastapi,aiogram,js,ts,react,cs,dotnet,postgresql,sqlite,git,docker,linux,vscode&theme=light" />
-</div>
+1. Merge to `main` (or run **Deploy Portfolio to GitHub Pages** via `workflow_dispatch`).
+2. In the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. Workflow [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) builds the static export with `basePath` `/Akruel1` and deploys the Pages artifact.
+4. Site: `https://akruel1.github.io/Akruel1/`
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Backend-2b2d42?style=for-the-badge&logo=serverless&logoColor=00F5FF" />
-  <img src="https://img.shields.io/badge/API%20Development-0d7377?style=for-the-badge&logo=fastapi&logoColor=white" />
-  <img src="https://img.shields.io/badge/Blockchain-ff005c?style=for-the-badge&logo=bitcoin&logoColor=white" />
-  <img src="https://img.shields.io/badge/NFTs-7f00ff?style=for-the-badge&logo=ethereum&logoColor=white" />
-</p>
+For a custom root domain later, set `NEXT_PUBLIC_BASE_PATH=` (empty) in the workflow and point DNS as needed.
 
----
+## Content policy
 
-### 💼 Featured Projects
-<div align="center">
-  <a href="https://github.com/Akruel1/PMR-MARKET">
-    <img src="https://img.shields.io/badge/PMR--MARKET-141321?style=for-the-badge&logo=github&logoColor=00F5FF" />
-  </a>
+Profile copy is centralized in `src/content/profile.ts` and locale dictionaries (`en.ts` / `ru.ts`).  
+Unverified social links are marked as placeholders. No invented metrics, dates, or confidential client detail.
 
-  <a href="#">
-    <img src="https://img.shields.io/badge/Coming_Soon...-141321?style=for-the-badge&logo=github&logoColor=00F5FF" />
-  </a>
-</div>
+## Project layout
 
----
-
-### 📈 GitHub Stats
-<div align="center">
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=Akruel&show_icons=true&theme=tokyonight&hide_border=true" />
-  <img height="160" src="https://github-readme-streak-stats.herokuapp.com/?user=Akruel&theme=tokyonight&hide_border=true" />
-</div>
-
----
-
-### 🌐 Connect with Me
-<div align="center">
-
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/Akruel1)
-[![Gmail](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:tecca5864@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-0A192F?style=for-the-badge&logo=firefox&logoColor=00F5FF)](#)
-
-</div>
-
----
-
-<p align="center">
-  <img src="https://github.com/akruel/akruel/assets/0000000/blue-neon-line.gif" width="80%" />
-</p>
-
-<h3 align="center">💬 “Код — это мой язык с будущим.”</h3>
-
-<div align="center">
-  <img src="https://github.com/akruel/akruel/assets/0000000/neon-wave.gif" width="100%">
-</div>
+```
+src/app/           # routes (home, case studies, 404)
+src/components/    # UI sections + architecture diagrams
+src/content/       # profile + EN/RU copy
+src/lib/           # site config, i18n
+public/            # favicon, robots.txt, sitemap.xml
+```
