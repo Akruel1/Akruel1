@@ -1,0 +1,59 @@
+.grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 880px) {
+  .grid {
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 3.5rem;
+  }
+}
+
+.copy {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  max-width: 40rem;
+  color: var(--text-muted);
+}
+
+.portrait {
+  width: 100%;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(74, 168, 196, 0.08), transparent 40%),
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 10px,
+      rgba(160, 190, 220, 0.04) 11px
+    ),
+    var(--bg-elevated);
+  display: grid;
+  place-items: center;
+}
+
+.corner {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-top: 1px solid var(--cyan);
+  border-right: 1px solid var(--cyan);
+}
+
+.hint {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
