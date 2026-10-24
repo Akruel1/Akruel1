@@ -1,64 +1,89 @@
 "use client";
 
-import { Canvas } from "@react-three/fiber";
-import { Float } from "@react-three/drei";
-import { useEffect, useRef, useState } from "react";
-import { LiquidMesh } from "./LiquidMesh";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useEffect, useRef, useState, type MutableRefObject } from "react";
+import * as THREE from "three";
+import { ChromeSculpture } from "./ChromeSculpture";
 import { isLowPowerDevice, isTouchDevice, prefersReducedMotion } from "@/lib/motion";
 
 type Props = {
   className?: string;
   interactive?: boolean;
+  /** 0..1 scroll/structure progress from parent */
+  structureRef?: MutableRefObject<number>;
 };
 
-function Scene({ interactive }: { interactive: boolean }) {
+function StudioLights() {
+  return (
+    <>
+      <color attach="background" args={["#030507"]} />
+      <ambientLight intensity={0.15} />
+      <directionalLight position={[5, 7, 3]} intensity={1.6} color="#e8f2f8" />
+      <directionalLight position={[-4, -1, -3]} intensity={0.35} color="#3d5a6a" />
+      <spotLight
+        position={[-2, 4, 5]}
+        angle={0.35}
+        penumbra={0.7}
+        intensity={1.1}
+        color="#b7d7e8"
+      />
+    </>
+  );
+}
+
+function Scene({
+  interactive,
+  structureRef,
+}: {
+  interactive: boolean;
+  structureRef?: MutableRefObject<number>;
+}) {
   const pointer = useRef({ x: 0, y: 0 });
+  const structure = useRef(0);
   const reduced = prefersReducedMotion();
   const mobile = isTouchDevice() || isLowPowerDevice();
 
   useEffect(() => {
     if (!interactive || reduced || mobile) return;
     const onMove = (e: PointerEvent) => {
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = -(e.clientY / window.innerHeight) * 2 + 1;
-      pointer.current.x = x;
-      pointer.current.y = y;
+      pointer.current.x = (e.clientX / window.innerWidth) * 2 - 1;
+      pointer.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
     };
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => window.removeEventListener("pointermove", onMove);
   }, [interactive, reduced, mobile]);
 
+  useFrame((_, delta) => {
+    const target = structureRef?.current ?? 0;
+    structure.current = THREE.MathUtils.damp(structure.current, target, 4, delta);
+  });
+
   return (
     <>
-      <color attach="background" args={["#030507"]} />
-      <ambientLight intensity={0.4} />
-      <directionalLight position={[4, 6, 2]} intensity={1.25} color="#c9e7f4" />
-      <directionalLight position={[-3, -2, -4]} intensity={0.55} color="#3a7a90" />
-      <pointLight position={[0, 0, 2.5]} intensity={0.65} color="#7ad4ec" distance={8} />
-      <Float
-        speed={reduced ? 0 : 1.1}
-        rotationIntensity={reduced ? 0 : 0.25}
-        floatIntensity={reduced ? 0 : 0.45}
-      >
-        <LiquidMesh pointer={pointer} reduced={reduced} mobile={mobile} />
-      </Float>
+      <StudioLights />
+      <ChromeSculpture
+        pointer={pointer}
+        structure={structure}
+        reduced={reduced}
+        mobile={mobile}
+      />
     </>
   );
 }
 
-export function LiquidCanvas({ className, interactive = true }: Props) {
+export function LiquidCanvas({ className, interactive = true, structureRef }: Props) {
   const [ok, setOk] = useState(true);
   const [visible, setVisible] = useState(true);
   const wrap = useRef<HTMLDivElement>(null);
-  const mobile = typeof window !== "undefined" && (isTouchDevice() || isLowPowerDevice());
+  const mobile =
+    typeof window !== "undefined" && (isTouchDevice() || isLowPowerDevice());
 
   useEffect(() => {
     const el = wrap.current;
     if (!el || typeof IntersectionObserver === "undefined") return;
-    const io = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.05 },
-    );
+    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), {
+      threshold: 0.05,
+    });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -71,7 +96,7 @@ export function LiquidCanvas({ className, interactive = true }: Props) {
             width: "100%",
             height: "100%",
             background:
-              "radial-gradient(circle at 45% 40%, rgba(122,212,236,0.2), transparent 55%), radial-gradient(circle at 60% 60%, rgba(40,90,110,0.35), #030507 70%)",
+              "linear-gradient(135deg, #0a1016 0%, #141c24 40%, #070b10 100%), radial-gradient(ellipse at 70% 40%, rgba(154,220,240,0.12), transparent 50%)",
           }}
         />
       </div>
@@ -82,8 +107,8 @@ export function LiquidCanvas({ className, interactive = true }: Props) {
     <div ref={wrap} className={className} aria-hidden="true">
       {visible && (
         <Canvas
-          dpr={mobile ? [1, 1.25] : [1, 1.5]}
-          camera={{ position: [0, 0.15, 4.2], fov: 42 }}
+          dpr={mobile ? [1, 1.2] : [1, 1.5]}
+          camera={{ position: [0.2, 0.1, 4.6], fov: 38 }}
           gl={{
             antialias: !mobile,
             alpha: true,
@@ -92,15 +117,14 @@ export function LiquidCanvas({ className, interactive = true }: Props) {
           }}
           onCreated={({ gl }) => {
             gl.setClearColor(0x030507, 0);
-            const canvas = gl.domElement;
-            canvas.addEventListener("webglcontextlost", (e) => {
+            gl.domElement.addEventListener("webglcontextlost", (e) => {
               e.preventDefault();
               setOk(false);
             });
           }}
           style={{ width: "100%", height: "100%" }}
         >
-          <Scene interactive={interactive} />
+          <Scene interactive={interactive} structureRef={structureRef} />
         </Canvas>
       )}
     </div>

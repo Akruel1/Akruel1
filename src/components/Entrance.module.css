@@ -10,49 +10,46 @@
 .void {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, #061018 0%, #010203 60%);
+  background: radial-gradient(ellipse at 60% 40%, #0a1218 0%, #010203 55%);
 }
 
-.beam {
+.slash {
   position: absolute;
-  width: min(70vw, 640px);
-  height: 1px;
+  width: 1px;
+  height: min(55vh, 420px);
   background: linear-gradient(
-    90deg,
+    180deg,
     transparent,
-    rgba(122, 212, 236, 0.15),
+    rgba(154, 220, 240, 0.15),
     #9adcf0,
-    rgba(122, 212, 236, 0.15),
+    rgba(154, 220, 240, 0.15),
     transparent
   );
-  box-shadow: 0 0 24px rgba(122, 212, 236, 0.45);
-  transform-origin: left center;
+  box-shadow: 0 0 28px rgba(122, 212, 236, 0.4);
+  transform-origin: center top;
 }
 
-.glass {
+.shard {
   position: absolute;
-  width: min(42vw, 280px);
-  aspect-ratio: 1;
-  border-radius: 42% 58% 48% 52% / 48% 42% 58% 52%;
+  width: min(38vw, 240px);
+  height: min(52vw, 320px);
   background:
-    radial-gradient(circle at 30% 28%, rgba(201, 231, 244, 0.35), transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(40, 100, 120, 0.4), rgba(3, 8, 12, 0.2) 70%);
-  border: 1px solid rgba(122, 212, 236, 0.25);
-  filter: blur(0);
-  box-shadow:
-    inset 0 0 40px rgba(122, 212, 236, 0.15),
-    0 0 80px rgba(50, 120, 150, 0.2);
+    linear-gradient(145deg, rgba(200, 220, 230, 0.35) 0%, rgba(40, 70, 85, 0.2) 40%, rgba(8, 14, 18, 0.1) 100%);
+  clip-path: polygon(18% 0%, 100% 12%, 82% 100%, 0% 78%);
+  border: 1px solid rgba(154, 220, 240, 0.2);
+  box-shadow: inset 0 0 40px rgba(154, 220, 240, 0.12);
+  filter: blur(0.2px);
 }
 
 .name {
   position: relative;
   z-index: 1;
+  margin-top: min(58vw, 360px);
   font-family: var(--font-display);
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  color: var(--ink);
-  letter-spacing: 0.08em;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  margin-top: min(48vw, 320px);
+  color: var(--ink);
 }
 
 .skip {
@@ -64,7 +61,7 @@
   background: transparent;
   color: var(--faint);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   cursor: pointer;

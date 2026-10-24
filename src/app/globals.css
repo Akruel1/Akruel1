@@ -11,6 +11,7 @@
   --glass: rgba(180, 220, 240, 0.06);
   --font-display: "Cormorant Garamond", "Times New Roman", serif;
   --font-body: "Manrope", "Segoe UI", sans-serif;
+  /* LIQUID INTELLIGENCE: matter → structure */
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --max: 1180px;
   --header-h: 4.5rem;

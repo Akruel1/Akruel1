@@ -4,7 +4,7 @@
   min-height: 100svh;
   display: grid;
   align-items: end;
-  padding: calc(var(--header-h) + 2rem) 0 4.5rem;
+  padding: calc(var(--header-h) + 1.5rem) 0 3.5rem;
   overflow: clip;
 }
 
@@ -12,6 +12,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  background: #030507;
 }
 
 .canvas {
@@ -21,64 +22,106 @@
   height: 100%;
 }
 
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
 .veil {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(3, 5, 7, 0.15) 0%, rgba(3, 5, 7, 0.25) 40%, rgba(3, 5, 7, 0.92) 100%),
-    linear-gradient(90deg, rgba(3, 5, 7, 0.75) 0%, transparent 45%, rgba(3, 5, 7, 0.35) 100%);
   pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 7, 0.9) 0%, rgba(3, 5, 7, 0.35) 32%, rgba(3, 5, 7, 0.05) 55%, rgba(3, 5, 7, 0.35) 100%),
+    linear-gradient(180deg, rgba(3, 5, 7, 0.15) 0%, transparent 28%, rgba(3, 5, 7, 0.8) 100%);
 }
 
-.content {
+.composition {
   position: relative;
   z-index: 1;
-  max-width: 920px;
+  width: min(100% - 2.5rem, 1180px);
+  margin-inline: auto;
+  max-width: 36rem;
+  padding-bottom: 0.5rem;
+  /* Pull type into the chrome field so letterforms collide with the shard */
+  mix-blend-mode: normal;
 }
 
 .role {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--cyan);
-  margin-bottom: 1.1rem;
+  margin-bottom: 1.4rem;
 }
 
 .name {
+  display: grid;
+  gap: 0.05em;
+  margin-bottom: 1.75rem;
+}
+
+.nameLine {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 1.85rem);
+  font-size: clamp(3.4rem, 12vw, 7.5rem);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: var(--ink);
   text-transform: uppercase;
-  color: var(--ice);
-  margin-bottom: 1.5rem;
+}
+
+.nameLine:last-child {
+  color: transparent;
+  background: linear-gradient(105deg, var(--ice) 0%, var(--cyan) 42%, #6a9aab 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .headline {
   display: flex;
   flex-direction: column;
+  gap: 0.1em;
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 11vw, 7.2rem);
+  font-size: clamp(1.55rem, 3.8vw, 2.35rem);
   font-weight: 500;
-  line-height: 0.92;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  max-width: 10ch;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--mute);
+  max-width: 14ch;
 }
 
-.headline span:last-child {
-  color: transparent;
-  background: linear-gradient(120deg, var(--ice) 10%, var(--cyan) 45%, #6aa8bc 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
+.accent {
+  color: var(--ice);
 }
 
 .intro {
-  margin-top: 1.75rem;
-  max-width: 32rem;
+  margin-top: 1.5rem;
+  max-width: 28rem;
   color: var(--mute);
-  font-size: 1.08rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.hint {
+  margin-top: 2.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--faint);
 }
 
 @media (min-width: 960px) {
@@ -87,20 +130,47 @@
     padding-bottom: 2rem;
   }
 
-  .content {
-    width: min(100% - 2.5rem, 520px);
-    margin-left: max(0px, calc((100vw - var(--max)) / 2));
+  .composition {
+    max-width: 42rem;
+    margin-left: max(1.25rem, calc((100vw - 1180px) / 2));
     margin-right: auto;
   }
 
   .canvas {
-    left: 28%;
-    width: 72%;
+    left: 22%;
+    width: 78%;
   }
 
   .veil {
     background:
-      linear-gradient(90deg, rgba(3, 5, 7, 0.92) 0%, rgba(3, 5, 7, 0.55) 38%, transparent 58%),
-      linear-gradient(180deg, transparent 50%, rgba(3, 5, 7, 0.55) 100%);
+      linear-gradient(90deg, rgba(3, 5, 7, 0.95) 0%, rgba(3, 5, 7, 0.55) 22%, rgba(3, 5, 7, 0.08) 48%, transparent 62%),
+      linear-gradient(180deg, transparent 35%, rgba(3, 5, 7, 0.5) 100%);
+  }
+
+  .composition {
+    max-width: 48rem;
+  }
+
+  .nameLine {
+    font-size: clamp(5.2rem, 10vw, 8.6rem);
+  }
+
+  .nameLine:last-child {
+    /* TESSA sits deeper into the sculpture */
+    margin-left: 0.08em;
+    text-shadow: 0 0 40px rgba(122, 212, 236, 0.15);
+  }
+}
+
+@media (max-width: 720px) {
+  .canvas {
+    opacity: 0.85;
+    top: 8%;
+    height: 55%;
+  }
+
+  .veil {
+    background:
+      linear-gradient(180deg, rgba(3, 5, 7, 0.2) 0%, rgba(3, 5, 7, 0.55) 42%, rgba(3, 5, 7, 0.96) 72%);
   }
 }

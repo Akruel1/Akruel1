@@ -20,7 +20,7 @@ export function Header() {
         </Magnetic>
         <nav className={styles.nav} aria-label="Primary">
           <Magnetic strength={0.22}>
-            <Link href="/#work" className={styles.link}>
+            <Link href="/#arax" className={styles.link}>
               {t.nav.work}
             </Link>
           </Magnetic>

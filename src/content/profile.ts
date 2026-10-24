@@ -3,6 +3,8 @@
  */
 export const profile = {
   name: "Andrey Tessa",
+  nameFirst: "Andrey",
+  nameLast: "Tessa",
   githubHandle: "Akruel1",
   titles: {
     primary: "AI Systems Engineer",
@@ -61,12 +63,6 @@ export const profile = {
       slug: "arax",
       status: "concept" as const,
       org: "Taorlox",
-      publicRepo: null,
-    },
-    orbox: {
-      slug: "orbox",
-      status: "applied-work" as const,
-      org: null,
       publicRepo: null,
     },
   },
