@@ -4,10 +4,9 @@ export const en = {
   meta: {
     title: `${profile.name} — ${profile.titles.primary}`,
     description:
-      "AI Systems Engineer focused on RAG, enterprise knowledge platforms, backend architecture, and reliable infrastructure.",
+      "AI Systems Engineer. Liquid intelligence — from matter to structure. ARAX: enterprise AI knowledge platform concept.",
     ogTitle: `${profile.name} — AI Systems Engineer`,
-    ogDescription:
-      "Portfolio: liquid systems, RAG platforms, and applied AI engineering.",
+    ogDescription: "Portfolio: liquid intelligence, systems architecture, ARAX.",
   },
   nav: {
     work: "Work",
@@ -25,56 +24,46 @@ export const en = {
   },
   hero: {
     name: profile.name,
+    nameFirst: profile.nameFirst,
+    nameLast: profile.nameLast,
     title: profile.titles.primary,
-    headlineLines: ["ENGINEERING", "THE UNSEEN."],
+    headlineLines: ["MATTER", "BECOMES", "STRUCTURE."],
     intro:
-      "I shape AI-powered systems where retrieval, APIs, storage, and process form one living architecture.",
-    ctaWork: "Explore work",
+      "I design AI-powered systems where retrieval, APIs, storage, and process harden into one operable architecture.",
+    ctaWork: "Enter ARAX",
     ctaContact: "Contact",
+    scrollHint: "Scroll — liquid hardens",
   },
   approach: {
-    eyebrow: "Approach",
-    headline: "Systems with weight",
+    eyebrow: "Philosophy",
+    headline: "From fluid to form",
     lead:
-      "Useful AI is infrastructure. Models matter only when data flow, retrieval, interfaces, and process are designed as one material.",
+      "Intelligence is useless as vapor. I treat AI as material that must set into structure — data flow, retrieval, interfaces, and process sharing one geometry.",
     beats: [
       {
-        title: "Trace the flow",
-        body: "Start from how information moves — sources, transforms, indexes — and what must stay coherent under change.",
+        title: "Follow the flow",
+        body: "Start with how information moves — sources, transforms, indexes — before choosing model flourishes.",
       },
       {
-        title: "Bind intelligence to structure",
-        body: "Embeddings, vector search, and APIs share one surface. No bolted-on demos.",
+        title: "Set the material",
+        body: "Embeddings, vector search, and APIs are one surface. No bolted-on demos.",
       },
       {
-        title: "Leave operable systems",
+        title: "Leave it operable",
         body: "Enough architecture for reliability. Clear failure modes. No ceremony that hides weak seams.",
       },
     ],
   },
   work: {
-    eyebrow: "Selected work",
-    headline: "Matter in production form",
-    lead: "Two threads — an enterprise knowledge platform concept, and applied AI for operational systems.",
-    explore: "Enter case",
-    items: {
-      arax: {
-        name: "ARAX",
-        org: "Taorlox",
-        status: "Concept / architecture",
-        tagline: "Enterprise AI knowledge platform",
-        summary:
-          "A platform concept for enterprise knowledge: ingest, embed, retrieve, and answer through controlled surfaces — designed as infrastructure, not a chatbot wrapper.",
-      },
-      orbox: {
-        name: "Orbox",
-        org: "Applied AI",
-        status: "Applied solutions",
-        tagline: "AI inside operational workflows",
-        summary:
-          "Applied AI solutions and workflow automation — models wired into real processes where boundaries, retries, and human checkpoints are first-class.",
-      },
-    },
+    eyebrow: "Featured work",
+    headline: "ARAX",
+    status: "Concept / architecture · Taorlox",
+    tagline: "Enterprise AI knowledge platform",
+    summary:
+      "A platform concept for enterprise knowledge: ingest, embed, retrieve, and answer through controlled surfaces — designed as infrastructure, not a chatbot wrapper.",
+    explore: "Open case study",
+    transition:
+      "The liquid hardens into a system. Below — the architecture of ARAX.",
   },
   capabilities: {
     eyebrow: "Capabilities",
@@ -118,14 +107,14 @@ export const en = {
     headline: "Andrey Tessa",
     body: [
       `${profile.titles.primary} — building systems that stay understandable as they grow.`,
-      "Work spans backend engineering, AI systems architecture, and technical leadership. AI belongs inside real infrastructure: clear data paths, deliberate integrations, operable boundaries.",
-      "This site covers selected architecture and applied work. Confidential client detail and unverified metrics are omitted.",
+      "Work spans backend engineering, AI systems architecture, and technical leadership. AI belongs inside real infrastructure.",
+      "This site covers selected architecture. Confidential client detail and unverified metrics are omitted.",
     ],
   },
   contact: {
     eyebrow: "Contact",
     headline: "Open a channel",
-    lead: "For systems work, architecture, or collaboration — use a verified link.",
+    lead: "For systems work, architecture, or collaboration.",
     channels: "Channels",
   },
   footer: {
@@ -133,17 +122,17 @@ export const en = {
     built: "Static · GitHub Pages",
   },
   caseArax: {
-    back: "Work",
+    back: "Home",
     status: "Concept / architecture · Taorlox",
     title: "ARAX",
     subtitle: "Enterprise AI knowledge platform",
     intro:
-      "ARAX is a platform concept for enterprise knowledge — bringing documents and operational context into a retrieval-ready system, then exposing controlled search and answer surfaces. Documented here as architecture and intent, not as a shipped public product with published metrics.",
+      "ARAX is a platform concept for enterprise knowledge — documents and operational context into a retrieval-ready system, then controlled search and answer surfaces. Architecture and intent — not a shipped public product with published metrics.",
     chapters: [
       {
         id: "sources",
         title: "Knowledge sources",
-        body: "Files, APIs, and internal stores enter as first-class inputs. Diversity of source is assumed; access boundaries are not optional.",
+        body: "Files, APIs, and internal stores enter as first-class inputs. Source diversity is assumed; access boundaries are not optional.",
       },
       {
         id: "ingest",
@@ -173,7 +162,7 @@ export const en = {
       {
         id: "access",
         title: "Access & tenancy",
-        body: "Tenant isolation and access control are architectural concerns — planned as platform seams, not UI toggles.",
+        body: "Tenant isolation and access control are architectural seams — planned as platform concerns, not UI toggles.",
       },
       {
         id: "audit",
@@ -182,7 +171,7 @@ export const en = {
       },
     ],
     implementedNote:
-      "This case describes conceptual architecture and intended capabilities. Public implementation timelines and performance claims are not published here.",
+      "Conceptual architecture and intended capabilities. Public implementation timelines and performance claims are not published here.",
     architecture: {
       title: "Architecture",
       caption: "Progressive reveal — focus a node",
@@ -205,49 +194,6 @@ export const en = {
         ["pg", "api"],
         ["api", "rag"],
         ["rag", "ui"],
-      ] as [string, string][],
-    },
-  },
-  caseOrbox: {
-    back: "Work",
-    status: "Applied AI solutions",
-    title: "Orbox",
-    subtitle: "AI inside operational workflows",
-    intro:
-      "Orbox covers applied AI solutions and workflow automation — connecting models and process logic to operational paths. Description stays architectural; confidential client specifics are not disclosed.",
-    sections: [
-      {
-        title: "Problem space",
-        body: "Operations need automation that survives edges: integrations fail, inputs vary, and intelligent steps must degrade safely.",
-      },
-      {
-        title: "Design stance",
-        body: "Explicit workflows with AI-assisted steps over opaque agents. Handoffs, retries, and human checkpoints are first-class.",
-      },
-      {
-        title: "Scope note",
-        body: "Described as applied solutions work. No invented timelines, volume metrics, or client names.",
-      },
-    ],
-    architecture: {
-      title: "Architecture",
-      caption: "Logical flow — focus a node",
-      nodes: [
-        { id: "trigger", label: "Triggers", detail: "Events & schedules" },
-        { id: "orchestrate", label: "Orchestration", detail: "Workflow control" },
-        { id: "integrate", label: "Integrations", detail: "External APIs" },
-        { id: "ai", label: "AI steps", detail: "Classify / extract / draft" },
-        { id: "store", label: "Persistence", detail: "State & audit" },
-        { id: "ops", label: "Ops", detail: "Review & intervene" },
-      ],
-      edges: [
-        ["trigger", "orchestrate"],
-        ["orchestrate", "integrate"],
-        ["orchestrate", "ai"],
-        ["ai", "store"],
-        ["integrate", "store"],
-        ["store", "ops"],
-        ["ops", "orchestrate"],
       ] as [string, string][],
     },
   },

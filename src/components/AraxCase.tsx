@@ -15,7 +15,7 @@ export function AraxCase() {
     <article className={styles.page}>
       <div className="container">
         <p className={styles.back}>
-          <Link href="/#work">{c.back}</Link>
+          <Link href="/#arax">{c.back}</Link>
         </p>
         <p className={styles.status}>{c.status}</p>
         <h1 className="display-xl">{c.title}</h1>
