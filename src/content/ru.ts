@@ -3,10 +3,10 @@ import { profile } from "./profile";
 
 export const ru: Dictionary = {
   meta: {
-    title: `${profile.name} — ${profile.titles.primary}`,
+    title: `${profile.nameRu} — ${profile.titles.primary}`,
     description:
       "AI Systems Engineer. Строю интеллектуальные системы, которые превращают сложность в ценность. ARAX и Orbox.",
-    ogTitle: `${profile.name} — AI Systems Engineer`,
+    ogTitle: `${profile.nameRu} — AI Systems Engineer`,
     ogDescription: "Experimental digital editorial — кампании ARAX и Orbox.",
   },
   nav: {
@@ -20,7 +20,7 @@ export const ru: Dictionary = {
   entrance: { skip: "Войти" },
   hero: {
     title: profile.titles.primary,
-    name: profile.name,
+    name: profile.nameRu,
     index: "Портфолио / 01",
     intro:
       "Я строю интеллектуальные системы, которые превращают сложные задачи в масштабируемые решения.",
@@ -72,7 +72,7 @@ export const ru: Dictionary = {
   },
   about: {
     eyebrow: "О себе",
-    headline: `Я ${profile.name}.`,
+    headline: `Я ${profile.nameRu}.`,
     titleLine: profile.titles.primary,
     body: [
       "Собираю AI-системы, которые остаются понятными по мере роста — ясные пути данных, осознанные интеграции, рабочие границы.",
@@ -134,7 +134,7 @@ export const ru: Dictionary = {
     channels: "Каналы",
   },
   footer: {
-    rights: profile.name,
+    rights: profile.nameRu,
     title: profile.titles.primary,
   },
   caseArax: {

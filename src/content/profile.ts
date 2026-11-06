@@ -5,6 +5,10 @@ export const profile = {
   name: "Andrey Tessa",
   nameFirst: "Andrey",
   nameLast: "Tessa",
+  /** Russian brand rendering — АНДРЕЙ ТЕССА */
+  nameRu: "Андрей Тесса",
+  nameFirstRu: "Андрей",
+  nameLastRu: "Тесса",
   mark: "AT",
   githubHandle: "Akruel1",
   titles: {
@@ -48,3 +52,13 @@ export const profile = {
 } as const;
 
 export type Locale = "en" | "ru";
+
+export function displayName(locale: Locale) {
+  return locale === "ru" ? profile.nameRu : profile.name;
+}
+
+export function displayNameParts(locale: Locale) {
+  return locale === "ru"
+    ? { first: profile.nameFirstRu, last: profile.nameLastRu }
+    : { first: profile.nameFirst, last: profile.nameLast };
+}

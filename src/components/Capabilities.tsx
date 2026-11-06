@@ -12,7 +12,7 @@ export function Capabilities() {
       className={`${styles.section} env-silver`}
       data-env="silver"
       data-scene="tech"
-      data-curtain="wipe"
+      data-stage-layer="tech"
       aria-labelledby="tech-title"
     >
       <div className="container">

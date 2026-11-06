@@ -61,10 +61,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Avoid layout jump from pinned sections on narrow viewports */
+/* Collision guards across common breakpoints */
 @media (max-width: 900px) {
   [data-pin="campaign"] {
     transform: none !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  /* Mid desktop: keep campaign copy clear of visuals */
+  [data-stage-layer="arax"] .container,
+  [data-stage-layer="orbox"] .container {
+    max-width: min(34rem, 50%);
   }
 }
 

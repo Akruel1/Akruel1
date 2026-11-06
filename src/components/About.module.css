@@ -4,6 +4,35 @@
   padding: clamp(5rem, 12vw, 8rem) 0;
 }
 
+@media (min-width: 901px) {
+  .section {
+    min-height: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-x: clip;
+    overflow-y: auto;
+    padding: calc(var(--header-h) + 1.5rem) 0 2.5rem;
+  }
+
+  .layout {
+    gap: 1.5rem;
+  }
+
+  .headline {
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+  }
+
+  .portrait {
+    max-height: 52vh;
+  }
+
+  .portrait img {
+    max-height: 48vh;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
 .layout {
   position: relative;
   z-index: 1;

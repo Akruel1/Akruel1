@@ -6,6 +6,8 @@
   pointer-events: none;
   mix-blend-mode: difference;
   color: #fff;
+  max-width: 40vw;
+  text-align: right;
 }
 
 .label {

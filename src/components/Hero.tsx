@@ -1,18 +1,20 @@
 "use client";
 
-import { profile } from "@/content/profile";
+import { displayNameParts } from "@/content/profile";
 import { useI18n } from "@/lib/i18n";
 import { withBasePath } from "@/lib/site";
 import styles from "./Hero.module.css";
 
 export function Hero() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const { first, last } = displayNameParts(locale);
 
   return (
     <section
       className={`${styles.hero} env-black`}
       data-env="black"
       data-scene="hero"
+      data-stage-layer="hero"
       aria-labelledby="hero-name"
     >
       <div
@@ -40,10 +42,10 @@ export function Hero() {
 
         <h1 id="hero-name" className={styles.name}>
           <span className={styles.first} data-hero-in data-clip>
-            {profile.nameFirst}
+            {first}
           </span>
           <span className={styles.last} data-hero-in data-clip>
-            {profile.nameLast}
+            {last}
             <em className={styles.dot}>.</em>
           </span>
         </h1>
