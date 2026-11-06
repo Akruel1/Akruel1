@@ -24,7 +24,9 @@
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
-  overflow: clip;
+  min-height: 100dvh;
+  overflow-x: clip;
+  overflow-y: visible;
   display: grid;
   align-items: center;
   padding: clamp(4rem, 8vw, 6rem) 0;
@@ -166,6 +168,13 @@
   }
 
   .name {
-    font-size: clamp(3.8rem, 18vw, 5.5rem);
+    font-size: clamp(3.2rem, 15vw, 5rem);
+    max-width: 100%;
+    overflow: visible;
+    line-height: 0.88;
+  }
+
+  .summary {
+    font-size: 1rem;
   }
 }
