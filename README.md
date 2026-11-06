@@ -1,10 +1,10 @@
 # Andrey Tessa — Portfolio
 
-Swiss Editorial portfolio for GitHub Pages.
+Experimental digital editorial portfolio for GitHub Pages.
 
-- Projects: **ARAX** + **Orbox**
+- Projects: **ARAX** + **Orbox** as campaign spreads
 - Stack: Next.js App Router, CSS Modules, EN/RU, static export
-- Art direction: International Typographic Style — typography-first, no WebGL hero
+- Art direction: fashion-campaign editorial (ivory / cobalt / red / black / acid)
 - URL: https://akruel1.github.io/Akruel1/
 
 ```bash

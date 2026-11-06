@@ -1,86 +1,73 @@
+.section {
+  padding: clamp(4.5rem, 10vw, 7rem) 0;
+  overflow: clip;
+}
+
 .head {
-  display: grid;
-  gap: 0.85rem;
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
   max-width: 40rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .headline {
-  font-size: clamp(2.4rem, 6vw, 4.25rem);
-  font-weight: 600;
-  letter-spacing: -0.05em;
+  margin-top: 0.75rem;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  text-transform: uppercase;
 }
 
 .lead {
+  margin-top: 1.1rem;
   color: var(--mute);
-  max-width: 32rem;
+  max-width: 30rem;
+  font-size: 1.08rem;
 }
 
 .groups {
   display: grid;
   gap: 0;
-  border-top: 1px solid var(--line);
+  border-top: 2px solid rgba(16, 16, 16, 0.18);
 }
 
 .group {
   display: grid;
-  gap: 1rem;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.35rem 1rem;
   padding: 1.35rem 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(16, 16, 16, 0.16);
 }
 
-.groupHead {
-  display: flex;
-  align-items: baseline;
-  gap: 0.85rem;
+.num {
+  grid-row: span 2;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: var(--cobalt);
 }
 
-.groupHead span {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  color: var(--faint);
-}
-
-.groupHead h3 {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+.group h3 {
+  font-size: 1.15rem;
   text-transform: uppercase;
-  color: var(--ink);
+  letter-spacing: -0.03em;
 }
 
-.group ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem 0.35rem;
-}
-
-.group li {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.items {
+  grid-column: 2;
   color: var(--mute);
-  border: 1px solid var(--line);
-  padding: 0.35rem 0.6rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
 }
 
 .process {
-  margin-top: clamp(3rem, 6vw, 4.5rem);
-  border-top: 1px solid var(--line);
-  padding-top: 2rem;
+  margin-top: clamp(3rem, 7vw, 5rem);
+  margin-inline: calc(var(--gutter) * -1);
+  padding: clamp(2.5rem, 6vw, 4rem) var(--gutter);
 }
 
 .processTitle {
-  margin: 0.75rem 0 1.5rem;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  margin: 0.75rem 0 1.75rem;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  text-transform: uppercase;
 }
 
 .process ol {
@@ -89,63 +76,45 @@
   padding: 0;
   display: grid;
   gap: 0;
-  border-top: 1px solid var(--line);
 }
 
 .process li {
   display: grid;
-  grid-template-columns: 3rem 1fr;
+  grid-template-columns: 3.25rem 1fr;
   gap: 1rem;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid var(--line);
+  padding: 1.15rem 0;
+  border-top: 1px solid rgba(240, 238, 232, 0.18);
 }
 
-.stepN {
+.process li span {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-  padding-top: 0.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--acid);
+  padding-top: 0.25rem;
 }
 
 .process strong {
-  color: var(--ink);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.3rem;
 }
 
 .process p {
-  margin-top: 0.25rem;
   color: var(--mute);
-  font-size: 0.95rem;
 }
 
-@media (min-width: 860px) {
+@media (min-width: 900px) {
   .groups {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .group:nth-child(odd) {
-    padding-right: 1.5rem;
-    border-right: 1px solid var(--line);
-  }
-
-  .group:nth-child(even) {
-    padding-left: 1.5rem;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.5rem;
   }
 
   .process ol {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .process li {
-    border-right: 1px solid var(--line);
-    padding-right: 1.25rem;
-  }
-
-  .process li:nth-child(even) {
-    border-right: 0;
-    padding-left: 1.25rem;
-    padding-right: 0;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
   }
 }

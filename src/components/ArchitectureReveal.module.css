@@ -1,7 +1,6 @@
 .figure {
   margin: 2.75rem 0 0;
-  padding: 1.25rem 0 0;
-  border-top: 1px solid var(--line);
+  padding: 0;
   background: transparent;
 }
 
@@ -11,56 +10,57 @@
   gap: 0.75rem 1.25rem;
   align-items: baseline;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 .caption {
-  color: var(--faint);
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  color: var(--mute);
   flex: 1 1 12rem;
 }
 
 .reveal {
   appearance: none;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
+  border: 0;
+  background: var(--cobalt);
+  color: var(--ivory);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  padding: 0.45rem 0.7rem;
+  padding: 0.55rem 0.85rem;
   cursor: pointer;
-  border-radius: 0;
 }
 
 .reveal:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  background: var(--red);
 }
 
 .canvas {
   position: relative;
-  margin-top: 1.25rem;
+  margin-top: 0.5rem;
   aspect-ratio: 16 / 10;
   min-height: 230px;
-  border: 1px solid var(--line);
+  border: 2px solid currentColor;
+  opacity: 0.95;
   background:
     repeating-linear-gradient(
-      0deg,
+      90deg,
       transparent,
-      transparent 27px,
-      rgba(255, 255, 255, 0.03) 28px
+      transparent 47px,
+      rgba(127, 127, 127, 0.12) 48px
     );
 }
 
@@ -73,16 +73,18 @@
 
 .edge,
 .edgeLit {
-  stroke-width: 0.35;
+  stroke-width: 0.45;
   fill: none;
 }
 
 .edge {
-  stroke: rgba(255, 255, 255, 0.18);
+  stroke: currentColor;
+  opacity: 0.25;
 }
 
 .edgeLit {
-  stroke: rgba(98, 221, 235, 0.75);
+  stroke: var(--red);
+  opacity: 0.9;
 }
 
 .nodes {
@@ -101,30 +103,24 @@
 .node,
 .nodeActive {
   appearance: none;
-  border: 1px solid var(--line);
-  background: rgba(8, 8, 8, 0.92);
-  color: var(--mute);
+  border: 0;
+  background: var(--black);
+  color: var(--ivory);
   font-family: var(--font-mono);
   font-size: clamp(0.62rem, 1.3vw, 0.72rem);
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.45rem 0.65rem;
+  padding: 0.5rem 0.7rem;
   cursor: pointer;
   white-space: nowrap;
   max-width: 10rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 0;
 }
 
 .node:hover,
 .nodeActive {
-  border-color: var(--accent);
-  color: var(--ink);
-}
-
-.nodeActive {
-  background: rgba(98, 221, 235, 0.08);
+  background: var(--cobalt);
 }
 
 .detail {
@@ -136,9 +132,10 @@
 }
 
 .detail strong {
-  color: var(--ink);
+  color: inherit;
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 1.05rem;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }

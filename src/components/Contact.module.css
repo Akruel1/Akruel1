@@ -1,82 +1,104 @@
-.head {
-  display: grid;
-  gap: 1.25rem;
-  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
-  max-width: 48rem;
+.section {
+  position: relative;
+  overflow: clip;
+  padding: clamp(5rem, 12vw, 8.5rem) 0 clamp(4rem, 8vw, 6rem);
 }
 
 .headline {
-  font-size: clamp(2.6rem, 7vw, 5rem);
-  font-weight: 600;
-  letter-spacing: -0.055em;
-  max-width: 14ch;
+  margin-top: 0.85rem;
+  font-size: clamp(3.2rem, 10vw, 8rem);
+  text-transform: uppercase;
+  max-width: 11ch;
 }
 
 .cta {
-  justify-self: start;
+  margin-top: 2rem;
+  background: var(--black);
+  color: var(--ivory);
+}
+
+.cta span {
+  color: var(--red);
+}
+
+.channels {
+  margin-top: clamp(3rem, 7vw, 4.5rem);
+  max-width: 36rem;
+  position: relative;
+  z-index: 1;
 }
 
 .channels h3 {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--faint);
   margin-bottom: 1rem;
 }
 
-.list {
+.channels ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--line);
-  max-width: 40rem;
+  border-top: 2px solid rgba(16, 16, 16, 0.2);
 }
 
-.list li {
+.channels li {
   display: grid;
-  grid-template-columns: 7.5rem 1fr;
+  grid-template-columns: 7rem 1fr;
   gap: 1rem;
   padding: 1rem 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(16, 16, 16, 0.16);
   align-items: baseline;
 }
 
-.list span {
+.channels span {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--faint);
+  opacity: 0.65;
 }
 
-.list a {
-  color: var(--ink);
+.channels a {
   text-decoration: none;
-  letter-spacing: -0.015em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
 }
 
-.list a:hover {
-  color: var(--accent);
+.channels a:hover {
+  opacity: 1;
+  color: var(--cobalt);
 }
 
-@media (min-width: 900px) {
-  .section .container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 3rem;
-    align-items: end;
-  }
+.cobaltCorner {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: min(38vw, 420px);
+  height: min(38vw, 420px);
+  background: var(--cobalt);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
 
-  .head {
-    margin-bottom: 0;
-  }
+.redBar {
+  position: absolute;
+  left: 0;
+  top: 22%;
+  width: 10px;
+  height: 28%;
+  background: var(--red);
+  pointer-events: none;
 }
 
 @media (max-width: 560px) {
-  .list li {
+  .channels li {
     grid-template-columns: 1fr;
     gap: 0.25rem;
+  }
+
+  .cobaltCorner {
+    width: 55vw;
+    height: 55vw;
+    opacity: 0.85;
   }
 }

@@ -4,9 +4,16 @@
   left: 0;
   right: 0;
   z-index: 50;
-  background: rgba(8, 8, 8, 0.92);
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(8px);
+  mix-blend-mode: normal;
+  transition: color 0.35s var(--ease);
+}
+
+.onDark {
+  color: var(--ivory);
+}
+
+.onLight {
+  color: var(--black);
 }
 
 .inner {
@@ -18,58 +25,50 @@
 
 .brand {
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   gap: 0.65rem;
-  color: var(--ink);
+  color: inherit;
   text-decoration: none;
   margin-right: auto;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.04em;
 }
 
 .brand:hover {
-  color: var(--ink);
+  opacity: 1;
+  color: inherit;
 }
 
 .mark {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  color: var(--accent);
+  color: var(--red);
+  font-size: 0.95rem;
 }
 
 .brandName {
   display: none;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  font-weight: 500;
 }
 
 .nav {
   display: none;
-  gap: 1.75rem;
+  gap: 1.5rem;
   align-items: center;
 }
 
 .link {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  color: var(--mute);
+  color: inherit;
   text-decoration: none;
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .link:hover {
-  color: var(--ink);
-}
-
-.linkN {
-  color: var(--faint);
+  opacity: 0.65;
+  color: inherit;
 }
 
 .desktopLocale {
@@ -77,7 +76,7 @@
 }
 
 .mobileLocale {
-  margin-top: 0.75rem;
+  margin-top: 1rem;
 }
 
 .burger {
@@ -89,16 +88,17 @@
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   cursor: pointer;
   padding: 0;
+  color: inherit;
 }
 
 .burger span {
   display: block;
-  height: 1px;
+  height: 2px;
   width: 100%;
-  background: var(--ink);
+  background: currentColor;
 }
 
 @media (min-width: 860px) {
@@ -129,9 +129,9 @@
     top: var(--header-h);
     left: 0;
     right: 0;
-    padding: 1.25rem var(--gutter) 1.75rem;
-    background: rgba(8, 8, 8, 0.98);
-    border-bottom: 1px solid var(--line);
-    gap: 1.1rem;
+    padding: 1.5rem var(--gutter) 2rem;
+    background: var(--black);
+    color: var(--ivory);
+    gap: 1.15rem;
   }
 }

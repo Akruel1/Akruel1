@@ -7,7 +7,7 @@ export const ru: Dictionary = {
     description:
       "AI Systems Engineer. Строю интеллектуальные системы, которые превращают сложность в ценность. ARAX и Orbox.",
     ogTitle: `${profile.name} — AI Systems Engineer`,
-    ogDescription: "Редакционное портфолио — ARAX, Orbox, архитектура систем.",
+    ogDescription: "Experimental digital editorial — кампании ARAX и Orbox.",
   },
   nav: {
     work: "Работы",
@@ -28,10 +28,10 @@ export const ru: Dictionary = {
     status: "Открыт к сотрудничеству",
   },
   work: {
-    eyebrow: "Избранные работы",
-    headline: "Избранные проекты",
-    lead: "Реальные системы. Ясная архитектура. Прикладной AI там, где он окупается.",
-    viewCase: "Открыть кейс",
+    eyebrow: "Кампании",
+    headline: "Избранные работы",
+    lead: "Две системы. Два постера. Архитектура без SaaS-костюма.",
+    viewCase: "Смотреть кампанию",
     items: {
       arax: {
         index: "01",

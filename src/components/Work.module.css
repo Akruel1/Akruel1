@@ -1,128 +1,171 @@
-.section {
-  padding-top: clamp(4rem, 9vw, 6.5rem);
+.work {
+  position: relative;
 }
 
-.head {
-  display: grid;
-  gap: 0.85rem;
-  margin-bottom: clamp(2.5rem, 5vw, 3.75rem);
-  max-width: 42rem;
+.bridge {
+  padding: clamp(4rem, 10vw, 7rem) 0 clamp(3rem, 6vw, 4.5rem);
 }
 
-.headline {
-  font-size: clamp(2.4rem, 6vw, 4.25rem);
-  font-weight: 600;
-  letter-spacing: -0.05em;
+.bridgeTitle {
+  margin-top: 0.85rem;
+  font-size: clamp(3rem, 9vw, 7rem);
+  text-transform: uppercase;
+  max-width: 10ch;
 }
 
-.lead {
+.bridgeLead {
+  margin-top: 1.25rem;
+  max-width: 28rem;
   color: var(--mute);
-  max-width: 32rem;
-  font-size: 1.02rem;
+  font-size: 1.1rem;
 }
 
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid var(--line);
-}
-
-.row {
-  border-bottom: 1px solid var(--line);
-}
-
-.link {
+.campaign {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: clip;
   display: grid;
-  gap: 0.85rem 1.25rem;
-  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
-  text-decoration: none;
-  color: inherit;
-  transition: background 0.25s var(--ease);
+  align-items: center;
+  padding: clamp(4rem, 8vw, 6rem) 0;
 }
 
-.link:hover {
-  color: inherit;
+.visual {
+  position: absolute;
+  width: min(52vw, 720px);
+  aspect-ratio: 4 / 5;
+  will-change: transform;
 }
 
-.link:hover .name {
-  color: var(--accent);
+.visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.link:hover .arrow {
-  transform: translateX(4px);
+.right .visual {
+  right: -4%;
+  top: 8%;
+}
+
+.left .visual {
+  left: -6%;
+  bottom: 6%;
+}
+
+.stamp {
+  position: absolute;
+  width: 28%;
+  height: 28%;
+}
+
+.cobalt {
+  background: var(--cobalt);
+  right: -6%;
+  bottom: -6%;
+}
+
+.red {
+  background: var(--red);
+  left: -8%;
+  top: -8%;
+}
+
+.copy {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+}
+
+.right .copy {
+  margin-right: auto;
+}
+
+.left .copy {
+  margin-left: auto;
+  text-align: left;
 }
 
 .index {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  color: var(--accent);
-}
-
-.main {
-  display: grid;
-  gap: 0.35rem;
+  margin-bottom: 1rem;
+  color: var(--mute);
 }
 
 .name {
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  font-weight: 600;
-  letter-spacing: -0.045em;
-  line-height: 0.95;
-  color: var(--ink);
+  font-size: clamp(4.5rem, 14vw, 11rem);
   text-transform: uppercase;
-  transition: color 0.25s var(--ease);
+  line-height: 0.8;
+  margin-bottom: 0.75rem;
 }
 
 .tagline {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  margin-bottom: 1.25rem;
   color: var(--mute);
 }
 
 .summary {
+  max-width: 28rem;
+  margin-bottom: 2rem;
+  font-size: 1.08rem;
+  line-height: 1.45;
   color: var(--mute);
-  max-width: 36rem;
-  font-size: 0.98rem;
-  line-height: 1.55;
 }
 
-.action {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
+.vert {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  writing-mode: vertical-rl;
+  transform: translateY(-50%) rotate(180deg);
+  letter-spacing: 0.35em;
+  opacity: 0.35;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.actionLabel {
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 0.15rem;
+.left .vert {
+  right: auto;
+  left: 1rem;
+  transform: translateY(-50%);
 }
 
-.arrow {
-  color: var(--accent);
-  transition: transform 0.25s var(--ease);
-}
-
-@media (min-width: 960px) {
-  .link {
-    grid-template-columns: 3.5rem 1.1fr 1.35fr auto;
-    align-items: start;
+@media (max-width: 860px) {
+  .campaign {
+    min-height: auto;
+    padding: 4.5rem 0 5rem;
   }
 
-  .summary {
-    padding-top: 0.35rem;
+  .visual {
+    position: relative;
+    width: calc(100% + var(--gutter) * 2);
+    margin-left: calc(var(--gutter) * -1);
+    margin-bottom: 1.75rem;
+    aspect-ratio: 5 / 4;
+    inset: auto;
   }
 
-  .action {
-    justify-self: end;
-    padding-top: 0.55rem;
+  .right .visual,
+  .left .visual {
+    right: auto;
+    left: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  .copy {
+    max-width: none;
+    margin: 0 !important;
+  }
+
+  .vert {
+    display: none;
+  }
+
+  .name {
+    font-size: clamp(3.8rem, 18vw, 5.5rem);
   }
 }

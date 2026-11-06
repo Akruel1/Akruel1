@@ -6,7 +6,7 @@ export const en = {
     description:
       "AI Systems Engineer. Building intelligent systems that turn complexity into real value. ARAX & Orbox.",
     ogTitle: `${profile.name} — AI Systems Engineer`,
-    ogDescription: "Editorial portfolio — ARAX, Orbox, systems architecture.",
+    ogDescription: "Experimental digital editorial — ARAX & Orbox campaigns.",
   },
   nav: {
     work: "Work",
@@ -27,10 +27,10 @@ export const en = {
     status: "Open to collaboration",
   },
   work: {
-    eyebrow: "Selected work",
-    headline: "Selected Projects",
-    lead: "Real systems. Clear architecture. Applied AI where it earns its place.",
-    viewCase: "Open case",
+    eyebrow: "Campaigns",
+    headline: "Selected work",
+    lead: "Two systems. Two posters. Architecture without the SaaS costume.",
+    viewCase: "View campaign",
     items: {
       arax: {
         index: "01",

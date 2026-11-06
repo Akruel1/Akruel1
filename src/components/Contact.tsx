@@ -16,24 +16,26 @@ export function Contact() {
   ] as const;
 
   return (
-    <section id="contact" className={`section ${styles.section}`} aria-labelledby="contact-title">
+    <section
+      id="contact"
+      className={`${styles.section} env-acid`}
+      data-env="acid"
+      aria-labelledby="contact-title"
+    >
       <div className="container">
-        <header className={styles.head}>
-          <p className="section-num">04 — {t.contact.eyebrow}</p>
-          <h2 id="contact-title" className={styles.headline}>
-            {t.contact.headline}
-          </h2>
-          <a className={`btn ${styles.cta}`} href={`mailto:${contact.email.value}`}>
-            {t.contact.cta}
-            <span className="btn-arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
-        </header>
+        <p className="poster-label">{t.contact.eyebrow}</p>
+        <h2 id="contact-title" className={styles.headline}>
+          {t.contact.headline}
+        </h2>
+
+        <a className={`campaign-cta ${styles.cta}`} href={`mailto:${contact.email.value}`}>
+          {t.contact.cta}
+          <span aria-hidden="true">→</span>
+        </a>
 
         <div className={styles.channels}>
-          <h3>{t.contact.channels}</h3>
-          <ul className={styles.list}>
+          <h3 className="poster-label">{t.contact.channels}</h3>
+          <ul>
             {channels.map((channel) => (
               <li key={channel.key}>
                 <span>{channel.label}</span>
@@ -49,6 +51,9 @@ export function Contact() {
           </ul>
         </div>
       </div>
+
+      <div className={styles.cobaltCorner} aria-hidden="true" />
+      <div className={styles.redBar} aria-hidden="true" />
     </section>
   );
 }
