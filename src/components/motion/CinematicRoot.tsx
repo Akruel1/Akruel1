@@ -147,11 +147,12 @@ export function CinematicRoot({ children }: { children: ReactNode }) {
           });
 
           const visual = el.querySelector<HTMLElement>("[data-campaign-visual]");
-          const copy = el.querySelector<HTMLElement>("[data-campaign-copy]");
           if (visual) {
+            // Scale toward the outer edge so the visual doesn't grow over copy
+            const origin = el.dataset.side === "left" ? "0% 50%" : "100% 50%";
             gsap.fromTo(
               visual,
-              { scale: 1.06, yPercent: 4 },
+              { scale: 1.03, yPercent: 2, transformOrigin: origin },
               {
                 scale: 1,
                 yPercent: 0,
@@ -165,24 +166,8 @@ export function CinematicRoot({ children }: { children: ReactNode }) {
               },
             );
           }
-          if (copy) {
-            gsap.fromTo(
-              copy.querySelectorAll("[data-kine], [data-clip], .campaign-cta"),
-              { y: 28, opacity: 0.35 },
-              {
-                y: 0,
-                opacity: 1,
-                ease: "none",
-                stagger: 0.05,
-                scrollTrigger: {
-                  trigger: el,
-                  start: "top 80%",
-                  end: "top 20%",
-                  scrub: true,
-                },
-              },
-            );
-          }
+          // Copy readability: rely on data-kine / data-clip entrances only —
+          // no scrubbed opacity that can leave title/body half-faded over the pin.
         });
       }
 
