@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Manrope } from "next/font/google";
+import { DM_Sans, IBM_Plex_Mono, Manrope, Syne } from "next/font/google";
 import type { CSSProperties } from "react";
 import { ExperienceShell } from "@/components/ExperienceShell";
 import { Footer } from "@/components/Footer";
@@ -8,6 +8,18 @@ import { en } from "@/content/en";
 import { I18nProvider } from "@/lib/i18n";
 import { BASE_PATH, SITE } from "@/lib/site";
 import "./globals.css";
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-dm",
+  display: "swap",
+});
 
 const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
@@ -55,12 +67,17 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${mono.variable}`}>
+    <html
+      lang="en"
+      className={`${syne.variable} ${dmSans.variable} ${manrope.variable} ${mono.variable}`}
+    >
       <body
         style={
           {
-            "--font-display": "var(--font-manrope), Manrope, sans-serif",
-            "--font-body": "var(--font-manrope), Manrope, sans-serif",
+            "--font-display":
+              "var(--font-syne), var(--font-manrope), Syne, Manrope, sans-serif",
+            "--font-body":
+              "var(--font-dm), var(--font-manrope), 'DM Sans', Manrope, sans-serif",
             "--font-mono": "var(--font-plex-mono), 'IBM Plex Mono', monospace",
           } as CSSProperties
         }

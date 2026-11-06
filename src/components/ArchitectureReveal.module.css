@@ -1,10 +1,7 @@
 .figure {
   margin: 2.75rem 0 0;
-  padding: 1.5rem;
-  border: 1px solid var(--line);
-  background:
-    radial-gradient(circle at 70% 20%, rgba(122, 212, 236, 0.06), transparent 45%),
-    rgba(5, 8, 12, 0.85);
+  padding: 0;
+  background: transparent;
 }
 
 .head {
@@ -13,53 +10,57 @@
   gap: 0.75rem 1.25rem;
   align-items: baseline;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 .caption {
-  color: var(--faint);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
   flex: 1 1 12rem;
 }
 
 .reveal {
   appearance: none;
-  border: 1px solid var(--cyan-dim);
-  background: transparent;
-  color: var(--cyan);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
+  border: 0;
+  background: var(--cobalt);
+  color: var(--ivory);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
-  padding: 0.45rem 0.7rem;
+  padding: 0.55rem 0.85rem;
   cursor: pointer;
 }
 
 .reveal:hover {
-  border-color: var(--cyan);
-  color: var(--ice);
+  background: var(--red);
 }
 
 .canvas {
   position: relative;
-  margin-top: 1.25rem;
+  margin-top: 0.5rem;
   aspect-ratio: 16 / 10;
   min-height: 230px;
-  border: 1px solid var(--line);
+  border: 2px solid currentColor;
+  opacity: 0.95;
   background:
-    radial-gradient(circle at 50% 50%, rgba(74, 160, 190, 0.06), transparent 55%),
     repeating-linear-gradient(
-      0deg,
+      90deg,
       transparent,
-      transparent 27px,
-      rgba(160, 190, 220, 0.04) 28px
+      transparent 47px,
+      rgba(127, 127, 127, 0.12) 48px
     );
 }
 
@@ -72,16 +73,18 @@
 
 .edge,
 .edgeLit {
-  stroke-width: 0.35;
+  stroke-width: 0.45;
   fill: none;
 }
 
 .edge {
-  stroke: rgba(122, 212, 236, 0.2);
+  stroke: currentColor;
+  opacity: 0.25;
 }
 
 .edgeLit {
-  stroke: rgba(154, 220, 240, 0.75);
+  stroke: var(--red);
+  opacity: 0.9;
 }
 
 .nodes {
@@ -100,29 +103,24 @@
 .node,
 .nodeActive {
   appearance: none;
-  border: 1px solid var(--line);
-  background: rgba(3, 5, 7, 0.9);
-  color: var(--mute);
+  border: 0;
+  background: var(--black);
+  color: var(--ivory);
   font-family: var(--font-mono);
-  font-size: clamp(0.62rem, 1.3vw, 0.75rem);
-  letter-spacing: 0.04em;
-  padding: 0.45rem 0.65rem;
+  font-size: clamp(0.62rem, 1.3vw, 0.72rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.7rem;
   cursor: pointer;
   white-space: nowrap;
   max-width: 10rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  backdrop-filter: blur(4px);
 }
 
 .node:hover,
 .nodeActive {
-  border-color: var(--cyan);
-  color: var(--ice);
-}
-
-.nodeActive {
-  background: rgba(122, 212, 236, 0.12);
+  background: var(--cobalt);
 }
 
 .detail {
@@ -134,8 +132,10 @@
 }
 
 .detail strong {
-  color: var(--ink);
+  color: inherit;
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }

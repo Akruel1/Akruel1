@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a2c30"/>
+      <stop offset="45%" stop-color="#6e7278"/>
+      <stop offset="70%" stop-color="#b8babd"/>
+      <stop offset="100%" stop-color="#3a3d42"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#g)"/>
+  <g fill="none" stroke="#0e0e0e" stroke-opacity="0.35" stroke-width="2">
+    <path d="M80 0 V1600 M240 0 V1600 M400 0 V1600 M560 0 V1600 M720 0 V1600 M880 0 V1600 M1040 0 V1600"/>
+    <path d="M0 120 H1200 M0 320 H1200 M0 520 H1200 M0 760 H1200 M0 980 H1200 M0 1220 H1200 M0 1460 H1200"/>
+  </g>
+  <polygon points="180,120 980,80 1100,980 260,1280" fill="#101010" fill-opacity="0.28"/>
+  <polygon points="420,260 1080,420 920,1380 180,980" fill="#b8babd" fill-opacity="0.18"/>
+  <rect x="520" y="200" width="420" height="980" fill="url(#shine)"/>
+  <path d="M0 900 L600 200 L1200 900 L600 1600 Z" fill="#244BFF" fill-opacity="0.12"/>
+</svg>

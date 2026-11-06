@@ -2,7 +2,6 @@
 
 import { profile } from "@/content/profile";
 import { useI18n } from "@/lib/i18n";
-import { LiquidScene } from "./liquid/LiquidScene";
 import styles from "./Contact.module.css";
 
 export function Contact() {
@@ -17,23 +16,26 @@ export function Contact() {
   ] as const;
 
   return (
-    <section id="contact" className={`section ${styles.section}`} aria-labelledby="contact-title">
-      <div className="mountain" aria-hidden="true" />
-      <div className={`container ${styles.grid}`}>
-        <div>
-          <p className="eyebrow">{t.contact.eyebrow} —</p>
-          <h2 id="contact-title" className={styles.headline}>
-            {t.contact.headline}
-          </h2>
-          <a className={`btn ${styles.cta}`} href={`mailto:${contact.email.value}`}>
-            {t.contact.cta}
-            <span className="btn-arrow" aria-hidden="true">
-              →
-            </span>
-          </a>
+    <section
+      id="contact"
+      className={`${styles.section} env-acid`}
+      data-env="acid"
+      aria-labelledby="contact-title"
+    >
+      <div className="container">
+        <p className="poster-label">{t.contact.eyebrow}</p>
+        <h2 id="contact-title" className={styles.headline}>
+          {t.contact.headline}
+        </h2>
 
-          <h3 className={styles.channels}>{t.contact.channels}</h3>
-          <ul className={styles.list}>
+        <a className={`campaign-cta ${styles.cta}`} href={`mailto:${contact.email.value}`}>
+          {t.contact.cta}
+          <span aria-hidden="true">→</span>
+        </a>
+
+        <div className={styles.channels}>
+          <h3 className="poster-label">{t.contact.channels}</h3>
+          <ul>
             {channels.map((channel) => (
               <li key={channel.key}>
                 <span>{channel.label}</span>
@@ -48,11 +50,10 @@ export function Contact() {
             ))}
           </ul>
         </div>
-
-        <div className={styles.visual} aria-hidden="true">
-          <LiquidScene className={styles.scene} variant="strand" interactive={false} />
-        </div>
       </div>
+
+      <div className={styles.cobaltCorner} aria-hidden="true" />
+      <div className={styles.redBar} aria-hidden="true" />
     </section>
   );
 }

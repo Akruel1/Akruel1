@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { ArchitectureReveal } from "./ArchitectureReveal";
-import { LiquidScene } from "./liquid/LiquidScene";
 import { useI18n } from "@/lib/i18n";
+import { withBasePath } from "@/lib/site";
 import styles from "./CasePage.module.css";
 
 export function AraxCase() {
@@ -11,31 +11,33 @@ export function AraxCase() {
   const c = t.caseArax;
 
   return (
-    <article className={styles.page}>
-      <div className={`container ${styles.top}`}>
-        <div>
+    <article className={`${styles.page} env-ivory`} data-env="ivory">
+      <div className={styles.heroBand}>
+        <img
+          className={styles.heroImg}
+          src={withBasePath("/images/texture-arch.svg")}
+          alt=""
+          aria-hidden="true"
+        />
+        <div className={`container ${styles.top}`}>
           <p className={styles.back}>
             <Link href="/#work">{c.back}</Link>
           </p>
-          <p className="eyebrow">{c.eyebrow}</p>
+          <p className="poster-label">{c.eyebrow}</p>
           <h1 className={styles.title}>{c.title}</h1>
           <p className={styles.subtitle}>{c.subtitle}</p>
-          <p className={styles.intro}>{c.intro}</p>
-          <ul className={styles.tags}>
-            {c.tags.map((tag) => (
-              <li key={tag}>
-                <span className="tag">{tag}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.visual} aria-hidden="true">
-          <LiquidScene className={styles.scene} variant="shard" interactive={false} />
         </div>
       </div>
 
       <div className={`container ${styles.body}`}>
-        <p className="eyebrow">{c.bigPicture}</p>
+        <p className={styles.intro}>{c.intro}</p>
+        <ul className={styles.tags}>
+          {c.tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+
+        <p className="poster-label">{c.bigPicture}</p>
         <h2 className={styles.bigLead}>{c.bigPictureLead}</h2>
 
         <ArchitectureReveal
@@ -47,8 +49,6 @@ export function AraxCase() {
 
         <p className={styles.note}>{c.implementedNote}</p>
       </div>
-
-      <div className="mountain" aria-hidden="true" />
     </article>
   );
 }

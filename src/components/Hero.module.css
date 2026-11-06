@@ -2,234 +2,202 @@
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
-  display: grid;
-  align-items: center;
-  padding: calc(var(--header-h) + 1rem) 0 5.5rem;
   overflow: clip;
+  display: grid;
+  align-items: end;
+  padding: calc(var(--header-h) + 1rem) 0 0;
+}
+
+.media {
+  position: absolute;
+  inset: 8% -8% -12% 28%;
+  z-index: 0;
+  will-change: transform;
+}
+
+.texture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.08) saturate(0.85);
+}
+
+.mediaWash {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #101010 0%, rgba(16, 16, 16, 0.35) 38%, transparent 62%),
+    linear-gradient(180deg, transparent 40%, rgba(16, 16, 16, 0.85) 100%);
+}
+
+.issue {
+  position: absolute;
+  left: max(0.75rem, calc((100vw - var(--max)) / 2 - 0.25rem));
+  top: 55%;
+  z-index: 2;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: var(--silver);
+  letter-spacing: 0.28em;
 }
 
 .stage {
-  position: absolute;
-  inset: 0;
-  background: #000;
-}
-
-.canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Soft god-rays / bloom — separates chrome from void (not purple SaaS) */
-.bloom {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 62% 52% at 74% 40%, rgba(95, 212, 239, 0.26), transparent 64%),
-    radial-gradient(ellipse 40% 34% at 64% 24%, rgba(236, 244, 250, 0.16), transparent 55%),
-    radial-gradient(ellipse 30% 60% at 70% 48%, rgba(200, 230, 240, 0.1), transparent 72%),
-    radial-gradient(ellipse 44% 50% at 82% 72%, rgba(30, 70, 90, 0.2), transparent 60%),
-    linear-gradient(115deg, transparent 40%, rgba(180, 220, 235, 0.05) 52%, transparent 65%);
-  mix-blend-mode: screen;
-}
-
-.veil {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.94) 0%,
-      rgba(0, 0, 0, 0.62) 28%,
-      rgba(0, 0, 0, 0.12) 48%,
-      transparent 62%,
-      rgba(0, 0, 0, 0.25) 100%
-    ),
-    linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.55) 100%);
-}
-
-.content {
   position: relative;
   z-index: 1;
-  max-width: 38rem;
+  width: 100%;
+  padding-bottom: clamp(1.5rem, 4vw, 2.75rem);
+  display: grid;
+  gap: 1.25rem;
 }
 
-.role {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
-  margin-bottom: 1.25rem;
-}
-
-.roleArrow {
-  color: var(--cyan);
-  letter-spacing: 0;
+.kicker {
+  color: var(--acid);
+  max-width: 20rem;
 }
 
 .name {
   display: grid;
-  gap: 0.02em;
+  gap: 0;
   margin: 0;
+  max-width: 14ch;
 }
 
-.nameLine {
-  font-size: clamp(3.6rem, 11vw, 7.4rem);
+.first,
+.last {
+  display: block;
+  font-size: clamp(4.8rem, 18vw, 13rem);
   font-weight: 800;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.07em;
+  line-height: 0.82;
   text-transform: uppercase;
-  line-height: 0.88;
-  color: #fff;
+  color: var(--ivory);
+  text-shadow: 0 0 0 transparent;
 }
 
-.nameOffset {
-  margin-left: 0.28em;
-  padding-left: 0.08em;
-  text-shadow: 0 0 56px rgba(95, 212, 239, 0.14);
+.last {
+  margin-left: clamp(0rem, 6vw, 4.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+.dot {
+  font-style: normal;
+  color: var(--red);
+}
+
+.footerRow {
+  display: grid;
+  gap: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid rgba(240, 238, 232, 0.18);
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 900px) {
+  .footerRow {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: end;
+  }
 }
 
 .intro {
-  margin-top: 1.5rem;
-  margin-bottom: 2.1rem;
-  max-width: 26rem;
-  color: rgba(200, 208, 216, 0.82);
-  font-size: 1.02rem;
-  line-height: 1.55;
+  max-width: 28rem;
+  color: var(--mute);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.4;
 }
 
-.cta {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 28px rgba(95, 212, 239, 0.08);
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.scroll {
-  position: absolute;
-  left: max(1.25rem, calc((100vw - var(--max)) / 2));
-  bottom: 1.85rem;
-  z-index: 2;
+@media (min-width: 900px) {
+  .meta {
+    justify-content: flex-end;
+  }
+}
+
+.status {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
   gap: 0.55rem;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.28em;
-  color: var(--faint);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-
-.scrollLine {
-  width: 1px;
-  height: 2.4rem;
-  writing-mode: horizontal-tb;
-  background: linear-gradient(180deg, var(--cyan), transparent);
-}
-
-.pager {
-  position: absolute;
-  right: max(1.25rem, calc((100vw - var(--max)) / 2));
-  bottom: 1.75rem;
-  z-index: 3;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.55rem;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--faint);
-  text-align: right;
+  color: var(--silver);
 }
 
-.pager li {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.45rem;
+.status i {
+  width: 0.55rem;
+  height: 0.55rem;
+  background: var(--acid);
+  display: inline-block;
 }
 
-.pagerN {
-  color: var(--cyan);
+.cobaltSlash {
+  position: absolute;
+  right: 0;
+  top: 18%;
+  width: min(22vw, 280px);
+  height: min(42vh, 420px);
+  background: var(--cobalt);
+  z-index: 0;
+  clip-path: polygon(35% 0, 100% 0, 100% 100%, 0 100%);
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  pointer-events: none;
 }
 
-.pagerLabel {
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.pagerDot {
-  width: 1.1rem;
-  height: 1.1rem;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  display: inline-grid;
-  place-items: center;
-  font-size: 0.55rem;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-@media (min-width: 960px) {
-  .canvas {
-    left: 12%;
-    width: 92%;
-  }
-
-  .content {
-    max-width: 42rem;
-  }
-
-  .nameOffset {
-    margin-left: 0.48em;
-  }
+.redBlock {
+  position: absolute;
+  left: 8%;
+  bottom: 18%;
+  width: min(18vw, 180px);
+  height: 8px;
+  background: var(--red);
+  z-index: 2;
+  pointer-events: none;
 }
 
 @media (max-width: 720px) {
-  .canvas {
-    top: 0;
-    height: 62%;
-    opacity: 0.95;
+  .media {
+    inset: 0 0 38% 0;
+    opacity: 0.9;
   }
 
-  .bloom {
-    background: radial-gradient(
-      ellipse 70% 40% at 50% 30%,
-      rgba(95, 212, 239, 0.12),
-      transparent 60%
-    );
+  .mediaWash {
+    background:
+      linear-gradient(180deg, rgba(16, 16, 16, 0.2) 0%, rgba(16, 16, 16, 0.92) 78%);
   }
 
-  .veil {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.1) 0%,
-      rgba(0, 0, 0, 0.45) 42%,
-      rgba(0, 0, 0, 0.96) 70%
-    );
+  .issue {
+    display: none;
+  }
+
+  .last {
+    margin-left: 0;
+  }
+
+  .cobaltSlash {
+    width: 34vw;
+    height: 28vh;
+    top: 12%;
+    opacity: 0.7;
+  }
+
+  .redBlock {
+    left: var(--gutter);
+    bottom: auto;
+    top: calc(var(--header-h) + 5.5rem);
+    width: 72px;
   }
 
   .hero {
     align-items: end;
-  }
-
-  .pager {
-    display: none;
-  }
-
-  .scroll {
-    writing-mode: horizontal-tb;
-  }
-
-  .scrollLine {
-    width: 1.5rem;
-    height: 1px;
-    background: linear-gradient(90deg, var(--cyan), transparent);
   }
 }

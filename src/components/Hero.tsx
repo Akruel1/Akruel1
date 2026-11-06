@@ -1,88 +1,79 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { profile } from "@/content/profile";
 import { useI18n } from "@/lib/i18n";
 import { prefersReducedMotion } from "@/lib/motion";
-import { LiquidScene } from "./liquid/LiquidScene";
+import { withBasePath } from "@/lib/site";
 import styles from "./Hero.module.css";
 
 export function Hero() {
   const { t } = useI18n();
   const reduce = prefersReducedMotion();
-  const [first, ...rest] = t.hero.name.split(" ");
-  const last = rest.join(" ") || first;
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const yImg = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 120]);
+  const yType = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -60]);
 
   return (
-    <section className={styles.hero} aria-labelledby="hero-name">
-      <div className={styles.stage} aria-hidden="true">
-        <LiquidScene className={styles.canvas} variant="twist" />
-        <div className={styles.bloom} />
-        <div className={styles.veil} />
-      </div>
+    <section
+      ref={ref}
+      className={`${styles.hero} env-black`}
+      data-env="black"
+      aria-labelledby="hero-name"
+    >
+      <motion.div className={styles.media} style={{ y: yImg }} aria-hidden="true">
+        <img
+          src={withBasePath("/images/texture-industrial.svg")}
+          alt=""
+          className={styles.texture}
+        />
+        <div className={styles.mediaWash} />
+      </motion.div>
 
-      <div className={`container ${styles.content}`}>
-        <motion.p
-          className={styles.role}
-          initial={reduce ? false : { opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          {t.hero.title}
-          <span className={styles.roleArrow} aria-hidden="true">
-            {" →"}
-          </span>
-        </motion.p>
+      <p className={`${styles.issue} poster-label`} aria-hidden="true">
+        {t.hero.index}
+      </p>
+
+      <div className={`container ${styles.stage}`}>
+        <p className={`${styles.kicker} poster-label`}>{t.hero.title}</p>
 
         <motion.h1
           id="hero-name"
           className={styles.name}
-          initial={reduce ? false : { opacity: 0, y: 18 }}
+          style={{ y: yType }}
+          initial={reduce ? false : { opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, delay: 0.08 }}
+          transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className={styles.nameLine}>{first}</span>
-          <span className={`${styles.nameLine} ${styles.nameOffset}`}>{last}</span>
+          <span className={styles.first}>{profile.nameFirst}</span>
+          <span className={styles.last}>
+            {profile.nameLast}
+            <em className={styles.dot}>.</em>
+          </span>
         </motion.h1>
 
-        <motion.p
-          className={styles.intro}
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-        >
-          {t.hero.intro}
-        </motion.p>
-
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <a className={`btn ${styles.cta}`} href="#work">
-            {t.hero.cta}
-            <span className="btn-arrow" aria-hidden="true">
-              →
+        <div className={styles.footerRow}>
+          <p className={styles.intro}>{t.hero.intro}</p>
+          <div className={styles.meta}>
+            <span className={styles.status}>
+              <i aria-hidden="true" />
+              {t.hero.status}
             </span>
-          </a>
-        </motion.div>
+            <a className="campaign-cta" href="#work">
+              {t.hero.cta}
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div className={styles.scroll} aria-hidden="true">
-        <span className={styles.scrollLine} />
-        <span>{t.hero.scroll}</span>
-      </div>
-
-      <ol className={styles.pager} aria-label="Sections">
-        {t.hero.pager.map((item) => (
-          <li key={item.n}>
-            <span className={styles.pagerN}>{item.n}</span>
-            <span className={styles.pagerLabel}>{item.label}</span>
-            <span className={styles.pagerDot} aria-hidden="true">
-              →
-            </span>
-          </li>
-        ))}
-      </ol>
+      <div className={styles.cobaltSlash} aria-hidden="true" />
+      <div className={styles.redBlock} aria-hidden="true" />
     </section>
   );
 }

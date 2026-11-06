@@ -7,7 +7,7 @@ export const ru: Dictionary = {
     description:
       "AI Systems Engineer. Строю интеллектуальные системы, которые превращают сложность в ценность. ARAX и Orbox.",
     ogTitle: `${profile.name} — AI Systems Engineer`,
-    ogDescription: "Портфолио: liquid glass, ARAX, Orbox.",
+    ogDescription: "Experimental digital editorial — кампании ARAX и Orbox.",
   },
   nav: {
     work: "Работы",
@@ -21,21 +21,17 @@ export const ru: Dictionary = {
   hero: {
     title: profile.titles.primary,
     name: profile.name,
+    index: "Портфолио / 01",
     intro:
       "Я строю интеллектуальные системы, которые превращают сложные задачи в масштабируемые решения.",
-    cta: "Смотреть работы",
-    scroll: "СКРОЛЛ",
-    pager: [
-      { n: "01", label: "ARAX" },
-      { n: "02", label: "Orbox" },
-      { n: "03", label: "О себе" },
-    ],
+    cta: "Избранные работы",
+    status: "Открыт к сотрудничеству",
   },
   work: {
-    eyebrow: "МОИ РАБОТЫ",
-    headline: "Избранные проекты",
-    lead: "Реальные системы. Ясная архитектура. Прикладной AI там, где он окупается.",
-    viewCase: "Смотреть кейс",
+    eyebrow: "Кампании",
+    headline: "Избранные работы",
+    lead: "Две системы. Два постера. Архитектура без SaaS-костюма.",
+    viewCase: "Смотреть кампанию",
     items: {
       arax: {
         index: "01",
@@ -75,7 +71,7 @@ export const ru: Dictionary = {
     ],
   },
   about: {
-    eyebrow: "О СЕБЕ",
+    eyebrow: "О себе",
     headline: `Я ${profile.name}.`,
     titleLine: profile.titles.primary,
     body: [
@@ -91,9 +87,9 @@ export const ru: Dictionary = {
     ],
   },
   capabilities: {
-    eyebrow: "ТЕХНОЛОГИИ",
+    eyebrow: "Экспертиза",
     headline: "Стек и инструменты",
-    lead: "Современные технологии для масштабируемых AI-систем.",
+    lead: "Рабочий стек для масштабируемых AI-систем — не стена бейджей.",
     groups: [
       {
         title: "Frontend",
@@ -132,7 +128,7 @@ export const ru: Dictionary = {
     ],
   },
   contact: {
-    eyebrow: "СВЯЗАТЬСЯ",
+    eyebrow: "Контакт",
     headline: "Давайте соберём что-то умное.",
     cta: "Написать",
     channels: "Каналы",

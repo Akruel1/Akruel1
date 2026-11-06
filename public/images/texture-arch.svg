@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" preserveAspectRatio="xMidYMid slice">
+  <rect width="1600" height="1200" fill="#101010"/>
+  <g fill="none" stroke="#F0EEE8" stroke-opacity="0.14" stroke-width="1.5">
+    <rect x="80" y="60" width="520" height="1080"/>
+    <rect x="640" y="60" width="360" height="1080"/>
+    <rect x="1040" y="60" width="480" height="1080"/>
+    <path d="M80 300 H1520 M80 540 H1520 M80 780 H1520 M80 1020 H1520"/>
+  </g>
+  <rect x="1040" y="60" width="480" height="480" fill="#244BFF"/>
+  <rect x="80" y="780" width="520" height="360" fill="#E7352B"/>
+  <rect x="640" y="540" width="360" height="240" fill="#B8BABD" fill-opacity="0.55"/>
+  <text x="120" y="200" fill="#F0EEE8" font-family="Helvetica, Arial, sans-serif" font-size="42" letter-spacing="8">STRUCTURE</text>
+</svg>
