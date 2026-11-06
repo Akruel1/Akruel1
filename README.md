@@ -1,9 +1,10 @@
 # Andrey Tessa — Portfolio
 
-Exact mockup-matched personal portfolio (board B page system + board A cinematic accents).
+Swiss Editorial portfolio for GitHub Pages.
 
-- Projects: **ARAX** + **Orbox** (no Swiss Remit)
-- Stack: Next.js App Router, R3F liquid-glass sculptures, EN/RU, static GitHub Pages export
+- Projects: **ARAX** + **Orbox**
+- Stack: Next.js App Router, CSS Modules, EN/RU, static export
+- Art direction: International Typographic Style — typography-first, no WebGL hero
 - URL: https://akruel1.github.io/Akruel1/
 
 ```bash

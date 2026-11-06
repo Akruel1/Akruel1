@@ -1,19 +1,21 @@
 .footer {
   border-top: 1px solid var(--line);
-  padding: 1.5rem 0 2.25rem;
-  position: relative;
-  z-index: 1;
+  padding: 1.35rem 0 2rem;
 }
 
 .inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: space-between;
   color: var(--faint);
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   font-family: var(--font-mono);
 }
 
 .sep {
-  margin: 0 0.55rem;
+  margin: 0 0.45rem;
   opacity: 0.5;
 }

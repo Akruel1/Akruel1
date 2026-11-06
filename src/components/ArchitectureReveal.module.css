@@ -1,10 +1,8 @@
 .figure {
   margin: 2.75rem 0 0;
-  padding: 1.5rem;
-  border: 1px solid var(--line);
-  background:
-    radial-gradient(circle at 70% 20%, rgba(122, 212, 236, 0.06), transparent 45%),
-    rgba(5, 8, 12, 0.85);
+  padding: 1.25rem 0 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
 }
 
 .head {
@@ -17,34 +15,38 @@
 
 .title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
   color: var(--ink);
 }
 
 .caption {
   color: var(--faint);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   flex: 1 1 12rem;
 }
 
 .reveal {
   appearance: none;
-  border: 1px solid var(--cyan-dim);
+  border: 1px solid var(--line);
   background: transparent;
-  color: var(--cyan);
+  color: var(--ink);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 0.45rem 0.7rem;
   cursor: pointer;
+  border-radius: 0;
 }
 
 .reveal:hover {
-  border-color: var(--cyan);
-  color: var(--ice);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .canvas {
@@ -54,12 +56,11 @@
   min-height: 230px;
   border: 1px solid var(--line);
   background:
-    radial-gradient(circle at 50% 50%, rgba(74, 160, 190, 0.06), transparent 55%),
     repeating-linear-gradient(
       0deg,
       transparent,
       transparent 27px,
-      rgba(160, 190, 220, 0.04) 28px
+      rgba(255, 255, 255, 0.03) 28px
     );
 }
 
@@ -77,11 +78,11 @@
 }
 
 .edge {
-  stroke: rgba(122, 212, 236, 0.2);
+  stroke: rgba(255, 255, 255, 0.18);
 }
 
 .edgeLit {
-  stroke: rgba(154, 220, 240, 0.75);
+  stroke: rgba(98, 221, 235, 0.75);
 }
 
 .nodes {
@@ -101,28 +102,29 @@
 .nodeActive {
   appearance: none;
   border: 1px solid var(--line);
-  background: rgba(3, 5, 7, 0.9);
+  background: rgba(8, 8, 8, 0.92);
   color: var(--mute);
   font-family: var(--font-mono);
-  font-size: clamp(0.62rem, 1.3vw, 0.75rem);
-  letter-spacing: 0.04em;
+  font-size: clamp(0.62rem, 1.3vw, 0.72rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   padding: 0.45rem 0.65rem;
   cursor: pointer;
   white-space: nowrap;
   max-width: 10rem;
   overflow: hidden;
   text-overflow: ellipsis;
-  backdrop-filter: blur(4px);
+  border-radius: 0;
 }
 
 .node:hover,
 .nodeActive {
-  border-color: var(--cyan);
-  color: var(--ice);
+  border-color: var(--accent);
+  color: var(--ink);
 }
 
 .nodeActive {
-  background: rgba(122, 212, 236, 0.12);
+  background: rgba(98, 221, 235, 0.08);
 }
 
 .detail {
@@ -136,6 +138,7 @@
 .detail strong {
   color: var(--ink);
   font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
 }

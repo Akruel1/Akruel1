@@ -3,9 +3,9 @@
   align-items: center;
   gap: 0.35rem;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--faint);
 }
 
 .switcher button {
@@ -20,9 +20,9 @@
 }
 
 .switcher button:hover {
-  color: #fff;
+  color: var(--ink);
 }
 
 .active {
-  color: #fff !important;
+  color: var(--ink) !important;
 }

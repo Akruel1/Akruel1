@@ -6,7 +6,7 @@ export const en = {
     description:
       "AI Systems Engineer. Building intelligent systems that turn complexity into real value. ARAX & Orbox.",
     ogTitle: `${profile.name} — AI Systems Engineer`,
-    ogDescription: "Portfolio: liquid glass systems, ARAX, Orbox.",
+    ogDescription: "Editorial portfolio — ARAX, Orbox, systems architecture.",
   },
   nav: {
     work: "Work",
@@ -20,21 +20,17 @@ export const en = {
   hero: {
     title: profile.titles.primary,
     name: profile.name,
+    index: "Portfolio / 01",
     intro:
       "I build intelligent systems that turn complex problems into scalable solutions.",
-    cta: "Explore my work",
-    scroll: "SCROLL",
-    pager: [
-      { n: "01", label: "ARAX" },
-      { n: "02", label: "Orbox" },
-      { n: "03", label: "About" },
-    ],
+    cta: "Selected work",
+    status: "Open to collaboration",
   },
   work: {
-    eyebrow: "MY WORK",
+    eyebrow: "Selected work",
     headline: "Selected Projects",
     lead: "Real systems. Clear architecture. Applied AI where it earns its place.",
-    viewCase: "View case study",
+    viewCase: "Open case",
     items: {
       arax: {
         index: "01",
@@ -74,7 +70,7 @@ export const en = {
     ],
   },
   about: {
-    eyebrow: "ABOUT",
+    eyebrow: "About",
     headline: `I'm ${profile.name}.`,
     titleLine: profile.titles.primary,
     body: [
@@ -90,9 +86,9 @@ export const en = {
     ],
   },
   capabilities: {
-    eyebrow: "TECH STACK",
+    eyebrow: "Expertise",
     headline: "Technologies & Tools",
-    lead: "Modern technologies for scalable AI systems.",
+    lead: "A working stack for scalable AI systems — not a badge wall.",
     groups: [
       {
         title: "Frontend",
@@ -131,9 +127,9 @@ export const en = {
     ],
   },
   contact: {
-    eyebrow: "GET IN TOUCH",
+    eyebrow: "Contact",
     headline: "Let's build something intelligent.",
-    cta: "Get in touch",
+    cta: "Email me",
     channels: "Channels",
   },
   footer: {

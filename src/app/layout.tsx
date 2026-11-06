@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Manrope } from "next/font/google";
+import { IBM_Plex_Mono, Inter } from "next/font/google";
 import type { CSSProperties } from "react";
 import { ExperienceShell } from "@/components/ExperienceShell";
 import { Footer } from "@/components/Footer";
@@ -9,9 +9,9 @@ import { I18nProvider } from "@/lib/i18n";
 import { BASE_PATH, SITE } from "@/lib/site";
 import "./globals.css";
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-manrope",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -55,12 +55,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${mono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${mono.variable}`}>
       <body
         style={
           {
-            "--font-display": "var(--font-manrope), Manrope, sans-serif",
-            "--font-body": "var(--font-manrope), Manrope, sans-serif",
+            "--font-display": "var(--font-inter), Inter, Helvetica Neue, sans-serif",
+            "--font-body": "var(--font-inter), Inter, Helvetica Neue, sans-serif",
             "--font-mono": "var(--font-plex-mono), 'IBM Plex Mono', monospace",
           } as CSSProperties
         }

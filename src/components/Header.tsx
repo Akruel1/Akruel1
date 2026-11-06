@@ -10,7 +10,6 @@ import styles from "./Header.module.css";
 export function Header() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
-
   const close = () => setOpen(false);
 
   return (
@@ -23,12 +22,15 @@ export function Header() {
 
         <nav className={`${styles.nav} ${open ? styles.navOpen : ""}`} aria-label="Primary">
           <Link href="/#work" className={styles.link} onClick={close}>
+            <span className={styles.linkN}>01</span>
             {t.nav.work}
           </Link>
           <Link href="/#about" className={styles.link} onClick={close}>
+            <span className={styles.linkN}>02</span>
             {t.nav.about}
           </Link>
           <Link href="/#contact" className={styles.link} onClick={close}>
+            <span className={styles.linkN}>03</span>
             {t.nav.contact}
           </Link>
           <div className={styles.mobileLocale}>

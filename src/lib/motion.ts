@@ -16,22 +16,3 @@ export function isLowPowerDevice(): boolean {
   if (cores <= 4) return true;
   return false;
 }
-
-const INTRO_KEY = "at-liquid-intro-seen";
-
-export function hasSeenIntro(): boolean {
-  if (typeof window === "undefined") return true;
-  try {
-    return sessionStorage.getItem(INTRO_KEY) === "1";
-  } catch {
-    return false;
-  }
-}
-
-export function markIntroSeen(): void {
-  try {
-    sessionStorage.setItem(INTRO_KEY, "1");
-  } catch {
-    /* ignore */
-  }
-}

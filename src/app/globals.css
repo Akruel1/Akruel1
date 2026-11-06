@@ -1,18 +1,19 @@
 :root {
-  --bg: #000000;
-  --ink: #ffffff;
-  --mute: #a8b0b8;
-  --faint: #6a737c;
-  --line: rgba(255, 255, 255, 0.12);
-  --cyan: #00e5ff;
-  --cyan-soft: rgba(0, 229, 255, 0.35);
-  --ice: #b8eef8;
-  --font-display: "Manrope", "Segoe UI", sans-serif;
-  --font-body: "Manrope", "Segoe UI", sans-serif;
+  --bg: #080808;
+  --ink: #f2f2f0;
+  --mute: #858585;
+  --faint: #505050;
+  --line: rgba(255, 255, 255, 0.15);
+  --line-soft: rgba(255, 255, 255, 0.08);
+  --accent: #62ddeb;
+  --font-display: "Inter", Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-body: "Inter", Helvetica Neue, Helvetica, Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --max: 1180px;
-  --header-h: 4.5rem;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --max: 1280px;
+  --gutter: clamp(1.25rem, 3.5vw, 2.5rem);
+  --header-h: 3.75rem;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --col: calc((min(100% - (var(--gutter) * 2), var(--max)) - (11 * 0px)) / 12);
 }
 
 *,
@@ -43,24 +44,27 @@ body {
   min-height: 100vh;
   color: var(--mute);
   font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.55;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   background: var(--bg);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--ice);
+  color: var(--ink);
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+  text-underline-offset: 0.18em;
 }
 
 a:hover {
-  color: var(--cyan);
+  color: var(--accent);
 }
 
 :focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 1px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -71,12 +75,13 @@ img {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--font-display);
   color: var(--ink);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
   margin: 0;
 }
 
@@ -90,77 +95,98 @@ p {
 }
 
 .container {
-  width: min(100% - 2.5rem, var(--max));
+  width: min(100% - (var(--gutter) * 2), var(--max));
   margin-inline: auto;
 }
 
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0 1.25rem;
+}
+
 .section {
-  padding: clamp(4.5rem, 11vw, 8rem) 0;
+  padding: clamp(4rem, 10vw, 7.5rem) 0;
   position: relative;
+  border-top: 1px solid var(--line);
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
 }
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--cyan);
-  margin-bottom: 0.85rem;
+  color: var(--faint);
+  margin-bottom: 1rem;
 }
 
 .lead {
   max-width: 34rem;
   color: var(--mute);
-  margin-top: 0.85rem;
+  margin-top: 1rem;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.rule {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0;
 }
 
 .btn {
   appearance: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  gap: 0.85rem;
+  border: 1px solid var(--line);
   background: transparent;
   color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 0.92rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  padding: 0.85rem 1.15rem 0.85rem 1.35rem;
-  border-radius: 999px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.1rem;
+  border-radius: 0;
   cursor: pointer;
   text-decoration: none;
-  transition: border-color 0.3s var(--ease), color 0.3s var(--ease),
-    background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease),
+    background 0.25s var(--ease);
 }
 
 .btn:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
+  border-color: var(--ink);
+  color: var(--ink);
   text-decoration: none;
-  box-shadow: 0 0 24px rgba(0, 229, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .btn-arrow {
-  width: 1.55rem;
-  height: 1.55rem;
-  border-radius: 50%;
-  border: 1px solid currentColor;
-  display: inline-grid;
-  place-items: center;
   font-size: 0.85rem;
   line-height: 1;
+  color: var(--accent);
 }
 
 .tag {
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 999px;
-  padding: 0.35rem 0.85rem;
-  font-size: 0.78rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.28rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: var(--mute);
-  letter-spacing: 0.04em;
 }
 
 .skip-link {
@@ -178,45 +204,6 @@ p {
   top: 1rem;
 }
 
-.mountain {
-  position: absolute;
-  inset: auto 0 0 0;
-  height: 42%;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 50% 100%, rgba(0, 229, 255, 0.2), transparent 55%),
-    linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.4)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 280' preserveAspectRatio='none'%3E%3Cpath fill='%23070b10' d='M0 280V160L140 90l120 70 160-100 140 80 180-90 160 70 160-50 140 60V280z'/%3E%3Cpath fill='none' stroke='%2300e5ff' stroke-opacity='0.45' stroke-width='2' d='M0 170c80-40 140-90 220-70s140 40 200-10 140-30 200 10 160-50 220-20 160 30 200 10v0'/%3E%3C/svg%3E")
-      bottom / 100% 100% no-repeat;
-  opacity: 0.95;
-}
-
-.optical-cursor {
-  position: fixed;
-  width: 110px;
-  height: 110px;
-  margin: -55px 0 0 -55px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 90;
-  border: 1px solid rgba(0, 229, 255, 0.22);
-  background: radial-gradient(
-    circle at 35% 30%,
-    rgba(184, 238, 248, 0.14),
-    transparent 70%
-  );
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  will-change: transform;
-  mix-blend-mode: screen;
-}
-
-.optical-cursor.is-on {
-  opacity: 1;
-}
-
-@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  .optical-cursor {
-    display: none !important;
-  }
+.accent {
+  color: var(--accent);
 }

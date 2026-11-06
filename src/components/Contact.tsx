@@ -2,7 +2,6 @@
 
 import { profile } from "@/content/profile";
 import { useI18n } from "@/lib/i18n";
-import { LiquidScene } from "./liquid/LiquidScene";
 import styles from "./Contact.module.css";
 
 export function Contact() {
@@ -18,10 +17,9 @@ export function Contact() {
 
   return (
     <section id="contact" className={`section ${styles.section}`} aria-labelledby="contact-title">
-      <div className="mountain" aria-hidden="true" />
-      <div className={`container ${styles.grid}`}>
-        <div>
-          <p className="eyebrow">{t.contact.eyebrow} —</p>
+      <div className="container">
+        <header className={styles.head}>
+          <p className="section-num">04 — {t.contact.eyebrow}</p>
           <h2 id="contact-title" className={styles.headline}>
             {t.contact.headline}
           </h2>
@@ -31,8 +29,10 @@ export function Contact() {
               →
             </span>
           </a>
+        </header>
 
-          <h3 className={styles.channels}>{t.contact.channels}</h3>
+        <div className={styles.channels}>
+          <h3>{t.contact.channels}</h3>
           <ul className={styles.list}>
             {channels.map((channel) => (
               <li key={channel.key}>
@@ -47,10 +47,6 @@ export function Contact() {
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className={styles.visual} aria-hidden="true">
-          <LiquidScene className={styles.scene} variant="strand" interactive={false} />
         </div>
       </div>
     </section>

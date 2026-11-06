@@ -1,18 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import { Entrance } from "./Entrance";
-import { OpticalCursor } from "./OpticalCursor";
-
+/** Thin client shell — no entrance spectacle, no optical cursor. */
 export function ExperienceShell({ children }: { children: React.ReactNode }) {
-  const [, setDone] = useState(false);
-  const onDone = useCallback(() => setDone(true), []);
-
-  return (
-    <>
-      <Entrance onDone={onDone} />
-      <OpticalCursor />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
