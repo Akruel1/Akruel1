@@ -1,30 +1,38 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
 import { useI18n } from "@/lib/i18n";
-import { prefersReducedMotion } from "@/lib/motion";
 import { withBasePath } from "@/lib/site";
 import styles from "./Work.module.css";
 
 export function Work() {
   const { t } = useI18n();
   const { items } = t.work;
-  const reduce = prefersReducedMotion();
 
   return (
     <div id="work" className={styles.work}>
-      <header className={`${styles.bridge} env-ivory`} data-env="ivory">
+      <header
+        className={`${styles.bridge} env-ivory`}
+        data-env="ivory"
+        data-scene="work"
+        data-curtain="wipe"
+      >
         <div className="container">
-          <p className="poster-label">{t.work.eyebrow}</p>
-          <h2 className={styles.bridgeTitle}>{t.work.headline}</h2>
-          <p className={styles.bridgeLead}>{t.work.lead}</p>
+          <p className="poster-label" data-kine="1">
+            {t.work.eyebrow}
+          </p>
+          <h2 className={styles.bridgeTitle} data-clip>
+            {t.work.headline}
+          </h2>
+          <p className={styles.bridgeLead} data-kine="1.2">
+            {t.work.lead}
+          </p>
         </div>
       </header>
 
       <Campaign
         env="ivory"
+        scene="arax"
         index={items.arax.index}
         name={items.arax.name}
         tagline={items.arax.tagline}
@@ -33,12 +41,12 @@ export function Work() {
         cta={t.work.viewCase}
         texture="/images/texture-arch.svg"
         side="right"
-        reduce={reduce}
         accent="cobalt"
       />
 
       <Campaign
         env="cobalt"
+        scene="orbox"
         index={items.orbox.index}
         name={items.orbox.name}
         tagline={items.orbox.tagline}
@@ -47,7 +55,6 @@ export function Work() {
         cta={t.work.viewCase}
         texture="/images/texture-metal.svg"
         side="left"
-        reduce={reduce}
         accent="red"
       />
     </div>
@@ -56,6 +63,7 @@ export function Work() {
 
 function Campaign({
   env,
+  scene,
   index,
   name,
   tagline,
@@ -64,10 +72,10 @@ function Campaign({
   cta,
   texture,
   side,
-  reduce,
   accent,
 }: {
   env: "ivory" | "cobalt";
+  scene: "arax" | "orbox";
   index: string;
   name: string;
   tagline: string;
@@ -76,34 +84,34 @@ function Campaign({
   cta: string;
   texture: string;
   side: "left" | "right";
-  reduce: boolean;
   accent: "cobalt" | "red";
+  curtain?: string;
 }) {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [80, -80]);
-
   return (
     <article
-      ref={ref}
       className={`${styles.campaign} ${styles[side]} env-${env}`}
       data-env={env}
+      data-scene={scene}
+      data-pin="campaign"
     >
-      <motion.div className={styles.visual} style={{ y }} aria-hidden="true">
+      <div className={styles.visual} data-campaign-visual aria-hidden="true">
         <img src={withBasePath(texture)} alt="" />
         <div className={`${styles.stamp} ${styles[accent]}`} />
-      </motion.div>
+      </div>
 
-      <div className={`container ${styles.copy}`}>
-        <p className={`${styles.index} poster-label`}>
+      <div className={`container ${styles.copy}`} data-campaign-copy>
+        <p className={`${styles.index} poster-label`} data-kine="0.8">
           {index} / Campaign
         </p>
-        <h3 className={styles.name}>{name}</h3>
-        <p className={styles.tagline}>{tagline}</p>
-        <p className={styles.summary}>{summary}</p>
+        <h3 className={styles.name} data-clip>
+          {name}
+        </h3>
+        <p className={styles.tagline} data-kine="1">
+          {tagline}
+        </p>
+        <p className={styles.summary} data-kine="1.15">
+          {summary}
+        </p>
         <Link href={href} className="campaign-cta">
           {cta}
           <span aria-hidden="true">→</span>

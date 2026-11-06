@@ -1,6 +1,7 @@
 "use client";
 
-/** Thin client shell — no entrance spectacle, no optical cursor. */
+import { CinematicRoot } from "./motion/CinematicRoot";
+
 export function ExperienceShell({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return <CinematicRoot>{children}</CinematicRoot>;
 }

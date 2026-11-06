@@ -20,11 +20,15 @@ export function Contact() {
       id="contact"
       className={`${styles.section} env-acid`}
       data-env="acid"
+      data-scene="contact"
+      data-curtain="split"
       aria-labelledby="contact-title"
     >
       <div className="container">
-        <p className="poster-label">{t.contact.eyebrow}</p>
-        <h2 id="contact-title" className={styles.headline}>
+        <p className="poster-label" data-kine="1">
+          {t.contact.eyebrow}
+        </p>
+        <h2 id="contact-title" className={styles.headline} data-clip>
           {t.contact.headline}
         </h2>
 

@@ -16,3 +16,8 @@ export function isLowPowerDevice(): boolean {
   if (cores <= 4) return true;
   return false;
 }
+
+export function isNarrowViewport(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(max-width: 860px)").matches;
+}
