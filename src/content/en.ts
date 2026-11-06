@@ -21,7 +21,7 @@ export const en = {
     title: profile.titles.primary,
     name: profile.name,
     intro:
-      "Building intelligent systems that turn complex problems into scalable solutions.",
+      "I build intelligent systems that turn complex problems into scalable solutions.",
     cta: "Explore my work",
     scroll: "SCROLL",
     pager: [

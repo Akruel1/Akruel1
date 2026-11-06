@@ -45,10 +45,17 @@ function Scene({
   return (
     <>
       <color attach="background" args={["#000000"]} />
-      <ambientLight intensity={0.18} />
-      <directionalLight position={[5, 7, 3]} intensity={1.55} color="#eaf4fa" />
-      <directionalLight position={[-4, -1, -3]} intensity={0.4} color="#3d5a6a" />
-      <spotLight position={[-2, 4, 5]} angle={0.4} penumbra={0.75} intensity={1.2} color="#9adcf0" />
+      <ambientLight intensity={0.12} />
+      <directionalLight position={[6, 8, 4]} intensity={2.1} color="#f2f7fb" />
+      <directionalLight position={[-5, -2, -4]} intensity={0.55} color="#2a4555" />
+      <spotLight
+        position={[-1.5, 3.5, 4.5]}
+        angle={0.45}
+        penumbra={0.8}
+        intensity={1.65}
+        color="#7ed8f0"
+      />
+      <pointLight position={[1.2, 0.2, 2.5]} intensity={0.9} color="#5fd4ef" distance={8} />
       <ChromeSculpture
         pointer={pointer}
         structure={structure}
@@ -102,7 +109,7 @@ export function LiquidCanvas({
       {visible && (
         <Canvas
           dpr={mobile ? [1, 1.2] : [1, 1.5]}
-          camera={{ position: [0.15, 0.05, 4.5], fov: 38 }}
+          camera={{ position: [-0.15, 0.08, 4.35], fov: 36 }}
           gl={{
             antialias: !mobile,
             alpha: true,
