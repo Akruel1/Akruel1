@@ -1,10 +1,36 @@
 .section {
   border-top: 1px solid var(--line);
+  position: relative;
+  overflow: clip;
   padding-bottom: clamp(5rem, 12vw, 8rem);
 }
 
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+}
+
+.headline {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 750;
+  max-width: 14ch;
+}
+
+.cta {
+  margin-top: 1.75rem;
+}
+
 .channels {
-  margin-top: 2.75rem;
+  margin-top: 2.5rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.16em;
@@ -17,14 +43,14 @@
   list-style: none;
   margin: 1rem 0 0;
   padding: 0;
-  max-width: 34rem;
+  max-width: 28rem;
 }
 
 .list li {
   display: grid;
-  grid-template-columns: 7.5rem 1fr;
-  gap: 1rem;
-  padding: 1.1rem 0;
+  grid-template-columns: 7rem 1fr;
+  gap: 0.75rem;
+  padding: 0.9rem 0;
   border-top: 1px solid var(--line);
   align-items: baseline;
 }
@@ -33,26 +59,37 @@
   border-bottom: 1px solid var(--line);
 }
 
-.label {
+.list span {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.08em;
   color: var(--faint);
 }
 
 .list a {
-  text-decoration: none;
   color: var(--ink);
-  font-size: 1.05rem;
+  text-decoration: none;
 }
 
 .list a:hover {
   color: var(--cyan);
 }
 
+.visual {
+  position: relative;
+  min-height: 20rem;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 560px) {
   .list li {
     grid-template-columns: 1fr;
-    gap: 0.3rem;
+    gap: 0.25rem;
   }
 }

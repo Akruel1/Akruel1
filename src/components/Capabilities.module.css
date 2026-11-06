@@ -1,67 +1,114 @@
 .section {
   border-top: 1px solid var(--line);
+  overflow: clip;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 980px) {
+  .grid {
+    grid-template-columns: 1.25fr 0.75fr;
+    align-items: start;
+  }
+}
+
+.headline {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 750;
 }
 
 .groups {
-  margin-top: clamp(2.25rem, 5vw, 3.5rem);
+  margin-top: 2.25rem;
   display: grid;
-  gap: 0;
-  border-top: 1px solid var(--line);
+  gap: 1.5rem;
 }
 
-.group {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--line);
+@media (min-width: 720px) {
+  .groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .group h3 {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  margin-bottom: 0.9rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--cyan);
+  margin-bottom: 0.75rem;
 }
 
 .group ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.process {
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.75rem;
+}
+
+.processTitle {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.process ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
-  gap: 0.55rem;
+  gap: 1rem;
 }
 
-.group li {
+.process li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.75rem;
+}
+
+.process span {
+  font-family: var(--font-mono);
+  color: var(--cyan);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.process strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.process p {
   color: var(--mute);
-  padding-left: 0.85rem;
+  font-size: 0.92rem;
+  margin-top: 0.2rem;
+}
+
+.visual {
   position: relative;
-  font-size: 0.95rem;
+  min-height: 22rem;
 }
 
-.group li::before {
-  content: "";
+.scene {
   position: absolute;
-  left: 0;
-  top: 0.7em;
-  width: 0.35rem;
-  height: 1px;
-  background: var(--cyan);
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-@media (min-width: 860px) {
-  .groups {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .group {
-    border-bottom: 0;
-    border-right: 1px solid var(--line);
-    padding: 1.75rem 1.25rem 0 0;
-  }
-
-  .group:not(:first-child) {
-    padding-left: 1.25rem;
-  }
-
-  .group:last-child {
-    border-right: 0;
-    padding-right: 0;
+@media (max-width: 979px) {
+  .visual {
+    order: -1;
+    min-height: 14rem;
   }
 }

@@ -3,16 +3,15 @@
   min-height: 100vh;
   min-height: 100svh;
   display: grid;
-  align-items: end;
-  padding: calc(var(--header-h) + 1.5rem) 0 3.5rem;
+  align-items: center;
+  padding: calc(var(--header-h) + 1rem) 0 5rem;
   overflow: clip;
 }
 
 .stage {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  background: #030507;
+  background: #000;
 }
 
 .canvas {
@@ -22,155 +21,112 @@
   height: 100%;
 }
 
-.grain {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.07;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
-
 .veil {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(3, 5, 7, 0.9) 0%, rgba(3, 5, 7, 0.35) 32%, rgba(3, 5, 7, 0.05) 55%, rgba(3, 5, 7, 0.35) 100%),
-    linear-gradient(180deg, rgba(3, 5, 7, 0.15) 0%, transparent 28%, rgba(3, 5, 7, 0.8) 100%);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.55) 36%, rgba(0, 0, 0, 0.1) 62%, rgba(0, 0, 0, 0.35) 100%),
+    linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.65) 100%);
 }
 
-.composition {
+.content {
   position: relative;
   z-index: 1;
-  width: min(100% - 2.5rem, 1180px);
-  margin-inline: auto;
   max-width: 36rem;
-  padding-bottom: 0.5rem;
-  /* Pull type into the chrome field so letterforms collide with the shard */
-  mix-blend-mode: normal;
 }
 
 .role {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.32em;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--cyan);
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.1rem;
 }
 
 .name {
-  display: grid;
-  gap: 0.05em;
-  margin-bottom: 1.75rem;
-}
-
-.nameLine {
-  font-family: var(--font-display);
-  font-size: clamp(3.4rem, 12vw, 7.5rem);
-  font-weight: 500;
-  line-height: 0.88;
-  letter-spacing: -0.04em;
-  color: var(--ink);
+  font-size: clamp(3.4rem, 10vw, 6.8rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
   text-transform: uppercase;
-}
-
-.nameLine:last-child {
-  color: transparent;
-  background: linear-gradient(105deg, var(--ice) 0%, var(--cyan) 42%, #6a9aab 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.headline {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1em;
-  font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3.8vw, 2.35rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: var(--mute);
-  max-width: 14ch;
-}
-
-.accent {
-  color: var(--ice);
+  line-height: 0.92;
+  color: #fff;
+  max-width: 8ch;
 }
 
 .intro {
-  margin-top: 1.5rem;
+  margin-top: 1.4rem;
+  margin-bottom: 2rem;
   max-width: 28rem;
   color: var(--mute);
-  font-size: 1.02rem;
-  line-height: 1.65;
+  font-size: 1.05rem;
 }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 2rem;
-}
-
-.hint {
-  margin-top: 2.75rem;
+.scroll {
+  position: absolute;
+  left: max(1.25rem, calc((100vw - var(--max)) / 2));
+  bottom: 1.75rem;
+  z-index: 2;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  letter-spacing: 0.28em;
   color: var(--faint);
 }
 
+.pager {
+  position: absolute;
+  right: max(1.25rem, calc((100vw - var(--max)) / 2));
+  bottom: 1.75rem;
+  z-index: 2;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-align: right;
+}
+
+.pager span {
+  color: var(--cyan);
+  margin-right: 0.35rem;
+}
+
 @media (min-width: 960px) {
-  .hero {
-    align-items: center;
-    padding-bottom: 2rem;
-  }
-
-  .composition {
-    max-width: 42rem;
-    margin-left: max(1.25rem, calc((100vw - 1180px) / 2));
-    margin-right: auto;
-  }
-
   .canvas {
-    left: 22%;
-    width: 78%;
+    left: 18%;
+    width: 82%;
   }
 
-  .veil {
-    background:
-      linear-gradient(90deg, rgba(3, 5, 7, 0.95) 0%, rgba(3, 5, 7, 0.55) 22%, rgba(3, 5, 7, 0.08) 48%, transparent 62%),
-      linear-gradient(180deg, transparent 35%, rgba(3, 5, 7, 0.5) 100%);
-  }
-
-  .composition {
-    max-width: 48rem;
-  }
-
-  .nameLine {
-    font-size: clamp(5.2rem, 10vw, 8.6rem);
-  }
-
-  .nameLine:last-child {
-    /* TESSA sits deeper into the sculpture */
-    margin-left: 0.08em;
-    text-shadow: 0 0 40px rgba(122, 212, 236, 0.15);
+  .content {
+    margin-left: 0;
   }
 }
 
 @media (max-width: 720px) {
   .canvas {
-    opacity: 0.85;
-    top: 8%;
-    height: 55%;
+    top: 5%;
+    height: 58%;
+    opacity: 0.9;
   }
 
   .veil {
     background:
-      linear-gradient(180deg, rgba(3, 5, 7, 0.2) 0%, rgba(3, 5, 7, 0.55) 42%, rgba(3, 5, 7, 0.96) 72%);
+      linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0.96) 72%);
+  }
+
+  .hero {
+    align-items: end;
+  }
+
+  .pager {
+    display: none;
   }
 }

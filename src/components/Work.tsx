@@ -1,46 +1,64 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
+import { LiquidScene } from "./liquid/LiquidScene";
 import styles from "./Work.module.css";
 
-/** ARAX-only featured work — matter → structure landing. */
 export function Work() {
   const { t } = useI18n();
-  const reduce = useReducedMotion();
+  const { items } = t.work;
 
   return (
-    <section id="arax" className={`section ${styles.section}`} aria-labelledby="arax-title">
+    <section id="work" className={`section ${styles.section}`} aria-labelledby="work-title">
       <div className="container">
-        <motion.p
-          className={styles.transition}
-          initial={reduce ? false : { opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          {t.work.transition}
-        </motion.p>
-
-        <p className="eyebrow">{t.work.eyebrow}</p>
         <div className={styles.head}>
-          <h2 id="arax-title" className={styles.title}>
-            {t.work.headline}
-          </h2>
-          <p className={styles.status}>{t.work.status}</p>
+          <div>
+            <p className="eyebrow">{t.work.eyebrow} —</p>
+            <h2 id="work-title" className={styles.headline}>
+              {t.work.headline}
+            </h2>
+          </div>
+          <p className={styles.lead}>{t.work.lead}</p>
         </div>
 
-        <Link href="/work/arax/" className={styles.panel}>
-          <div className={styles.lines} aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <span />
-          </div>
-          <p className={styles.tag}>{t.work.tagline}</p>
-          <p className={styles.summary}>{t.work.summary}</p>
-          <span className={styles.cta}>{t.work.explore}</span>
-        </Link>
+        <div className={styles.list}>
+          <article className={styles.card}>
+            <div className={styles.copy}>
+              <p className={styles.index}>{items.arax.index}</p>
+              <h3>{items.arax.name}</h3>
+              <p className={styles.tagline}>{items.arax.tagline}</p>
+              <p className={styles.summary}>{items.arax.summary}</p>
+              <Link className="btn" href="/work/arax/">
+                {t.work.viewCase}
+                <span className="btn-arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            </div>
+            <div className={styles.visual}>
+              <LiquidScene className={styles.scene} variant="shard" interactive={false} />
+            </div>
+          </article>
+
+          <article className={styles.card}>
+            <div className={styles.copy}>
+              <p className={styles.index}>{items.orbox.index}</p>
+              <h3>{items.orbox.name}</h3>
+              <p className={styles.tagline}>{items.orbox.tagline}</p>
+              <p className={styles.summary}>{items.orbox.summary}</p>
+              <Link className="btn" href="/work/orbox/">
+                {t.work.viewCase}
+                <span className="btn-arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+            </div>
+            <div className={styles.visual}>
+              <LiquidScene className={styles.scene} variant="crystal" interactive={false} />
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   );

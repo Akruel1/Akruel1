@@ -5,36 +5,11 @@ export const profile = {
   name: "Andrey Tessa",
   nameFirst: "Andrey",
   nameLast: "Tessa",
+  mark: "AT",
   githubHandle: "Akruel1",
   titles: {
     primary: "AI Systems Engineer",
-    also: [
-      "Backend Engineer",
-      "AI Systems Architect",
-      "Technical Lead & Co-Founder",
-    ] as const,
   },
-  focus: [
-    "AI-powered systems",
-    "RAG",
-    "enterprise knowledge",
-    "backend architecture",
-    "integrations",
-    "workflow automation",
-    "vector search",
-    "reliable infrastructure",
-  ] as const,
-  stack: [
-    "C#",
-    "Python",
-    "TypeScript / JavaScript / Node.js",
-    "PostgreSQL",
-    "Qdrant",
-    "Docker",
-    "Linux / VPS",
-    "AI / embeddings",
-    "APIs",
-  ] as const,
   portrait: "/images/andrey-tessa.jpg",
   contact: {
     email: {
@@ -63,7 +38,11 @@ export const profile = {
       slug: "arax",
       status: "concept" as const,
       org: "Taorlox",
-      publicRepo: null,
+    },
+    orbox: {
+      slug: "orbox",
+      status: "applied-work" as const,
+      org: null,
     },
   },
 } as const;
