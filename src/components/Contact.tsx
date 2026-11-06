@@ -21,7 +21,7 @@ export function Contact() {
       className={`${styles.section} env-acid`}
       data-env="acid"
       data-scene="contact"
-      data-curtain="split"
+      data-stage-layer="contact"
       aria-labelledby="contact-title"
     >
       <div className="container">

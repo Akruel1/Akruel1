@@ -1,12 +1,13 @@
 "use client";
 
-import { profile } from "@/content/profile";
+import { displayName, profile } from "@/content/profile";
 import { useI18n } from "@/lib/i18n";
 import { withBasePath } from "@/lib/site";
 import styles from "./About.module.css";
 
 export function About() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
+  const person = displayName(locale);
 
   return (
     <section
@@ -14,7 +15,7 @@ export function About() {
       className={`${styles.section} env-red`}
       data-env="red"
       data-scene="about"
-      data-curtain="mask"
+      data-stage-layer="about"
       aria-labelledby="about-title"
     >
       <div className={`container ${styles.layout}`}>
@@ -44,14 +45,14 @@ export function About() {
         >
           <img
             src={withBasePath(profile.portrait)}
-            alt={profile.name}
+            alt={person}
             width={720}
             height={912}
             loading="lazy"
             decoding="async"
           />
           <figcaption className="poster-label">
-            {profile.name} — {profile.titles.primary}
+            {person} — {profile.titles.primary}
           </figcaption>
         </figure>
 

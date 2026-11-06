@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { profile } from "@/content/profile";
+import { displayName, profile } from "@/content/profile";
 import { useI18n } from "@/lib/i18n";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import styles from "./Header.module.css";
@@ -12,10 +12,11 @@ function envIsDark(env: string | undefined) {
 }
 
 export function Header() {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const [open, setOpen] = useState(false);
   const [onDark, setOnDark] = useState(true);
   const close = () => setOpen(false);
+  const brand = displayName(locale);
 
   useEffect(() => {
     const update = () => {
@@ -42,7 +43,7 @@ export function Header() {
       <div className={`container ${styles.inner}`}>
         <Link href="/" className={styles.brand} onClick={close}>
           <span className={styles.mark}>{profile.mark}</span>
-          <span className={styles.brandName}>{profile.name}</span>
+          <span className={styles.brandName}>{brand}</span>
         </Link>
 
         <nav className={`${styles.nav} ${open ? styles.navOpen : ""}`} aria-label="Primary">
