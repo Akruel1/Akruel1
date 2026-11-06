@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, IBM_Plex_Mono, Manrope } from "next/font/google";
+import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import type { CSSProperties } from "react";
 import { ExperienceShell } from "@/components/ExperienceShell";
 import { Footer } from "@/components/Footer";
@@ -9,14 +9,7 @@ import { I18nProvider } from "@/lib/i18n";
 import { BASE_PATH, SITE } from "@/lib/site";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
-const body = Manrope({
+const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
   variable: "--font-manrope",
   display: "swap",
@@ -62,11 +55,11 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${mono.variable}`}>
       <body
         style={
           {
-            "--font-display": "var(--font-cormorant), 'Cormorant Garamond', serif",
+            "--font-display": "var(--font-manrope), Manrope, sans-serif",
             "--font-body": "var(--font-manrope), Manrope, sans-serif",
             "--font-mono": "var(--font-plex-mono), 'IBM Plex Mono', monospace",
           } as CSSProperties

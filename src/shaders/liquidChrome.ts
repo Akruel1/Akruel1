@@ -1,14 +1,16 @@
-/** Asymmetrical liquid-chrome: matter that can harden into structure. */
+/** Liquid chrome — metallic mercury; cyan only in selective reflection bands. */
 export const chromeVertex = /* glsl */ `
 uniform float uTime;
 uniform vec2 uPointer;
 uniform float uAmp;
-uniform float uStructure; // 0 = liquid matter, 1 = structured
+uniform float uStructure;
+uniform float uComplexity;
 varying vec3 vNormal;
 varying vec3 vView;
 varying vec3 vWorld;
 varying float vEdge;
 varying vec2 vUv;
+varying float vFold;
 
 vec3 mod289(vec3 x){return x - floor(x*(1.0/289.0))*289.0;}
 vec4 mod289(vec4 x){return x - floor(x*(1.0/289.0))*289.0;}
@@ -57,28 +59,32 @@ float snoise(vec3 v){
 void main(){
   vUv = uv;
   vec3 pos = position;
-
-  // Elongated sheet space: stronger along Y, taper at ends
-  float along = pos.y * 0.55;
-  float twist = along * (1.15 - uStructure * 0.85) + uPointer.x * 0.35;
-  float c = cos(twist);
-  float s = sin(twist);
-  pos.xz = mat2(c, -s, s, c) * pos.xz;
-
-  // Directional liquid folds (not radial blob)
   float t = uTime * 0.28;
-  float liquid = snoise(vec3(pos.x * 1.4, pos.y * 0.55 + t, pos.z * 1.1));
-  float ridge = snoise(vec3(pos.y * 2.2 - t * 0.6, pos.x * 0.8, t * 0.4));
-  float amp = uAmp * (1.0 - uStructure * 0.92);
-  float disp = (liquid * 0.55 + ridge * 0.35) * amp;
+  float along = pos.y;
+
+  // Soft multi-axis liquid twist (tubes already curve — keep displacement organic)
+  float twistA = along * (0.85 - uStructure * 0.5) * uComplexity + uPointer.x * 0.35;
+  float twistB = along * 0.35 * uComplexity - uPointer.y * 0.2;
+  float c1 = cos(twistA); float s1 = sin(twistA);
+  float c2 = cos(twistB * 0.55); float s2 = sin(twistB * 0.55);
+  pos.xz = mat2(c1, -s1, s1, c1) * pos.xz;
+  pos.xy = mat2(c2, -s2, s2, c2) * pos.xy;
+
+  float n1 = snoise(vec3(pos.x * 1.4, pos.y * 0.55 + t, pos.z * 1.2));
+  float n2 = snoise(vec3(pos.y * 1.9 - t * 0.4, pos.z * 0.95, t * 0.3));
+  float n3 = snoise(vec3(pos.x * 2.6 + t * 0.15, pos.y * 1.4, pos.z * 1.7));
+  float amp = uAmp * (1.0 - uStructure * 0.85) * uComplexity;
+  float disp = (n1 * 0.48 + n2 * 0.34 + n3 * 0.18) * amp;
   disp += (uPointer.y * normal.y + uPointer.x * normal.x) * 0.1 * amp;
 
-  // Structure pull: flatten toward a hard plane with scored edges
-  float harden = smoothstep(0.15, 1.0, uStructure);
-  pos.x = mix(pos.x + normal.x * disp, pos.x * (1.0 - harden * 0.12), harden);
-  pos.z = mix(pos.z + normal.z * disp, pos.z * (0.35 + 0.65 * (1.0 - harden)), harden);
-  pos.y = mix(pos.y + normal.y * disp * 0.35, pos.y, harden * 0.5);
+  // Soft belly / surface tension
+  float belly = (1.0 - abs(pos.y) * 0.35) * 0.16 * uComplexity * (1.0 - uStructure);
+  pos += normal * (disp + belly * max(n1, 0.0));
 
+  float harden = smoothstep(0.15, 1.0, uStructure);
+  pos.z = mix(pos.z, pos.z * (0.4 + 0.6 * (1.0 - harden)), harden);
+
+  vFold = n1 * 0.5 + 0.5;
   vEdge = abs(uv.x - 0.5) * 2.0;
   vec4 world = modelMatrix * vec4(pos, 1.0);
   vWorld = world.xyz;
@@ -94,44 +100,55 @@ uniform float uStructure;
 uniform vec3 uChromeCold;
 uniform vec3 uChromeWarm;
 uniform vec3 uRim;
+uniform float uMetal;
 varying vec3 vNormal;
 varying vec3 vView;
 varying vec3 vWorld;
 varying float vEdge;
 varying vec2 vUv;
+varying float vFold;
 
 void main(){
   vec3 N = normalize(vNormal);
   vec3 V = normalize(vView);
   float ndv = max(dot(N, V), 0.0);
-  float fresnel = pow(1.0 - ndv, 3.2);
-  float fresnelSoft = pow(1.0 - ndv, 1.5);
+  float fresnel = pow(1.0 - ndv, 3.6);
+  float fresnelSoft = pow(1.0 - ndv, 1.45);
 
-  // Fake studio environment in reflection vector
   vec3 R = reflect(-V, N);
   float envY = R.y * 0.5 + 0.5;
   float envX = atan(R.z, R.x) / 6.28318 + 0.5;
-  vec3 env = mix(vec3(0.02, 0.03, 0.04), uChromeCold, smoothstep(0.15, 0.75, envY));
-  env = mix(env, uChromeWarm, smoothstep(0.55, 1.0, envY) * 0.45);
-  env += vec3(0.55, 0.62, 0.7) * pow(max(R.y, 0.0), 8.0) * 0.55;
 
-  // Anisotropic chrome streak
-  float streak = pow(abs(sin(envX * 18.0 + vWorld.y * 3.0 + uTime * 0.15)), 12.0);
-  env += vec3(0.75, 0.85, 0.95) * streak * 0.22;
+  // Mercury / studio chrome — silver-graphite base, not cyan glass
+  vec3 env = mix(vec3(0.02, 0.022, 0.028), uChromeCold, smoothstep(0.08, 0.65, envY));
+  env = mix(env, uChromeWarm, smoothstep(0.5, 1.0, envY) * 0.62);
+  env += vec3(0.92, 0.95, 0.98) * pow(max(R.y, 0.0), 9.0) * 0.85;
 
-  vec3 lightDir = normalize(vec3(0.55, 0.85, 0.25));
-  float spec = pow(max(dot(reflect(-lightDir, N), V), 0.0), 64.0);
+  // Soft anisotropic metal — avoid hard UV ridges / zebra banding
+  float streak = pow(abs(sin(envX * 11.0 + vWorld.y * 2.2 + uTime * 0.08)), 6.0);
+  env += vec3(0.95, 0.97, 1.0) * streak * 0.22 * uMetal;
 
-  vec3 color = env * (0.55 + fresnelSoft * 0.55);
-  color += uRim * fresnel * (0.55 + (1.0 - uStructure) * 0.45);
-  color += vec3(0.9, 0.95, 1.0) * spec * 0.9;
+  // Broad studio soft-box reflection
+  float softBox = smoothstep(0.35, 0.95, envY) * (0.55 + 0.45 * sin(envX * 3.14159));
+  env = mix(env, uChromeWarm * 0.7, softBox * 0.35 * (1.0 - fresnel * 0.5));
 
-  // Structured: cooler, harder edge light, less soft glow
-  float hard = smoothstep(0.2, 1.0, uStructure);
-  color = mix(color, color * vec3(0.85, 0.92, 1.0) + uRim * fresnel * 0.35, hard);
-  color += uRim * step(0.82, vEdge) * hard * 0.25;
+  // Selective cyan ONLY in deep folds / tight reflection bands
+  float cyanBand = pow(abs(sin(envX * 5.5 + vFold * 4.0)), 14.0) * fresnel;
+  float cyanCore = pow(max(1.0 - abs(vFold - 0.4) * 2.8, 0.0), 5.0) * (1.0 - ndv);
+  vec3 cyan = uRim * (cyanBand * 0.28 + cyanCore * 0.22);
 
-  float alpha = 0.78 + fresnel * 0.2;
+  vec3 lightA = normalize(vec3(0.7, 0.95, 0.25));
+  vec3 lightB = normalize(vec3(-0.45, 0.15, 0.9));
+  float specA = pow(max(dot(reflect(-lightA, N), V), 0.0), 96.0);
+  float specB = pow(max(dot(reflect(-lightB, N), V), 0.0), 56.0);
+
+  vec3 color = env * (0.72 + fresnelSoft * 0.55) * uMetal;
+  color += cyan;
+  color += vec3(0.97, 0.98, 1.0) * specA * 1.25;
+  color += uChromeWarm * specB * 0.5;
+  color += uRim * fresnel * 0.12; // hairline rim only
+
+  float alpha = mix(0.92, 0.98, fresnelSoft);
   gl_FragColor = vec4(color, alpha);
 }
 `;

@@ -1,5 +1,4 @@
 import { About } from "@/components/About";
-import { Approach } from "@/components/Approach";
 import { Capabilities } from "@/components/Capabilities";
 import { Contact } from "@/components/Contact";
 import { Hero } from "@/components/Hero";
@@ -9,10 +8,9 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Approach />
       <Work />
-      <Capabilities />
       <About />
+      <Capabilities />
       <Contact />
     </>
   );

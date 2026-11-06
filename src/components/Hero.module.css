@@ -3,16 +3,15 @@
   min-height: 100vh;
   min-height: 100svh;
   display: grid;
-  align-items: end;
-  padding: calc(var(--header-h) + 1.5rem) 0 3.5rem;
+  align-items: center;
+  padding: calc(var(--header-h) + 1rem) 0 5.5rem;
   overflow: clip;
 }
 
 .stage {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  background: #030507;
+  background: #000;
 }
 
 .canvas {
@@ -22,13 +21,18 @@
   height: 100%;
 }
 
-.grain {
+/* Soft god-rays / bloom — separates chrome from void (not purple SaaS) */
+.bloom {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.07;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
+  background:
+    radial-gradient(ellipse 62% 52% at 74% 40%, rgba(95, 212, 239, 0.26), transparent 64%),
+    radial-gradient(ellipse 40% 34% at 64% 24%, rgba(236, 244, 250, 0.16), transparent 55%),
+    radial-gradient(ellipse 30% 60% at 70% 48%, rgba(200, 230, 240, 0.1), transparent 72%),
+    radial-gradient(ellipse 44% 50% at 82% 72%, rgba(30, 70, 90, 0.2), transparent 60%),
+    linear-gradient(115deg, transparent 40%, rgba(180, 220, 235, 0.05) 52%, transparent 65%);
+  mix-blend-mode: screen;
 }
 
 .veil {
@@ -36,141 +40,196 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(3, 5, 7, 0.9) 0%, rgba(3, 5, 7, 0.35) 32%, rgba(3, 5, 7, 0.05) 55%, rgba(3, 5, 7, 0.35) 100%),
-    linear-gradient(180deg, rgba(3, 5, 7, 0.15) 0%, transparent 28%, rgba(3, 5, 7, 0.8) 100%);
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.94) 0%,
+      rgba(0, 0, 0, 0.62) 28%,
+      rgba(0, 0, 0, 0.12) 48%,
+      transparent 62%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.55) 100%);
 }
 
-.composition {
+.content {
   position: relative;
   z-index: 1;
-  width: min(100% - 2.5rem, 1180px);
-  margin-inline: auto;
-  max-width: 36rem;
-  padding-bottom: 0.5rem;
-  /* Pull type into the chrome field so letterforms collide with the shard */
-  mix-blend-mode: normal;
+  max-width: 38rem;
 }
 
 .role {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.32em;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 1.25rem;
+}
+
+.roleArrow {
   color: var(--cyan);
-  margin-bottom: 1.4rem;
+  letter-spacing: 0;
 }
 
 .name {
   display: grid;
-  gap: 0.05em;
-  margin-bottom: 1.75rem;
+  gap: 0.02em;
+  margin: 0;
 }
 
 .nameLine {
-  font-family: var(--font-display);
-  font-size: clamp(3.4rem, 12vw, 7.5rem);
-  font-weight: 500;
-  line-height: 0.88;
-  letter-spacing: -0.04em;
-  color: var(--ink);
+  font-size: clamp(3.6rem, 11vw, 7.4rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
+  line-height: 0.88;
+  color: #fff;
 }
 
-.nameLine:last-child {
-  color: transparent;
-  background: linear-gradient(105deg, var(--ice) 0%, var(--cyan) 42%, #6a9aab 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-}
-
-.headline {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1em;
-  font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3.8vw, 2.35rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: var(--mute);
-  max-width: 14ch;
-}
-
-.accent {
-  color: var(--ice);
+.nameOffset {
+  margin-left: 0.28em;
+  padding-left: 0.08em;
+  text-shadow: 0 0 56px rgba(95, 212, 239, 0.14);
 }
 
 .intro {
   margin-top: 1.5rem;
-  max-width: 28rem;
-  color: var(--mute);
+  margin-bottom: 2.1rem;
+  max-width: 26rem;
+  color: rgba(200, 208, 216, 0.82);
   font-size: 1.02rem;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 2rem;
+.cta {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 0 28px rgba(95, 212, 239, 0.08);
 }
 
-.hint {
-  margin-top: 2.75rem;
+.scroll {
+  position: absolute;
+  left: max(1.25rem, calc((100vw - var(--max)) / 2));
+  bottom: 1.85rem;
+  z-index: 2;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  color: var(--faint);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.scrollLine {
+  width: 1px;
+  height: 2.4rem;
+  writing-mode: horizontal-tb;
+  background: linear-gradient(180deg, var(--cyan), transparent);
+}
+
+.pager {
+  position: absolute;
+  right: max(1.25rem, calc((100vw - var(--max)) / 2));
+  bottom: 1.75rem;
+  z-index: 3;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--faint);
+  text-align: right;
+}
+
+.pager li {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.pagerN {
+  color: var(--cyan);
+}
+
+.pagerLabel {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.pagerDot {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.55rem;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 @media (min-width: 960px) {
-  .hero {
-    align-items: center;
-    padding-bottom: 2rem;
-  }
-
-  .composition {
-    max-width: 42rem;
-    margin-left: max(1.25rem, calc((100vw - 1180px) / 2));
-    margin-right: auto;
-  }
-
   .canvas {
-    left: 22%;
-    width: 78%;
+    left: 12%;
+    width: 92%;
   }
 
-  .veil {
-    background:
-      linear-gradient(90deg, rgba(3, 5, 7, 0.95) 0%, rgba(3, 5, 7, 0.55) 22%, rgba(3, 5, 7, 0.08) 48%, transparent 62%),
-      linear-gradient(180deg, transparent 35%, rgba(3, 5, 7, 0.5) 100%);
+  .content {
+    max-width: 42rem;
   }
 
-  .composition {
-    max-width: 48rem;
-  }
-
-  .nameLine {
-    font-size: clamp(5.2rem, 10vw, 8.6rem);
-  }
-
-  .nameLine:last-child {
-    /* TESSA sits deeper into the sculpture */
-    margin-left: 0.08em;
-    text-shadow: 0 0 40px rgba(122, 212, 236, 0.15);
+  .nameOffset {
+    margin-left: 0.48em;
   }
 }
 
 @media (max-width: 720px) {
   .canvas {
-    opacity: 0.85;
-    top: 8%;
-    height: 55%;
+    top: 0;
+    height: 62%;
+    opacity: 0.95;
+  }
+
+  .bloom {
+    background: radial-gradient(
+      ellipse 70% 40% at 50% 30%,
+      rgba(95, 212, 239, 0.12),
+      transparent 60%
+    );
   }
 
   .veil {
-    background:
-      linear-gradient(180deg, rgba(3, 5, 7, 0.2) 0%, rgba(3, 5, 7, 0.55) 42%, rgba(3, 5, 7, 0.96) 72%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.45) 42%,
+      rgba(0, 0, 0, 0.96) 70%
+    );
+  }
+
+  .hero {
+    align-items: end;
+  }
+
+  .pager {
+    display: none;
+  }
+
+  .scroll {
+    writing-mode: horizontal-tb;
+  }
+
+  .scrollLine {
+    width: 1.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--cyan), transparent);
   }
 }

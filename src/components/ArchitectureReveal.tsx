@@ -15,7 +15,7 @@ type Props = {
 export function ArchitectureReveal({ title, caption, nodes, edges }: Props) {
   const uid = useId();
   const [active, setActive] = useState(nodes[0]?.id ?? null);
-  const [revealed, setRevealed] = useState(1);
+  const [revealed, setRevealed] = useState(Math.min(4, nodes.length));
 
   const positions = useMemo(() => {
     const cols = Math.min(4, Math.max(2, Math.ceil(Math.sqrt(nodes.length))));
