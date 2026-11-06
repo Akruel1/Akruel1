@@ -4,13 +4,20 @@
   padding: clamp(5rem, 12vw, 8.5rem) 0 clamp(4rem, 8vw, 6rem);
 }
 
+[data-stage-pin] .section {
+  min-height: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: clip;
+  padding: calc(var(--header-h) + 1.25rem) 0 2rem;
+}
+
 @media (min-width: 901px) {
   .section {
     min-height: 100%;
     height: 100%;
     box-sizing: border-box;
-    overflow-x: clip;
-    overflow-y: auto;
+    overflow: clip;
     padding: calc(var(--header-h) + 1.5rem) 0 2.5rem;
   }
 

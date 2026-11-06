@@ -5,8 +5,8 @@ import styles from "./ContinuousStage.module.css";
 
 /**
  * Persistent viewport stage shell. ScrollTrigger in CinematicRoot
- * pins `[data-stage-pin]` and scrubs layered scenes for continuous feel.
- * On narrow viewports CSS falls back to normal document flow.
+ * scrubs layered scenes against CSS sticky — native scroll only.
+ * Mobile shares the same stage language; reduced-motion falls back to flow.
  */
 export function ContinuousStage({ children }: { children: ReactNode }) {
   return (
