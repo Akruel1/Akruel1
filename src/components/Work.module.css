@@ -34,9 +34,11 @@
 
 .visual {
   position: absolute;
-  width: min(52vw, 720px);
+  width: min(46vw, 640px);
   aspect-ratio: 4 / 5;
   will-change: transform;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .visual img {
@@ -46,13 +48,15 @@
 }
 
 .right .visual {
-  right: -4%;
+  right: -6%;
   top: 8%;
+  transform-origin: 100% 50%;
 }
 
 .left .visual {
   left: -6%;
   bottom: 6%;
+  transform-origin: 0% 50%;
 }
 
 .stamp {
@@ -75,8 +79,10 @@
 
 .copy {
   position: relative;
-  z-index: 1;
-  max-width: 34rem;
+  z-index: 2;
+  /* Keep title/copy in the clear column; huge display type was overflowing under the visual */
+  max-width: min(34rem, 48%);
+  min-width: 0;
 }
 
 .right .copy {
@@ -94,10 +100,13 @@
 }
 
 .name {
-  font-size: clamp(4.5rem, 14vw, 11rem);
+  font-size: clamp(4rem, 9.5vw, 8.5rem);
   text-transform: uppercase;
-  line-height: 0.8;
+  line-height: 0.88;
   margin-bottom: 0.75rem;
+  max-width: 100%;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .tagline {
@@ -107,14 +116,25 @@
   text-transform: uppercase;
   margin-bottom: 1.25rem;
   color: var(--mute);
+  max-width: 100%;
 }
 
 .summary {
-  max-width: 28rem;
+  max-width: 100%;
   margin-bottom: 2rem;
   font-size: 1.08rem;
   line-height: 1.45;
   color: var(--mute);
+}
+
+@media (min-width: 861px) {
+  .right .copy {
+    max-width: min(36rem, calc(54% - var(--gutter)));
+  }
+
+  .left .copy {
+    max-width: min(36rem, calc(54% - var(--gutter)));
+  }
 }
 
 .vert {

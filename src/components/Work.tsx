@@ -92,6 +92,7 @@ function Campaign({
       className={`${styles.campaign} ${styles[side]} env-${env}`}
       data-env={env}
       data-scene={scene}
+      data-side={side}
       data-pin="campaign"
     >
       <div className={styles.visual} data-campaign-visual aria-hidden="true">
