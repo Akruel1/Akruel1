@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="140" viewBox="0 0 1200 140" role="img" aria-labelledby="title">
+  <title id="title">Andrey Tessa - AI Systems Engineer</title>
+  <defs>
+    <style><![CDATA[
+      .display {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+      }
+      .mono {
+        font-family: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+      }
+      .pulse {
+        animation: pulse 2.8s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.35; }
+      }
+    ]]></style>
+  </defs>
+  <rect width="1200" height="140" fill="#F0EEE8"/>
+  <rect x="0" y="0" width="18" height="140" fill="#244BFF"/>
+  <rect x="18" y="0" width="6" height="140" fill="#E7352B"/>
+  <circle class="pulse" cx="64" cy="48" r="6" fill="#101010"/>
+  <rect class="pulse" x="58" y="42" width="12" height="12" fill="#E8FF3D"/>
+  <text x="88" y="52" class="mono" fill="#101010" font-size="13">OPEN TO COLLABORATION</text>
+  <text x="64" y="100" class="display" fill="#101010" font-size="42">ANDREY TESSA</text>
+  <text x="520" y="96" class="mono" fill="#244BFF" font-size="14">AI SYSTEMS ENGINEER</text>
+  <text x="860" y="96" class="mono" fill="#101010" font-size="13">&#x410;&#x41D;&#x414;&#x420;&#x415;&#x419; &#x422;&#x415;&#x421;&#x421;&#x410;</text>
+  <rect x="0" y="134" width="1200" height="6" fill="#101010"/>
+</svg>

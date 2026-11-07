@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title">
   <title id="title">ARAX - Enterprise AI Knowledge Platform</title>
   <defs>
     <style><![CDATA[
@@ -16,6 +16,7 @@
       .body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 400;
+        letter-spacing: -0.01em;
       }
       .bar {
         animation: grow 4.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
@@ -27,13 +28,16 @@
       }
     ]]></style>
   </defs>
-  <rect width="1200" height="260" fill="#244BFF"/>
+  <rect width="1200" height="360" fill="#244BFF"/>
   <rect x="0" y="0" width="1200" height="8" fill="#101010"/>
   <text x="48" y="42" class="mono" fill="#E8FF3D" font-size="13">CAMPAIGN 01</text>
-  <text x="48" y="148" class="display" fill="#F0EEE8" font-size="118">ARAX</text>
-  <text x="48" y="196" class="body" fill="#F0EEE8" font-size="22">Enterprise AI Knowledge Platform</text>
-  <rect class="bar" x="48" y="214" width="280" height="6" fill="#E8FF3D"/>
-  <g transform="translate(1120,230) rotate(-90)">
+  <text x="48" y="140" class="display" fill="#F0EEE8" font-size="110">ARAX</text>
+  <text x="48" y="186" class="body" fill="#F0EEE8" font-size="22">Enterprise AI Knowledge Platform</text>
+  <rect class="bar" x="48" y="204" width="280" height="6" fill="#E8FF3D"/>
+  <text x="48" y="260" class="body" fill="#F0EEE8" font-size="18" opacity="0.92">A platform concept for enterprise knowledge -</text>
+  <text x="48" y="288" class="body" fill="#F0EEE8" font-size="18" opacity="0.92">ingest, embed, retrieve, and answer through controlled surfaces.</text>
+  <text x="48" y="322" class="mono" fill="#E8FF3D" font-size="13">INFRASTRUCTURE, NOT A CHATBOT WRAPPER</text>
+  <g transform="translate(1120,330) rotate(-90)">
     <text class="mono" fill="#F0EEE8" font-size="12" opacity="0.8">INGEST / EMBED / RETRIEVE / ANSWER</text>
   </g>
   <rect x="980" y="36" width="172" height="172" fill="none" stroke="#F0EEE8" stroke-width="2" opacity="0.35"/>

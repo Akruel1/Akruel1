@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="160" viewBox="0 0 1200 160" role="img" aria-labelledby="title">
+  <title id="title">Andrey Tessa - portfolio</title>
+  <defs>
+    <style><![CDATA[
+      .display {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+      }
+      .mono {
+        font-family: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+      }
+      .scan {
+        animation: scan 5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+      @keyframes scan {
+        0%, 100% { transform: translateX(0); opacity: 0.4; }
+        50% { transform: translateX(420px); opacity: 1; }
+      }
+    ]]></style>
+  </defs>
+  <rect width="1200" height="160" fill="#F0EEE8"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#101010"/>
+  <text x="48" y="64" class="display" fill="#101010" font-size="36">ANDREY TESSA</text>
+  <text x="48" y="96" class="mono" fill="#244BFF" font-size="13">&#x410;&#x41D;&#x414;&#x420;&#x415;&#x419; &#x422;&#x415;&#x421;&#x421;&#x410;  /  AI SYSTEMS ENGINEER</text>
+  <text x="48" y="132" class="mono" fill="#101010" font-size="13">AKRUEL1.GITHUB.IO/AKRUEL1</text>
+  <rect class="scan" x="48" y="144" width="72" height="5" fill="#E7352B"/>
+  <rect x="980" y="40" width="172" height="80" fill="#101010"/>
+  <text x="1066" y="88" class="mono" fill="#E8FF3D" font-size="14" text-anchor="middle">ENTER -&gt;</text>
+</svg>

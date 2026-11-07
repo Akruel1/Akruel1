@@ -3,142 +3,82 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GitHub profile README preview — Andrey Tessa</title>
+  <title>GitHub profile README preview — continuous sequence</title>
   <style>
     :root {
       --gh-bg: #0d1117;
       --gh-panel: #161b22;
       --gh-border: #30363d;
-      --gh-text: #e6edf3;
       --gh-mute: #8b949e;
-      --gh-link: #2f81f7;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       background: var(--gh-bg);
-      color: var(--gh-text);
+      color: #e6edf3;
     }
-    .shell {
-      max-width: 1012px;
-      margin: 32px auto;
-      padding: 0 16px 64px;
-    }
+    .shell { max-width: 1012px; margin: 32px auto; padding: 0 16px 64px; }
     .label {
       color: var(--gh-mute);
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin: 0 0 12px;
     }
     .card {
       background: var(--gh-panel);
       border: 1px solid var(--gh-border);
       border-radius: 6px;
-      padding: 24px 24px 8px;
+      padding: 16px;
     }
-    .banner, .spread, .divider {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 2px;
-    }
-    .links {
-      text-align: center;
-      margin: 20px 0 8px;
-      font-size: 15px;
-    }
-    .links a { color: var(--gh-link); text-decoration: none; font-weight: 600; }
-    .links a:not(:first-child) { font-weight: 400; }
-    .portrait {
-      display: block;
-      width: 220px;
-      margin: 16px auto 8px;
-      border-radius: 2px;
-    }
-    h2 {
-      font-size: 1.35rem;
-      border-bottom: 1px solid var(--gh-border);
-      padding-bottom: 0.3em;
-      margin: 1.4em 0 0.8em;
-    }
-    p { color: var(--gh-text); line-height: 1.55; margin: 0.6em 0 1em; opacity: 0.92; }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 0.5em 0 1.5em;
-    }
-    td {
-      border-top: 1px solid var(--gh-border);
-      padding: 10px 8px;
-      vertical-align: top;
-    }
-    td:first-child { width: 32%; color: var(--gh-text); }
-    .footer {
-      text-align: center;
-      color: var(--gh-mute);
-      font-size: 12px;
-      margin: 24px 0 8px;
-    }
-    .footer a { color: var(--gh-link); }
-    .mobile {
-      max-width: 390px;
-      margin: 48px auto 0;
-    }
-    .mobile .card { padding: 16px; }
+    .card img.full { width: 100%; height: auto; display: block; margin: 0 0 10px; }
+    .nav { text-align: center; margin: 4px 0 14px; }
+    .nav img { height: 44px; margin: 4px; vertical-align: middle; }
+    .portrait { display: block; width: 240px; margin: 8px auto 14px; }
+    .mobile { max-width: 390px; margin: 48px auto 0; }
+    .mobile .portrait { width: 160px; }
+    .mobile .nav img { height: 34px; margin: 3px; }
   </style>
 </head>
 <body>
   <div class="shell" id="desktop">
-    <div class="label">GitHub profile README · desktop-width preview</div>
+    <div class="label">Continuous SVG profile · desktop</div>
     <div class="card">
-      <img class="banner" src="./banner.svg" alt="Andrey Tessa — AI Systems Engineer" />
-      <p class="links">
-        <a href="https://akruel1.github.io/Akruel1/">Portfolio</a>
-        ·
-        <a href="#">LinkedIn</a>
-        ·
-        <a href="#">Telegram</a>
-        ·
-        <a href="#">Email</a>
-      </p>
-      <img class="portrait" src="./portrait.jpg" alt="Portrait of Andrey Tessa" />
-      <img class="divider" src="./divider.svg" alt="" />
-      <h2>Selected work</h2>
-      <p>Two campaigns. Architecture without the SaaS costume.</p>
-      <img class="spread" src="./arax.svg" alt="ARAX" />
-      <p>A platform concept for enterprise knowledge — ingest, embed, retrieve, and answer through controlled surfaces. Designed as infrastructure, not a chatbot wrapper.</p>
-      <img class="spread" src="./orbox.svg" alt="Orbox" />
-      <p>Applied AI solutions and workflow automation — models wired into real processes where boundaries, retries, and human checkpoints are first-class.</p>
-      <img class="divider" src="./divider.svg" alt="" />
-      <h2>Focus</h2>
-      <table>
-        <tr><td><strong>Systems thinking</strong></td><td>Start from data flow and ownership — not from model demos.</td></tr>
-        <tr><td><strong>Practical AI</strong></td><td>Intelligence only where it reduces real operational work.</td></tr>
-        <tr><td><strong>Clean architecture</strong></td><td>Clear contracts, failure modes, and deployable shapes.</td></tr>
-      </table>
-      <p class="footer">
-        ANDREY TESSA · АНДРЕЙ ТЕССА · AI SYSTEMS ENGINEER<br/>
-        <a href="https://akruel1.github.io/Akruel1/">akruel1.github.io/Akruel1</a>
-      </p>
+      <img class="full" src="./banner.svg" alt="" />
+      <div class="nav">
+        <img src="./nav-portfolio.svg" alt="Portfolio" />
+        <img src="./nav-linkedin.svg" alt="LinkedIn" />
+        <img src="./nav-telegram.svg" alt="Telegram" />
+        <img src="./nav-email.svg" alt="Email" />
+      </div>
+      <img class="portrait" src="./portrait.jpg" alt="" />
+      <img class="full" src="./identity.svg" alt="" />
+      <img class="full" src="./work-header.svg" alt="" />
+      <img class="full" src="./arax.svg" alt="" />
+      <img class="full" src="./orbox.svg" alt="" />
+      <img class="full" src="./focus.svg" alt="" />
+      <img class="full" src="./footer.svg" alt="" />
     </div>
   </div>
 
   <div class="shell mobile" id="mobile">
-    <div class="label">Mobile-width preview (~390px)</div>
+    <div class="label">Continuous SVG profile · mobile ~390px</div>
     <div class="card">
-      <img class="banner" src="./banner.svg" alt="" />
-      <p class="links" style="font-size:13px">
-        <a href="#">Portfolio</a> · <a href="#">LinkedIn</a> · <a href="#">Telegram</a>
-      </p>
-      <img class="portrait" src="./portrait.jpg" width="160" alt="" style="width:160px" />
-      <img class="divider" src="./divider.svg" alt="" />
-      <h2>Selected work</h2>
-      <img class="spread" src="./arax.svg" alt="" />
-      <p style="font-size:14px">Enterprise AI Knowledge Platform</p>
-      <img class="spread" src="./orbox.svg" alt="" />
-      <p style="font-size:14px">AI inside operational workflows</p>
+      <img class="full" src="./banner.svg" alt="" />
+      <div class="nav">
+        <img src="./nav-portfolio.svg" alt="" />
+        <img src="./nav-linkedin.svg" alt="" />
+        <img src="./nav-telegram.svg" alt="" />
+        <img src="./nav-email.svg" alt="" />
+      </div>
+      <img class="portrait" src="./portrait.jpg" alt="" />
+      <img class="full" src="./identity.svg" alt="" />
+      <img class="full" src="./work-header.svg" alt="" />
+      <img class="full" src="./arax.svg" alt="" />
+      <img class="full" src="./orbox.svg" alt="" />
+      <img class="full" src="./focus.svg" alt="" />
+      <img class="full" src="./footer.svg" alt="" />
     </div>
   </div>
 </body>

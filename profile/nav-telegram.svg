@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="56" viewBox="0 0 220 56" role="img" aria-label="TELEGRAM">
+  <defs>
+    <style><![CDATA[
+      .t {
+        font-family: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        font-size: 13px;
+      }
+      .shine {
+        animation: shine 3.6s ease-in-out infinite;
+      }
+      @keyframes shine {
+        0%, 100% { opacity: 0.15; transform: translateX(-30px); }
+        50% { opacity: 0.55; transform: translateX(120px); }
+      }
+    ]]></style>
+  </defs>
+  <rect width="220" height="56" fill="#E7352B"/>
+  <rect x="0" y="0" width="6" height="56" fill="#101010" opacity="0.35"/>
+  <rect class="shine" x="0" y="0" width="28" height="56" fill="#FFFFFF"/>
+  <text x="110" y="34" text-anchor="middle" class="t" fill="#F0EEE8">TELEGRAM</text>
+</svg>
