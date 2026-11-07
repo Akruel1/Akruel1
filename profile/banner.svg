@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">Andrey Tessa - AI Systems Engineer</title>
+  <desc id="desc">Editorial profile banner for Andrey Tessa</desc>
+  <defs>
+    <style><![CDATA[
+      .bg { fill: #101010; }
+      .ivory { fill: #F0EEE8; }
+      .cobalt { fill: #244BFF; }
+      .red { fill: #E7352B; }
+      .acid { fill: #E8FF3D; }
+      .silver { fill: #B8BABD; }
+      .display {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.06em;
+      }
+      .mono {
+        font-family: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+      }
+      .body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+      }
+      .scan {
+        animation: scan 5.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+      .pulse {
+        animation: pulse 2.8s ease-in-out infinite;
+      }
+      .slide {
+        animation: slide 7s ease-in-out infinite;
+      }
+      @keyframes scan {
+        0%, 100% { transform: translateX(-40px); opacity: 0.35; }
+        45% { transform: translateX(980px); opacity: 0.9; }
+        55% { transform: translateX(980px); opacity: 0.9; }
+        100% { transform: translateX(1260px); opacity: 0.2; }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.35; }
+      }
+      @keyframes slide {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+    ]]></style>
+    <linearGradient id="gridFade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#244BFF" stop-opacity="0.28"/>
+      <stop offset="55%" stop-color="#101010" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#E7352B" stop-opacity="0.18"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#F0EEE8" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect class="bg" width="1200" height="460"/>
+  <rect width="1200" height="460" fill="url(#grid)"/>
+  <path d="M0 0 L520 0 L320 460 L0 460 Z" fill="url(#gridFade)"/>
+  <rect x="0" y="0" width="10" height="460" class="cobalt"/>
+  <rect x="10" y="0" width="4" height="460" class="red"/>
+
+  <g transform="translate(42,430) rotate(-90)">
+    <text class="mono" fill="#B8BABD" font-size="13">PROFILE / 01 - AKRUEL1</text>
+  </g>
+
+  <g class="slide">
+    <text x="92" y="78" class="mono acid" font-size="15">AI SYSTEMS ENGINEER</text>
+  </g>
+
+  <text x="88" y="196" class="display ivory" font-size="108">ANDREY</text>
+  <text x="88" y="308" class="display ivory" font-size="108">TESSA</text>
+  <rect x="92" y="326" width="210" height="8" class="red"/>
+  <rect x="318" y="294" width="18" height="18" class="red"/>
+
+  <text x="92" y="368" class="mono silver" font-size="13">&#x410;&#x41D;&#x414;&#x420;&#x415;&#x419; &#x422;&#x415;&#x421;&#x421;&#x410;</text>
+
+  <rect x="760" y="56" width="380" height="348" fill="#F0EEE8"/>
+  <rect x="760" y="56" width="380" height="12" class="cobalt"/>
+  <text x="788" y="118" class="mono" fill="#101010" font-size="12">OPEN TO COLLABORATION</text>
+  <circle class="pulse" cx="772" cy="113" r="5" fill="#E8FF3D"/>
+  <text x="788" y="168" class="display" fill="#101010" font-size="34">Systems that</text>
+  <text x="788" y="208" class="display" fill="#101010" font-size="34">turn complexity</text>
+  <text x="788" y="248" class="display" fill="#101010" font-size="34">into value.</text>
+  <text x="788" y="300" class="body" fill="#101010" font-size="15" opacity="0.72">ARAX / Orbox</text>
+  <text x="788" y="338" class="mono" fill="#244BFF" font-size="12">EXPERIMENTAL DIGITAL EDITORIAL</text>
+  <rect x="788" y="358" width="120" height="4" class="red"/>
+
+  <rect class="scan acid" x="-20" y="430" width="80" height="3" opacity="0.7"/>
+  <rect x="0" y="456" width="1200" height="4" class="acid"/>
+</svg>
