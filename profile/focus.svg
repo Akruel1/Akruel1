@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title">
+  <title id="title">Focus - systems thinking, practical AI, clean architecture</title>
+  <defs>
+    <style><![CDATA[
+      .display {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.055em;
+      }
+      .mono {
+        font-family: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+      }
+      .body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        letter-spacing: -0.015em;
+      }
+      .tick {
+        animation: tick 4s ease-in-out infinite;
+      }
+      @keyframes tick {
+        0%, 100% { transform: scaleY(0.4); }
+        50% { transform: scaleY(1); }
+      }
+    ]]></style>
+  </defs>
+  <rect width="1200" height="420" fill="#101010"/>
+  <text x="48" y="48" class="mono" fill="#E8FF3D" font-size="13">FOCUS</text>
+  <text x="48" y="108" class="display" fill="#F0EEE8" font-size="56">HOW I BUILD</text>
+  <rect x="48" y="128" width="96" height="6" fill="#E7352B"/>
+
+  <!-- col 1 -->
+  <rect x="48" y="170" width="350" height="210" fill="#F0EEE8"/>
+  <rect x="48" y="170" width="350" height="10" fill="#244BFF"/>
+  <rect class="tick" x="72" y="198" width="8" height="36" fill="#244BFF" style="transform-origin: 72px 234px"/>
+  <text x="92" y="224" class="mono" fill="#101010" font-size="12">01</text>
+  <text x="72" y="268" class="display" fill="#101010" font-size="28">Systems</text>
+  <text x="72" y="302" class="display" fill="#101010" font-size="28">thinking</text>
+  <text x="72" y="342" class="body" fill="#101010" font-size="15" opacity="0.78">Start from data flow and</text>
+  <text x="72" y="364" class="body" fill="#101010" font-size="15" opacity="0.78">ownership - not demos.</text>
+
+  <!-- col 2 -->
+  <rect x="425" y="170" width="350" height="210" fill="#244BFF"/>
+  <rect x="425" y="170" width="350" height="10" fill="#E8FF3D"/>
+  <text x="449" y="224" class="mono" fill="#E8FF3D" font-size="12">02</text>
+  <text x="449" y="268" class="display" fill="#F0EEE8" font-size="28">Practical</text>
+  <text x="449" y="302" class="display" fill="#F0EEE8" font-size="28">AI</text>
+  <text x="449" y="342" class="body" fill="#F0EEE8" font-size="15" opacity="0.9">Intelligence only where it</text>
+  <text x="449" y="364" class="body" fill="#F0EEE8" font-size="15" opacity="0.9">cuts real operational work.</text>
+
+  <!-- col 3 -->
+  <rect x="802" y="170" width="350" height="210" fill="#E7352B"/>
+  <rect x="802" y="170" width="350" height="10" fill="#101010"/>
+  <text x="826" y="224" class="mono" fill="#F0EEE8" font-size="12">03</text>
+  <text x="826" y="268" class="display" fill="#F0EEE8" font-size="28">Clean</text>
+  <text x="826" y="302" class="display" fill="#F0EEE8" font-size="28">architecture</text>
+  <text x="826" y="342" class="body" fill="#F0EEE8" font-size="15" opacity="0.92">Clear contracts, failure</text>
+  <text x="826" y="364" class="body" fill="#F0EEE8" font-size="15" opacity="0.92">modes, deployable shapes.</text>
+</svg>
