@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, type ReactNode } from "react";
-import { getGsap, motionAllowed } from "@/lib/gsap";
+import { getGsap, isDesktopMotion, motionAllowed } from "@/lib/gsap";
 import { emitScene, type SceneId, SceneIdentity } from "./SceneIdentity";
 import styles from "./CinematicRoot.module.css";
 
@@ -64,8 +64,8 @@ function scrollStageToLayer(stage: HTMLElement, index: number, total: number) {
 }
 
 /**
- * Continuous cinematic scroll on every viewport.
- * Native document scroll alone drives the sticky stage — no CTA required.
+ * Desktop: continuous sticky stage scrubbed by native scroll.
+ * Mobile: stacked document flow so tall About/Expertise content is fully readable.
  */
 export function CinematicRoot({ children }: { children: ReactNode }) {
   useLayoutEffect(() => {
@@ -75,6 +75,7 @@ export function CinematicRoot({ children }: { children: ReactNode }) {
     let onClick: ((event: MouseEvent) => void) | null = null;
 
     const ctx = gsap.context(() => {
+      const desktop = isDesktopMotion();
       const stage = document.querySelector<HTMLElement>("[data-stage]");
       const pin = document.querySelector<HTMLElement>("[data-stage-pin]");
       const layers = LAYER_ORDER.map((id) =>
@@ -99,136 +100,199 @@ export function CinematicRoot({ children }: { children: ReactNode }) {
           );
       }
 
-      if (!(stage && pin && layers.length >= 2)) return;
+      if (desktop && stage && pin && layers.length >= 2) {
+        gsap.set(layers, {
+          autoAlpha: 0,
+          visibility: "hidden",
+          zIndex: 0,
+          yPercent: 0,
+          xPercent: 0,
+          pointerEvents: "none",
+        });
+        gsap.set(layers[0], {
+          autoAlpha: 1,
+          visibility: "visible",
+          zIndex: 1,
+          clipPath: "inset(0% 0% 0% 0%)",
+          pointerEvents: "auto",
+        });
+        emitScene((layers[0].dataset.scene as SceneId) || "hero");
 
-      gsap.set(layers, {
-        autoAlpha: 0,
-        visibility: "hidden",
-        zIndex: 0,
-        yPercent: 0,
-        xPercent: 0,
-        pointerEvents: "none",
-      });
-      gsap.set(layers[0], {
-        autoAlpha: 1,
-        visibility: "visible",
-        zIndex: 1,
-        clipPath: "inset(0% 0% 0% 0%)",
-        pointerEvents: "auto",
-      });
-      emitScene((layers[0].dataset.scene as SceneId) || "hero");
+        void pin;
+        const n = layers.length;
+        const seg = 1 / (n - 0.28);
 
-      // CSS sticky provides the persistent viewport; do NOT also GSAP-pin.
-      void pin;
-      const n = layers.length;
-      const seg = 1 / (n - 0.28);
+        const tl = gsap.timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: {
+            trigger: stage,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.45,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const idx = Math.min(
+                layers.length - 1,
+                Math.max(0, Math.floor(self.progress * layers.length * 0.999)),
+              );
+              const id = layers[idx]?.dataset.scene as SceneId | undefined;
+              if (id) emitScene(id);
 
-      const tl = gsap.timeline({
-        defaults: { ease: "none" },
-        scrollTrigger: {
-          trigger: stage,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.45,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            const idx = Math.min(
-              layers.length - 1,
-              Math.max(0, Math.floor(self.progress * layers.length * 0.999)),
-            );
-            const id = layers[idx]?.dataset.scene as SceneId | undefined;
-            if (id) emitScene(id);
-
-            const cursor = self.progress * (layers.length - 1);
-            layers.forEach((layer, i) => {
-              layer.style.pointerEvents = Math.abs(cursor - i) < 1.05 ? "auto" : "none";
-            });
+              const cursor = self.progress * (layers.length - 1);
+              layers.forEach((layer, i) => {
+                layer.style.pointerEvents = Math.abs(cursor - i) < 1.05 ? "auto" : "none";
+              });
+            },
           },
-        },
-      });
+        });
 
-      layers.forEach((layer, i) => {
-        if (i === 0) return;
-        const id = (layer.dataset.stageLayer || LAYER_ORDER[i]) as LayerId;
-        const prev = layers[i - 1];
-        const prevId = (prev.dataset.stageLayer || LAYER_ORDER[i - 1]) as LayerId;
-        const enterAt = (i - 0.28) * seg;
-        const from = ENTER[id] || { yPercent: 14 };
-        const exit = EXIT[prevId] || { autoAlpha: 0, yPercent: -8 };
+        layers.forEach((layer, i) => {
+          if (i === 0) return;
+          const id = (layer.dataset.stageLayer || LAYER_ORDER[i]) as LayerId;
+          const prev = layers[i - 1];
+          const prevId = (prev.dataset.stageLayer || LAYER_ORDER[i - 1]) as LayerId;
+          const enterAt = (i - 0.28) * seg;
+          const from = ENTER[id] || { yPercent: 14 };
+          const exit = EXIT[prevId] || { autoAlpha: 0, yPercent: -8 };
 
-        tl.fromTo(
-          layer,
-          {
-            autoAlpha: 0,
-            visibility: "visible",
-            zIndex: i + 1,
-            yPercent: Number(from.yPercent) || 0,
-            xPercent: Number(from.xPercent) || 0,
-            clipPath: (from.clipPath as string) || "inset(0% 0% 0% 0%)",
-          },
-          {
-            autoAlpha: 1,
-            yPercent: 0,
-            xPercent: 0,
-            clipPath: "inset(0% 0% 0% 0%)",
-            duration: seg * 0.62,
-          },
-          enterAt,
-        );
-
-        tl.to(
-          prev,
-          {
-            ...exit,
-            duration: seg * 0.58,
-          },
-          enterAt,
-        );
-
-        const bits = layer.querySelectorAll("[data-kine], [data-clip], .campaign-cta");
-        if (bits.length) {
           tl.fromTo(
-            bits,
-            { y: 24, opacity: 0.2 },
-            { y: 0, opacity: 1, duration: seg * 0.4, stagger: 0.03 },
-            enterAt + seg * 0.12,
+            layer,
+            {
+              autoAlpha: 0,
+              visibility: "visible",
+              zIndex: i + 1,
+              yPercent: Number(from.yPercent) || 0,
+              xPercent: Number(from.xPercent) || 0,
+              clipPath: (from.clipPath as string) || "inset(0% 0% 0% 0%)",
+            },
+            {
+              autoAlpha: 1,
+              yPercent: 0,
+              xPercent: 0,
+              clipPath: "inset(0% 0% 0% 0%)",
+              duration: seg * 0.62,
+            },
+            enterAt,
           );
+
+          tl.to(
+            prev,
+            {
+              ...exit,
+              duration: seg * 0.58,
+            },
+            enterAt,
+          );
+
+          const bits = layer.querySelectorAll("[data-kine], [data-clip], .campaign-cta");
+          if (bits.length) {
+            tl.fromTo(
+              bits,
+              { y: 24, opacity: 0.2 },
+              { y: 0, opacity: 1, duration: seg * 0.4, stagger: 0.03 },
+              enterAt + seg * 0.12,
+            );
+          }
+        });
+
+        const goHash = (hash: string) => {
+          const key = hash.replace(/^#/, "");
+          const target = SCENE_HASH[key];
+          if (!target) return false;
+          const index = LAYER_ORDER.indexOf(target);
+          if (index < 0) return false;
+          scrollStageToLayer(stage, index, n);
+          return true;
+        };
+
+        onClick = (event: MouseEvent) => {
+          const a = (event.target as HTMLElement | null)?.closest?.("a");
+          if (!a) return;
+          const href = a.getAttribute("href") || "";
+          if (!href.includes("#")) return;
+          const hash = href.slice(href.indexOf("#"));
+          if (!hash || hash === "#") return;
+          const isLocal =
+            href.startsWith("#") ||
+            href.startsWith("/#") ||
+            href.startsWith("/Akruel1/#") ||
+            /\/?(?:Akruel1\/)?(?:index\.html)?#/.test(href);
+          if (!isLocal) return;
+          if (goHash(hash)) {
+            event.preventDefault();
+            history.replaceState(null, "", hash);
+          }
+        };
+
+        document.addEventListener("click", onClick);
+
+        if (location.hash) {
+          requestAnimationFrame(() => goHash(location.hash));
         }
-      });
+      } else {
+        // Mobile / narrow: stacked flow + light reveals (full About + Expertise)
+        layers.forEach((el) => {
+          const id = el.dataset.scene as SceneId | undefined;
+          if (!id) return;
+          ScrollTrigger.create({
+            trigger: el,
+            start: "top 55%",
+            end: "bottom 45%",
+            onEnter: () => emitScene(id),
+            onEnterBack: () => emitScene(id),
+          });
+        });
 
-      const goHash = (hash: string) => {
-        const key = hash.replace(/^#/, "");
-        const target = SCENE_HASH[key];
-        if (!target) return false;
-        const index = LAYER_ORDER.indexOf(target);
-        if (index < 0) return false;
-        scrollStageToLayer(stage, index, n);
-        return true;
-      };
+        gsap.utils.toArray<HTMLElement>("[data-kine]").forEach((el) => {
+          const speed = Number(el.dataset.kine || 1);
+          gsap.fromTo(
+            el,
+            { y: 26 * speed, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              ease: "power3.out",
+              duration: 0.8,
+              scrollTrigger: {
+                trigger: el,
+                start: "top 92%",
+                toggleActions: "play none none reverse",
+              },
+            },
+          );
+        });
 
-      onClick = (event: MouseEvent) => {
-        const a = (event.target as HTMLElement | null)?.closest?.("a");
-        if (!a) return;
-        const href = a.getAttribute("href") || "";
-        if (!href.includes("#")) return;
-        const hash = href.slice(href.indexOf("#"));
-        if (!hash || hash === "#") return;
-        const isLocal =
-          href.startsWith("#") ||
-          href.startsWith("/#") ||
-          href.startsWith("/Akruel1/#") ||
-          /\/?(?:Akruel1\/)?(?:index\.html)?#/.test(href);
-        if (!isLocal) return;
-        if (goHash(hash)) {
-          event.preventDefault();
-          history.replaceState(null, "", hash);
-        }
-      };
+        gsap.utils.toArray<HTMLElement>("[data-clip]").forEach((el) => {
+          gsap.fromTo(
+            el,
+            { clipPath: "inset(0 0 100% 0)", y: 18 },
+            {
+              clipPath: "inset(0 0 0% 0)",
+              y: 0,
+              ease: "power4.out",
+              duration: 0.7,
+              scrollTrigger: {
+                trigger: el,
+                start: "top 93%",
+                toggleActions: "play none none reverse",
+              },
+            },
+          );
+        });
 
-      document.addEventListener("click", onClick);
-
-      if (location.hash) {
-        requestAnimationFrame(() => goHash(location.hash));
+        gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
+          const dist = Number(el.dataset.parallax || 80) * 0.3;
+          gsap.to(el, {
+            y: dist,
+            ease: "none",
+            scrollTrigger: {
+              trigger: el.parentElement,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+        });
       }
     });
 

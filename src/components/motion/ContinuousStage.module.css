@@ -2,49 +2,76 @@
   position: relative;
 }
 
-/* Tall track + sticky pin — all viewports (mobile shares cinematic language) */
-.track {
-  /* 7 scenes × ~100vh scroll budget with overlap room */
-  height: 720vh;
-  position: relative;
+/* Desktop / tablet landscape: tall track + sticky pin viewport */
+@media (min-width: 901px) {
+  .track {
+    /* 7 scenes × ~100vh scroll budget with overlap room */
+    height: 720vh;
+    position: relative;
+  }
+
+  .pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
+    overflow: clip;
+    isolation: isolate;
+  }
+
+  .pin > :global([data-stage-layer]) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    /* clip — never overflow:auto (that traps wheel and blocks page scrub) */
+    overflow: clip;
+    overscroll-behavior: none;
+    touch-action: pan-y;
+    will-change: transform, opacity, clip-path;
+  }
+
+  /* Initial stack: only first layer visible until GSAP takes over */
+  .pin > :global([data-stage-layer]:not([data-stage-layer="hero"])) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .pin > :global([data-stage-layer="hero"]) {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
 }
 
-.pin {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  height: 100dvh;
-  overflow: clip;
-  isolation: isolate;
+/*
+ * Mobile / narrow: document flow — sticky 100vh stage clips tall
+ * About portrait + Expertise stack. Native scroll shows full content.
+ */
+@media (max-width: 900px) {
+  .track,
+  .pin {
+    display: contents;
+    height: auto;
+  }
+
+  .pin > :global([data-stage-layer]) {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    will-change: auto;
+  }
 }
 
-.pin > :global([data-stage-layer]) {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  /* clip — never overflow:auto (that traps wheel/touch and blocks page scrub) */
-  overflow: clip;
-  overscroll-behavior: none;
-  touch-action: pan-y;
-  will-change: transform, opacity, clip-path;
-}
-
-/* Initial stack: only first layer visible until GSAP takes over */
-.pin > :global([data-stage-layer]:not([data-stage-layer="hero"])) {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.pin > :global([data-stage-layer="hero"]) {
-  opacity: 1;
-  visibility: visible;
-  z-index: 1;
-}
-
-/* Reduced motion: fall back to normal stacked document flow */
+/* Reduced motion: same stacked flow at any width */
 @media (prefers-reduced-motion: reduce) {
   .track,
   .pin {

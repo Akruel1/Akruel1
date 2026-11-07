@@ -1,43 +1,22 @@
 .section {
   padding: clamp(4.5rem, 10vw, 7rem) 0;
-  overflow: clip;
-}
-
-[data-stage-pin] .section {
-  min-height: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  overflow: clip;
-  padding: calc(var(--header-h) + 1rem) 0 1.5rem;
-}
-
-@media (min-width: 901px) {
-  .section {
-    min-height: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    overflow: clip;
-    padding: calc(var(--header-h) + 1.25rem) 0 2rem;
-  }
-
-  .headline {
-    font-size: clamp(2.2rem, 5vw, 4.5rem);
-  }
-
-  .process {
-    margin-top: 2rem;
-  }
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .head {
   max-width: 40rem;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  min-width: 0;
 }
 
 .headline {
   margin-top: 0.75rem;
   font-size: clamp(3rem, 8vw, 6.5rem);
   text-transform: uppercase;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .lead {
@@ -51,6 +30,7 @@
   display: grid;
   gap: 0;
   border-top: 2px solid rgba(16, 16, 16, 0.18);
+  min-width: 0;
 }
 
 .group {
@@ -59,6 +39,7 @@
   gap: 0.35rem 1rem;
   padding: 1.35rem 0;
   border-bottom: 1px solid rgba(16, 16, 16, 0.16);
+  min-width: 0;
 }
 
 .num {
@@ -82,6 +63,7 @@
   color: var(--mute);
   font-size: 0.98rem;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .process {
@@ -142,5 +124,58 @@
   .process ol {
     grid-template-columns: 1fr 1fr;
     column-gap: 2rem;
+  }
+}
+
+/* Desktop sticky stage fill */
+@media (min-width: 901px) {
+  [data-stage-pin] .section,
+  .section {
+    min-height: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: clip;
+    padding: calc(var(--header-h) + 1.25rem) 0 2rem;
+  }
+
+  .headline {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+  }
+
+  .process {
+    margin-top: 2rem;
+  }
+}
+
+/* Mobile: full stack scroll + unclipped title (must follow base .headline) */
+@media (max-width: 900px) {
+  .section {
+    height: auto;
+    min-height: 0;
+    overflow-x: clip;
+    overflow-y: visible;
+    padding: calc(var(--header-h) + 1rem) 0 3.5rem;
+  }
+
+  .head {
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .headline {
+    /* "TECHNOLOGIES & TOOLS" — scale to gutter; wrap only at spaces */
+    font-size: clamp(1.45rem, 6.2vw, 2.05rem);
+    line-height: 0.92;
+    letter-spacing: -0.07em;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  .process {
+    margin-top: 2.5rem;
   }
 }
