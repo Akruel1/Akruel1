@@ -18,9 +18,9 @@ export function motionAllowed() {
   return typeof window !== "undefined" && !prefersReducedMotion();
 }
 
-/** @deprecated Stage runs on all viewports; kept for any legacy callers */
+/** Continuous sticky stage only on wide viewports — mobile uses document flow */
 export function isDesktopMotion() {
-  return typeof window !== "undefined";
+  return typeof window !== "undefined" && window.matchMedia("(min-width: 901px)").matches;
 }
 
 export { gsap, ScrollTrigger };

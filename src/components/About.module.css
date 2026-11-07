@@ -4,43 +4,6 @@
   padding: clamp(5rem, 12vw, 8rem) 0;
 }
 
-/* Fill sticky stage layers on all viewports; never trap scroll with overflow:auto */
-[data-stage-pin] .section {
-  min-height: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  overflow: clip;
-  padding: calc(var(--header-h) + 1.25rem) 0 2rem;
-}
-
-@media (min-width: 901px) {
-  .section {
-    min-height: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    overflow: clip;
-    padding: calc(var(--header-h) + 1.5rem) 0 2.5rem;
-  }
-
-  .layout {
-    gap: 1.5rem;
-  }
-
-  .headline {
-    font-size: clamp(2.4rem, 5vw, 4.5rem);
-  }
-
-  .portrait {
-    max-height: 52vh;
-  }
-
-  .portrait img {
-    max-height: 48vh;
-    width: auto;
-    max-width: 100%;
-  }
-}
-
 .layout {
   position: relative;
   z-index: 1;
@@ -199,5 +162,65 @@
   .portrait img {
     mix-blend-mode: normal;
     filter: grayscale(1) contrast(1.08);
+  }
+}
+
+/* Desktop sticky stage fill */
+@media (min-width: 901px) {
+  [data-stage-pin] .section,
+  .section {
+    min-height: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: clip;
+    padding: calc(var(--header-h) + 1.5rem) 0 2.5rem;
+  }
+
+  .layout {
+    gap: 1.5rem;
+  }
+
+  .headline {
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+  }
+
+  .portrait {
+    max-height: 52vh;
+  }
+
+  .portrait img {
+    max-height: 48vh;
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+/* Mobile: document flow — full portrait, no 100vh stage clip */
+@media (max-width: 900px) {
+  .section {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding: calc(var(--header-h) + 1.25rem) 0 3.5rem;
+  }
+
+  .layout {
+    gap: 2rem;
+  }
+
+  .portrait {
+    width: 100%;
+    max-width: 100%;
+    justify-self: stretch;
+    max-height: none;
+  }
+
+  .portrait img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: center top;
   }
 }
