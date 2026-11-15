@@ -13,6 +13,7 @@ export const ru: Dictionary = {
     work: "Работы",
     about: "О себе",
     contact: "Контакт",
+    donate: "Донат",
     home: "Главная",
     menu: "Меню",
   },
@@ -136,6 +137,48 @@ export const ru: Dictionary = {
   footer: {
     rights: profile.nameRu,
     title: profile.titles.primary,
+    donate: "Донат",
+  },
+  donate: {
+    back: "Главная",
+    eyebrow: "Поддержка",
+    title: "Донат",
+    watermark: "GIVE",
+    lead:
+      "Если эта работа полезна — можно поддержать криптопереводом. Без wallet connect: скопируйте адрес или отсканируйте QR.",
+    networkBanner:
+      "Отправляйте только в сети, указанной для каждого актива. Перевод не в ту сеть обычно необратим.",
+    methodLabel: "Канал",
+    addressLabel: "Адрес кошелька",
+    copy: "Скопировать",
+    copied: "Скопировано",
+    qrCaption: "Сканируйте, чтобы подставить адрес",
+    noteEyebrow: "Важно",
+    noteTitle: "Проверьте до отправки",
+    noteBody:
+      "Сверьте тикер и сеть на этой странице с вашим кошельком. Адреса показаны символ в символ; QR кодирует ту же строку. Не отправляйте активы, которые указанная сеть не принимает.",
+    methods: {
+      usdt: {
+        asset: "Tether USDT",
+        network: "TRC20 / Tron",
+        networkNote: "Только Tron (TRC20) — не ERC20, BEP20 и другие сети USDT.",
+      },
+      ltc: {
+        asset: "Litecoin",
+        network: "Litecoin",
+        networkNote: "Нативный адрес Litecoin (Bech32).",
+      },
+      btc: {
+        asset: "Bitcoin",
+        network: "Bitcoin",
+        networkNote: "Bitcoin native SegWit (Bech32).",
+      },
+      eth: {
+        asset: "Ethereum",
+        network: "Ethereum Mainnet",
+        networkNote: "Только Ethereum Mainnet — не L2, сайдчейны и обёрнутый ETH.",
+      },
+    },
   },
   caseArax: {
     back: "Работы",
