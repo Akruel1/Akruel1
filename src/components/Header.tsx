@@ -56,6 +56,9 @@ export function Header() {
           <Link href="/#contact" className={styles.link} onClick={close}>
             {t.nav.contact}
           </Link>
+          <Link href="/donate/" className={styles.link} onClick={close}>
+            {t.nav.donate}
+          </Link>
           <div className={styles.mobileLocale}>
             <LocaleSwitcher />
           </div>

@@ -1,0 +1,380 @@
+.page {
+  position: relative;
+  padding: 0 0 0;
+  overflow: clip;
+}
+
+.hero {
+  position: relative;
+  min-height: min(72vh, 720px);
+  display: grid;
+  align-items: end;
+  padding: calc(var(--header-h) + 2rem) 0 3rem;
+  overflow: clip;
+}
+
+.heroMark {
+  position: absolute;
+  right: -4%;
+  top: 18%;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(8rem, 28vw, 22rem);
+  line-height: 0.75;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  color: rgba(240, 238, 232, 0.06);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+}
+
+.back {
+  margin-bottom: 1.75rem;
+}
+
+.back a {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.title {
+  margin-top: 0.7rem;
+  font-size: clamp(3.4rem, 12vw, 8.5rem);
+  text-transform: uppercase;
+  line-height: 0.84;
+  max-width: 10ch;
+}
+
+.lead {
+  margin-top: 1.35rem;
+  max-width: 36rem;
+  font-size: 1.08rem;
+  line-height: 1.5;
+  color: var(--mute);
+}
+
+.networkBanner {
+  margin-top: 2rem;
+  max-width: 38rem;
+  padding: 1rem 0 0;
+  border-top: 2px solid rgba(240, 238, 232, 0.22);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  line-height: 1.55;
+  color: var(--acid);
+}
+
+.methods {
+  padding: 0;
+}
+
+.card {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  overflow: clip;
+  border: 0;
+}
+
+.cardInner {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  align-items: start;
+}
+
+@media (min-width: 860px) {
+  .cardInner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.85fr);
+  }
+}
+
+.cardMeta {
+  position: relative;
+  z-index: 1;
+}
+
+.index {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.ticker {
+  margin-top: 0.85rem;
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  text-transform: uppercase;
+  line-height: 0.86;
+}
+
+.asset {
+  margin-top: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.network {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.55rem 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.networkWarn {
+  margin-top: 0.85rem;
+  max-width: 28rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  color: var(--mute);
+}
+
+.addressBlock {
+  margin-top: 1.75rem;
+}
+
+.addressLabel {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.62;
+  margin-bottom: 0.55rem;
+}
+
+.address {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1.6vw, 0.86rem);
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+  word-break: break-all;
+  max-width: 36rem;
+}
+
+.copyRow {
+  margin-top: 1.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.copyBtn {
+  appearance: none;
+  border: 0;
+  background: var(--ink);
+  color: var(--bg);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.2rem;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease), opacity 0.25s var(--ease);
+}
+
+.copyBtn:hover {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+.copyBtn span {
+  color: var(--red);
+  margin-left: 0.55rem;
+}
+
+.copyBtnDone {
+  background: var(--red);
+  color: var(--ivory);
+}
+
+.copyBtnDone span {
+  color: var(--ivory);
+}
+
+:global(.env-cobalt) .copyBtnDone,
+:global(.env-black) .copyBtnDone {
+  background: var(--acid);
+  color: var(--black);
+}
+
+:global(.env-cobalt) .copyBtnDone span,
+:global(.env-black) .copyBtnDone span {
+  color: var(--black);
+}
+
+.copied {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  animation: fadeIn 0.35s var(--ease);
+}
+
+:global(.env-cobalt) .copied,
+:global(.env-black) .copied {
+  color: var(--acid);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.qrPanel {
+  position: relative;
+  z-index: 1;
+  justify-self: start;
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 860px) {
+  .qrPanel {
+    justify-self: end;
+  }
+}
+
+.qrFrame {
+  width: min(100%, 220px);
+  aspect-ratio: 1;
+  padding: 0.85rem;
+  background: var(--ivory);
+  color: var(--black);
+  display: grid;
+  place-items: center;
+}
+
+.qrFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.qrPlaceholder {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(90deg, rgba(16, 16, 16, 0.06), rgba(16, 16, 16, 0.12), rgba(16, 16, 16, 0.06));
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.qrCaption {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  max-width: 14rem;
+}
+
+.cardAccent {
+  position: absolute;
+  pointer-events: none;
+}
+
+.accentBar {
+  left: 0;
+  top: 18%;
+  width: 8px;
+  height: 28%;
+  background: var(--red);
+}
+
+.accentCorner {
+  right: 0;
+  bottom: 0;
+  width: min(32vw, 280px);
+  height: min(32vw, 280px);
+  background: var(--acid);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  opacity: 0.85;
+}
+
+.accentSlash {
+  right: 8%;
+  top: 12%;
+  width: 2px;
+  height: 42%;
+  background: currentColor;
+  opacity: 0.18;
+  transform: rotate(18deg);
+}
+
+.note {
+  padding: clamp(3rem, 7vw, 5rem) 0;
+}
+
+.noteInner {
+  max-width: 40rem;
+}
+
+.noteTitle {
+  margin-top: 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-transform: uppercase;
+  max-width: 14ch;
+  line-height: 0.9;
+}
+
+.noteBody {
+  margin-top: 1.15rem;
+  color: var(--mute);
+  line-height: 1.55;
+  max-width: 36rem;
+}
+
+@media (max-width: 720px) {
+  .heroMark {
+    top: 28%;
+    right: -18%;
+    opacity: 0.9;
+  }
+
+  .network {
+    max-width: 100%;
+  }
+
+  .qrPanel {
+    width: 100%;
+  }
+
+  .qrFrame {
+    width: min(100%, 200px);
+  }
+}

@@ -12,6 +12,7 @@ export const en = {
     work: "Work",
     about: "About",
     contact: "Contact",
+    donate: "Donate",
     home: "Home",
     menu: "Menu",
   },
@@ -135,6 +136,48 @@ export const en = {
   footer: {
     rights: profile.name,
     title: profile.titles.primary,
+    donate: "Donate",
+  },
+  donate: {
+    back: "Home",
+    eyebrow: "Support",
+    title: "Donate",
+    watermark: "GIVE",
+    lead:
+      "If this work is useful, you can support it with a crypto transfer. No wallet connect — copy an address or scan the QR.",
+    networkBanner:
+      "Send only on the network labeled for each asset. Wrong-network transfers are usually irreversible.",
+    methodLabel: "Channel",
+    addressLabel: "Wallet address",
+    copy: "Copy address",
+    copied: "Copied",
+    qrCaption: "Scan to fill the address",
+    noteEyebrow: "Note",
+    noteTitle: "Verify before you send",
+    noteBody:
+      "Match the ticker and network on this page with your wallet. Addresses are shown character-for-character; QR codes encode the same string. Never send assets that the labeled network cannot receive.",
+    methods: {
+      usdt: {
+        asset: "Tether USDT",
+        network: "TRC20 / Tron",
+        networkNote: "Use Tron (TRC20) only — not ERC20, BEP20, or other USDT networks.",
+      },
+      ltc: {
+        asset: "Litecoin",
+        network: "Litecoin",
+        networkNote: "Litecoin native address (Bech32).",
+      },
+      btc: {
+        asset: "Bitcoin",
+        network: "Bitcoin",
+        networkNote: "Bitcoin native SegWit (Bech32).",
+      },
+      eth: {
+        asset: "Ethereum",
+        network: "Ethereum Mainnet",
+        networkNote: "Ethereum Mainnet only — not L2s, sidechains, or wrapped ETH elsewhere.",
+      },
+    },
   },
   caseArax: {
     back: "Work",
